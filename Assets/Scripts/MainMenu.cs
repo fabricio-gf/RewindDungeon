@@ -27,7 +27,7 @@ public class MainMenu : MonoBehaviour {
 
     public void ClosePanel(GameObject obj)
     {
-		obj.SetActive(false);
+		obj.transform.GetChild(1).GetComponent<PanelTransition>().ClosePanel();
     }
 
     public void Teste()
