@@ -4,13 +4,24 @@ using UnityEngine;
 
 [System.Serializable]
 public class Actor : MonoBehaviour {
+	public virtual void Test() {}
 
+	[System.Serializable]
 	public enum Action {
 		MOVE_U,
 		MOVE_D,
 		MOVE_L,
 		MOVE_R,
 		ATTACK
+	}
+
+	[System.Serializable]
+	public class Plan {
+		public List<Action> actions;
+
+		public Plan() {
+			actions = new List<Action>();
+		}
 	}
 
 	public int initR;
@@ -25,7 +36,7 @@ public class Actor : MonoBehaviour {
 	[System.NonSerialized]
 	public bool ready;
 
-	private List<Action> plan;
+	public Plan plan;
 
 	[System.NonSerialized]
 	private IEnumerator<Action> actions;
@@ -34,7 +45,7 @@ public class Actor : MonoBehaviour {
 	private Board board;
 
 	public void Spawn(Board board, int initR, int initC) {
-		plan = new List<Action>();
+		plan = new Plan();
 
 		this.board = board;
 		this.r = initR;
@@ -48,7 +59,7 @@ public class Actor : MonoBehaviour {
 	}
 
 	public void BeginPlan() {
-		actions = plan.GetEnumerator();
+		actions = plan.actions.GetEnumerator();
 	}
 
 	public void Restart() {
@@ -60,11 +71,11 @@ public class Actor : MonoBehaviour {
 	}
 
 	public void AddAction(Action a) {
-		plan.Add(a);
+		plan.actions.Add(a);
 	}
 
 	public void ClearActions() {
-		plan.Clear();
+		plan.actions.Clear();
 	}
 	
 	public bool NextAction() {

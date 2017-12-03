@@ -51,4 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b563737329ccdb04a9a8129ff5267c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test: {fileID: 0}
+  actors: []
+  prefabActor: {fileID: 1050901805352978, guid: a3af62dd77cdd484ea28ec996cfcf0a2,
+    type: 2}
