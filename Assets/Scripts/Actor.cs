@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Actor : MonoBehaviour {
 
 	public enum Action {
@@ -12,15 +13,24 @@ public class Actor : MonoBehaviour {
 		ATTACK
 	}
 
-	public int initR;// { get; private set; }
-	public int initC;// { get; private set; }
-	public int r;// { get; private set; }
-	public int c;// { get; private set; }
+	public int initR;
+	public int initC;
 
-	public bool ready;// { get; private set; }
+	[System.NonSerialized]
+	public int r;
+
+	[System.NonSerialized]
+	public int c;
+
+	[System.NonSerialized]
+	public bool ready;
 
 	private List<Action> plan;
+
+	[System.NonSerialized]
 	private IEnumerator<Action> actions;
+
+	[System.NonSerialized]
 	private Board board;
 
 	public void Spawn(Board board, int initR, int initC) {
