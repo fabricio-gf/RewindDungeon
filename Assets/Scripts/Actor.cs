@@ -27,6 +27,8 @@ public class Actor : MonoBehaviour {
 		plan = new List<Action>();
 
 		this.board = board;
+		this.r = initR;
+		this.c = initC;
 		this.initR = initR;
 		this.initC = initC;
 		board.Set(initR, initC, gameObject);
@@ -101,7 +103,7 @@ public class Actor : MonoBehaviour {
 				"z", realPos.z,
 				"easetype", "easeOutQuad",
 				"orienttopath", true,
-				"delay", 0.2,
+				"delay", 0,
 				"time", 0.5,
 				"oncomplete", "SetReady"));
 	}
