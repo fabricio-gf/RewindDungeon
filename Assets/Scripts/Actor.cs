@@ -12,29 +12,42 @@ public class Actor : MonoBehaviour {
 		ATTACK
 	}
 
-	public int initR, initC;
-	public int r { get; private set; }
-	public int c { get; private set; }
+	public int initR;// { get; private set; }
+	public int initC;// { get; private set; }
+	public int r;// { get; private set; }
+	public int c;// { get; private set; }
 
-    private List<Action> plan;
+	public bool ready;// { get; private set; }
+
+	private List<Action> plan;
 	private IEnumerator<Action> actions;
 	private Board board;
 
-	public void Spawn(int initR, int initC) {
+	public void Spawn(Board board, int initR, int initC) {
 		plan = new List<Action>();
-		board = GameObject.FindObjectOfType<Board>();
 
+		this.board = board;
 		this.initR = initR;
 		this.initC = initC;
+		board.Set(initR, initC, gameObject);
+
+		transform.position = board.GetCoordinates(initR, initC);
+		this.SetReady();
 	}
 
-	public void Restart() {
-		r = initR;
-		c = initC;
+	public void BeginPlan() {
 		actions = plan.GetEnumerator();
 	}
 
-    public void AddAction(Action a) {
+	public void Restart() {
+		this.r = this.initR;
+		this.c = this.initC;
+		board.Set(r, c, gameObject);
+		transform.position = board.GetCoordinates(r, c);
+		this.SetReady();
+	}
+
+	public void AddAction(Action a) {
 		plan.Add(a);
 	}
 
@@ -42,30 +55,33 @@ public class Actor : MonoBehaviour {
 		plan.Clear();
 	}
 	
-    public bool NextAction() {
-		if (!actions.MoveNext()) {
+	public bool NextAction() {
+		if (!this.ready || !actions.MoveNext()) {
 			return false;
 		}
-		// TODO iTween
 		switch (actions.Current) {
 			case Action.MOVE_U:
 				if (board.Move(r, c, r-1, c)) {
 					r--;
+					this.AnimateMovement();
 				}
 				break;
 			case Action.MOVE_D:
 				if (board.Move(r, c, r+1, c)) {
 					r++;
+					this.AnimateMovement();
 				}
 				break;
 			case Action.MOVE_L:
 				if (board.Move(r, c, r, c-1)) {
 					c--;
+					this.AnimateMovement();
 				}
 				break;
 			case Action.MOVE_R:
 				if (board.Move(r, c, r, c+1)) {
 					c++;
+					this.AnimateMovement();
 				}
 				break;
 			case Action.ATTACK:
@@ -73,6 +89,25 @@ public class Actor : MonoBehaviour {
 				break;
 		}
 		return true;
-    }
+	}
+
+	private void AnimateMovement() {
+		this.ready = false;
+		Vector3 realPos = board.GetCoordinates(this.r, this.c);
+		iTween.MoveTo(
+			gameObject,
+			iTween.Hash(
+				"x", realPos.x,
+				"z", realPos.z,
+				"easetype", "easeOutQuad",
+				"orienttopath", true,
+				"delay", 0.2,
+				"time", 0.5,
+				"oncomplete", "SetReady"));
+	}
+
+	private void SetReady() {
+		this.ready = true;
+	}
 
 }
