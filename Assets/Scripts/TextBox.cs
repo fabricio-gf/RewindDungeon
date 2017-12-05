@@ -23,8 +23,6 @@ public class TextBox : MonoBehaviour {
 	void Start () {
         linesInFile = Dialogue.text.Split('\n');
         line = linesInFile[count].Split(':');
-        //Name.text = line[0];
-        //TextMesh.text = line[1];
         StartCoroutine(TextScroll(line[1]));
     }
 	
@@ -39,7 +37,6 @@ public class TextBox : MonoBehaviour {
                 {
                     line = linesInFile[count].Split(':');
                     Name.text = line[0];
-                    //TextMesh.text = line[1];
                     StartCoroutine(TextScroll(line[1]));
                 }
                 else
