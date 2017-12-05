@@ -20,9 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4076084585569400}
   - component: {fileID: 114431127668488030}
+  - component: {fileID: 114794122274338064}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GM
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,4 +52,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b563737329ccdb04a9a8129ff5267c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test: {fileID: 0}
+--- !u!114 &114794122274338064
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1467066018045700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c859360839ffbe4f820e0cd2373fc75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInLevel: 0
+  actors: []
+  lightPrefab: {fileID: 1465469703958556, guid: 05ce2eb9de3abd744bf260ee9990bb5d,
+    type: 2}
+  wallPrefab: {fileID: 1057894945300492, guid: 8ad0884c9900fdd4db249cef851d431c, type: 2}
+  loading: 
+  levelName: 
+  timeLimit: 0
+  board: {fileID: 0}

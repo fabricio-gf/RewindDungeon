@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Actor : MonoBehaviour {
+	public virtual void Test() {}
 
+	[System.Serializable]
 	public enum Action {
 		MOVE_U,
 		MOVE_D,
@@ -12,19 +15,37 @@ public class Actor : MonoBehaviour {
 		ATTACK
 	}
 
-	public int initR;// { get; private set; }
-	public int initC;// { get; private set; }
-	public int r;// { get; private set; }
-	public int c;// { get; private set; }
+	[System.Serializable]
+	public class Plan {
+		public List<Action> actions;
 
-	public bool ready;// { get; private set; }
+		public Plan() {
+			actions = new List<Action>();
+		}
+	}
 
-	private List<Action> plan;
+	public int initR;
+	public int initC;
+
+	[System.NonSerialized]
+	public int r;
+
+	[System.NonSerialized]
+	public int c;
+
+	[System.NonSerialized]
+	public bool ready;
+
+	public Plan plan;
+
+	[System.NonSerialized]
 	private IEnumerator<Action> actions;
+
+	[System.NonSerialized]
 	private Board board;
 
 	public void Spawn(Board board, int initR, int initC) {
-		plan = new List<Action>();
+		plan = new Plan();
 
 		this.board = board;
 		this.r = initR;
@@ -38,7 +59,7 @@ public class Actor : MonoBehaviour {
 	}
 
 	public void BeginPlan() {
-		actions = plan.GetEnumerator();
+		actions = plan.actions.GetEnumerator();
 	}
 
 	public void Restart() {
@@ -50,11 +71,11 @@ public class Actor : MonoBehaviour {
 	}
 
 	public void AddAction(Action a) {
-		plan.Add(a);
+		plan.actions.Add(a);
 	}
 
 	public void ClearActions() {
-		plan.Clear();
+		plan.actions.Clear();
 	}
 	
 	public bool NextAction() {
