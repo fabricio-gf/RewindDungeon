@@ -161,6 +161,9 @@ public class LevelManager : MonoBehaviour {
 			}
 		}
 
+		// TODO parse enemies
+		// TODO parse hazards
+
 		levelToLoad = null;
 		Init();
 	}
