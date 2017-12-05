@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
 public class Board : MonoBehaviour {
 
@@ -24,8 +23,7 @@ public class Board : MonoBehaviour {
 	}
 
 	public bool Move(int r0, int c0, int r1, int c1) {
-		if (!(
-			r1 >= 0 && c1 >= 0
+		if (!(r1 >= 0 && c1 >= 0
 			&& r1 < cells.GetLength(0) && c1 < cells.GetLength(1))) {
 
 			return false;
