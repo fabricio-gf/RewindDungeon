@@ -63,12 +63,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c859360839ffbe4f820e0cd2373fc75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInLevel: 0
-  actors: []
-  lightPrefab: {fileID: 1465469703958556, guid: 05ce2eb9de3abd744bf260ee9990bb5d,
+  prefabWall: {fileID: 1057894945300492, guid: 8ad0884c9900fdd4db249cef851d431c, type: 2}
+  prefabWarrior: {fileID: 1050901805352978, guid: a3af62dd77cdd484ea28ec996cfcf0a2,
     type: 2}
-  wallPrefab: {fileID: 1057894945300492, guid: 8ad0884c9900fdd4db249cef851d431c, type: 2}
-  loading: 
+  prefabSpawnPoint: {fileID: 1096329667450692, guid: 8ba428a31b5ca194fb33047eeb36e33e,
+    type: 2}
+  playerCharacters: []
+  playerAvailableCharactersPrefabs: []
+  playerSpawnPoints: []
+  levelToLoad: 
   levelName: 
   timeLimit: 0
   board: {fileID: 0}
+  state: 0

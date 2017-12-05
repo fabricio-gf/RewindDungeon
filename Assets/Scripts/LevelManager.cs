@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
 
-	public bool isInLevel;
 
 	/*  LEVEL FILE FORMAT:
 	 *  - All lower case identifiers indicate integers
@@ -42,8 +41,9 @@ public class LevelManager : MonoBehaviour {
 	 * w0r w0c
 	 * w1r w1c
 	 * ...
-	 * P p0r p0c
-	 * P p1r p1c
+	 * P P P ...
+	 * p0r p0c
+	 * p1r p1c
 	 * ...
 	 * E e0r e0c A A ...
 	 * E e1r e1c A A ...
@@ -53,35 +53,47 @@ public class LevelManager : MonoBehaviour {
 	 * ...
 	 */
 	
-	public GameObject wallPrefab;
+	public enum State {
+		OUT_OF_LEVEL,
+		LOADING,
+		PLANNING,
+		RUNNING
+	}
+	
+	public GameObject prefabWall;
 	public GameObject prefabWarrior;
+
+	public GameObject prefabSpawnPoint;
 
 	private GameManager gm;
 
 	public List<Actor> playerCharacters;
+	public List<GameObject> playerAvailableCharactersPrefabs;
+	public List<PlayerSpawnPoint> playerSpawnPoints;
 
 	public string levelToLoad;
 	public string levelName;
 	public int timeLimit;
 
 	public Board board;
+	public State state;
 
-	bool running;
 	int selectedActor = 0;
 
 	void Awake() {
 		DontDestroyOnLoad(gameObject);
 		gm = GetComponent<GameManager>();
+		state = State.OUT_OF_LEVEL;
 	}
 
 	public void Init() {
+		state = State.PLANNING;
 		board.Init();
-		running = false;
 		playerCharacters = new List<Actor>();
 	}
 
 	public void ExitLevel() {
-		isInLevel = false;
+		state = State.OUT_OF_LEVEL;
 		// TODO return to level select
 	}
 
@@ -96,6 +108,7 @@ public class LevelManager : MonoBehaviour {
 		using (StringReader reader = new StringReader(ta.text)) {
 			levelName = reader.ReadLine();
 			timeLimit = Convert.ToInt32(reader.ReadLine());
+			playerSpawnPoints = new List<PlayerSpawnPoint>();
 			int numWalls = Convert.ToInt32(reader.ReadLine());
 			int numPlayerC = Convert.ToInt32(reader.ReadLine());
 			int numEnemy = Convert.ToInt32(reader.ReadLine());
@@ -110,16 +123,16 @@ public class LevelManager : MonoBehaviour {
 
 				Vector3 wallPos = board.GetCoordinates(r, c);
 				GameObject wall = Instantiate(
-					wallPrefab, wallPos, Quaternion.identity);
+					prefabWall, wallPos, Quaternion.identity);
 			}
 
+			string[] playerAvailableCharacters = reader.ReadLine().Split(
+				default(char[]),
+				StringSplitOptions.RemoveEmptyEntries);
 			for (int i = 0; i < numPlayerC; i++) {
-				string[] playerArgs = reader.ReadLine().Split(
-					default(char[]),
-					StringSplitOptions.RemoveEmptyEntries);
 				GameObject prefab = null;
 
-				switch (playerArgs[0][0]) {
+				switch (playerAvailableCharacters[i][0]) {
 					case 'A':
 						break;
 					case 'T':
@@ -128,27 +141,39 @@ public class LevelManager : MonoBehaviour {
 						prefab = prefabWarrior;
 						break;
 				}
-				int r = Convert.ToInt32(playerArgs[1]);
-				int c = Convert.ToInt32(playerArgs[2]);
 
-				Vector3 playerPos = board.GetCoordinates(r, c);
-				Instantiate(prefab, playerPos, Quaternion.identity);
+				playerAvailableCharactersPrefabs.Add(prefab);
+			}
+
+			for (int i = 0; i < numPlayerC; i++) {
+				string[] spawnCoords = reader.ReadLine().Split(
+					default(char[]),
+					StringSplitOptions.RemoveEmptyEntries);
+				int r = Convert.ToInt32(spawnCoords[0]);
+				int c = Convert.ToInt32(spawnCoords[1]);
+				Vector3 spawnPos = board.GetCoordinates(r, c);
+				GameObject objSP = Instantiate(
+					prefabSpawnPoint, spawnPos, Quaternion.identity);
+				PlayerSpawnPoint spawn = objSP.GetComponent<PlayerSpawnPoint>();
+				spawn.r = r;
+				spawn.c = c;
+				playerSpawnPoints.Add(spawn);
 			}
 		}
 
 		levelToLoad = null;
-		isInLevel = true;
 		Init();
 	}
 
 	public void Load(string levelName) {
 		levelToLoad = levelName;
 		SceneManager.sceneLoaded += SceneLoaded;
+		state = State.LOADING;
 		SceneManager.LoadScene("BaseLevel", LoadSceneMode.Single);
 	}
 
 	void Update() {
-		if (isInLevel) {
+		if (state == State.PLANNING) {
 			if (Input.GetKeyDown("left")) {
 				playerCharacters[selectedActor].AddAction(Actor.Action.MOVE_L);
 			} else if (Input.GetKeyDown("right")) {
@@ -162,13 +187,14 @@ public class LevelManager : MonoBehaviour {
 				selectedActor = (selectedActor + 1) % playerCharacters.Count;
 			}
 
+			if (Input.GetKeyDown("space")) {
+				playerCharacters.ForEach(act => act.BeginPlan());
+				state = State.RUNNING;
+			}
+		} else if (state == State.RUNNING) {
 			if (Input.GetKey("space")) {
 				// check if every actor can perform the next move
 				if (playerCharacters.All(act => act.ready)) {
-					if (!running) {
-						running = true;
-						playerCharacters.ForEach(act => act.BeginPlan());
-					}
 					playerCharacters.ForEach(act => act.NextAction());
 				}
 			}
@@ -187,6 +213,6 @@ public class LevelManager : MonoBehaviour {
 				act.Restart();
 				act.ClearActions();
 			});
-		running = false;
+		state = State.PLANNING;
 	}
 }
