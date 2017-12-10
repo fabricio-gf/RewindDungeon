@@ -116,6 +116,7 @@ public class LevelManager : MonoBehaviour {
 			int numEnemy = Convert.ToInt32(reader.ReadLine());
 			int numHazard = Convert.ToInt32(reader.ReadLine());
 
+			// walls
 			for (int i = 0; i < numWalls; i++) {
 				string[] wallPosStr = reader.ReadLine().Split(
 						default(char[]),
@@ -128,6 +129,7 @@ public class LevelManager : MonoBehaviour {
 					prefabWall, wallPos, Quaternion.identity);
 			}
 
+			// available player classes
 			string[] playerAvailableCharacters = reader.ReadLine().Split(
 				default(char[]),
 				StringSplitOptions.RemoveEmptyEntries);
@@ -147,6 +149,7 @@ public class LevelManager : MonoBehaviour {
 				playerAvailableCharactersPrefabs.Add(prefab);
 			}
 
+			// spawn points
 			for (int i = 0; i < numPlayerC; i++) {
 				string[] spawnCoords = reader.ReadLine().Split(
 					default(char[]),
@@ -154,13 +157,15 @@ public class LevelManager : MonoBehaviour {
 				int r = Convert.ToInt32(spawnCoords[0]);
 				int c = Convert.ToInt32(spawnCoords[1]);
 				Vector3 spawnPos = board.GetCoordinates(r, c);
+				spawnPos += 0.1f * Vector3.up;
 				GameObject objSP = Instantiate(
-					prefabSpawnPoint, spawnPos, Quaternion.identity);
+					prefabSpawnPoint,
+					spawnPos,
+					prefabSpawnPoint.transform.rotation);
 				PlayerSpawnPoint spawn = objSP.GetComponent<PlayerSpawnPoint>();
 				spawn.r = r;
 				spawn.c = c;
 				playerSpawnPoints.Add(spawn);
-				// TODO spawn spawnpoint prefabs
 			}
 		}
 

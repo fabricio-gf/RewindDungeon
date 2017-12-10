@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LLTest : MonoBehaviour {
 	void Start() {
-		LevelManager lm = GetComponent<LevelManager>();
+		LevelManager lm = GameObject.FindObjectOfType<LevelManager>();
 		lm.Load("0");
 	}
 }
