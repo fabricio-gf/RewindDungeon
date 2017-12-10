@@ -79,12 +79,13 @@ public class LevelManager : MonoBehaviour {
 	public Board board;
 	public State state;
 
-	int selectedActor = 0;
+	Actor selectedActor;
 
 	void Awake() {
 		DontDestroyOnLoad(gameObject);
 		gm = GetComponent<GameManager>();
 		state = State.OUT_OF_LEVEL;
+		selectedActor = null;
 	}
 
 	public void Init() {
@@ -177,19 +178,23 @@ public class LevelManager : MonoBehaviour {
 		SceneManager.LoadScene("BaseLevel", LoadSceneMode.Single);
 	}
 
+	public void Register(Actor.Action action) {
+		if (selectedActor != null) {
+			selectedActor.AddAction(action);
+		}
+	}
+
 	void Update() {
 		if (state == State.PLANNING) {
+			// TODO
 			if (Input.GetKeyDown("left")) {
-				playerCharacters[selectedActor].AddAction(Actor.Action.MOVE_L);
+				selectedActor.AddAction(Actor.Action.MOVE_L);
 			} else if (Input.GetKeyDown("right")) {
-				playerCharacters[selectedActor].AddAction(Actor.Action.MOVE_R);
+				selectedActor.AddAction(Actor.Action.MOVE_R);
 			} else if (Input.GetKeyDown("up")) {
-				playerCharacters[selectedActor].AddAction(Actor.Action.MOVE_U);
+				selectedActor.AddAction(Actor.Action.MOVE_U);
 			} else if (Input.GetKeyDown("down")) {
-				playerCharacters[selectedActor].AddAction(Actor.Action.MOVE_D);
-			}
-			if (Input.GetKeyDown("tab")) {
-				selectedActor = (selectedActor + 1) % playerCharacters.Count;
+				selectedActor.AddAction(Actor.Action.MOVE_D);
 			}
 
 			if (Input.GetKeyDown("space")) {
