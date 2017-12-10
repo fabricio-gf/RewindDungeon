@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(GameManager))]
 public class LevelManager : MonoBehaviour {
 
 
@@ -158,6 +159,7 @@ public class LevelManager : MonoBehaviour {
 				spawn.r = r;
 				spawn.c = c;
 				playerSpawnPoints.Add(spawn);
+				// TODO spawn spawnpoint prefabs
 			}
 		}
 
