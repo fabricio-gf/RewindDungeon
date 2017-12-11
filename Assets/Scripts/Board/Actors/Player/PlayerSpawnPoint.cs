@@ -7,24 +7,21 @@ public class PlayerSpawnPoint : RaycastTarget {
 	public int r;
 	public int c;
 
-	LevelManager lm;
-
-	void Start() {
-		lm = GameObject.FindObjectOfType<LevelManager>();
-	}
-
 	override public void Click() {
 		// TODO abrir menu de seleção de personagens
 
 		print("(" + r + ", " + c + ")");
 	}
 
-	public GameObject Spawn(GameObject characterPrefab) {
+	public GameObject Spawn(LevelManager lm, GameObject characterPrefab) {
 		GameObject obj = Instantiate(
 			characterPrefab,
 			lm.board.GetCoordinates(r, c),
 			characterPrefab.transform.rotation);
-		lm.board.Set(r, c, obj);
+		Actor actor = obj.GetComponent<Actor>();
+		actor.Spawn(lm.board, r, c);
+		lm.actors.Add(actor);
+		gameObject.SetActive(false);
 		return obj;
 	}
 

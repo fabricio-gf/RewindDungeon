@@ -13,6 +13,8 @@ public class Actor : MonoBehaviour {
 		ATTACK
 	}
 
+	public float movementTime = 0.5f;
+
 
 	public int initR;
 	public int initC;
@@ -39,11 +41,11 @@ public class Actor : MonoBehaviour {
 		board.Set(initR, initC, gameObject);
 
 		transform.position = board.GetCoordinates(initR, initC);
-		this.SetReady();
 	}
 
 	public void BeginPlan() {
 		actions = plan.GetEnumerator();
+		ready = true;
 	}
 
 	public void Restart() {
@@ -61,46 +63,54 @@ public class Actor : MonoBehaviour {
 	public void ClearActions() {
 		plan.Clear();
 	}
-	
+
 	public bool NextAction() {
-		if (!this.ready || !actions.MoveNext()) {
+		if (!ready) {
 			return false;
 		}
+		return actions.MoveNext();
+	}
+
+	public bool PerformAction() {
 		switch (actions.Current) {
 			case Action.MOVE_U:
 				if (board.Move(r, c, r-1, c)) {
 					r--;
 					this.AnimateMovement();
+					return true;
 				}
 				break;
 			case Action.MOVE_D:
 				if (board.Move(r, c, r+1, c)) {
 					r++;
 					this.AnimateMovement();
+					return true;
 				}
 				break;
 			case Action.MOVE_L:
 				if (board.Move(r, c, r, c-1)) {
 					c--;
 					this.AnimateMovement();
+					return true;
 				}
 				break;
 			case Action.MOVE_R:
 				if (board.Move(r, c, r, c+1)) {
 					c++;
 					this.AnimateMovement();
+					return true;
 				}
 				break;
 			case Action.ATTACK:
 				// TODO attack
 				break;
 		}
-		return true;
+		return false;
 	}
 
 	private void AnimateMovement() {
-		this.ready = false;
-		Vector3 realPos = board.GetCoordinates(this.r, this.c);
+		ready = false;
+		Vector3 realPos = board.GetCoordinates(r, c);
 		iTween.MoveTo(
 			gameObject,
 			iTween.Hash(
@@ -109,12 +119,12 @@ public class Actor : MonoBehaviour {
 				"easetype", "easeOutQuad",
 				"orienttopath", true,
 				"delay", 0,
-				"time", 0.5,
+				"time", movementTime,
 				"oncomplete", "SetReady"));
 	}
 
 	private void SetReady() {
-		this.ready = true;
+		ready = true;
 	}
 
 }

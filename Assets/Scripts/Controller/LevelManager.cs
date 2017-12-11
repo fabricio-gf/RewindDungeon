@@ -61,6 +61,8 @@ public class LevelManager : MonoBehaviour {
 		RUNNING
 	}
 	
+	public float stepLoopDelay = 0.1f;
+
 	public GameObject prefabWall;
 	public GameObject prefabWarrior;
 
@@ -68,7 +70,7 @@ public class LevelManager : MonoBehaviour {
 
 	private GameManager gm;
 
-	public List<Actor> playerCharacters;
+	public List<Actor> actors;
 	public List<GameObject> playerAvailableCharactersPrefabs;
 	public List<PlayerSpawnPoint> playerSpawnPoints;
 
@@ -91,7 +93,7 @@ public class LevelManager : MonoBehaviour {
 	public void Init() {
 		state = State.PLANNING;
 		board.Init();
-		playerCharacters = new List<Actor>();
+		actors = new List<Actor>();
 	}
 
 	public void ExitLevel() {
@@ -106,6 +108,7 @@ public class LevelManager : MonoBehaviour {
 		TextAsset ta = Resources.Load(
 			"Levels/" + levelToLoad,
 			typeof(TextAsset)) as TextAsset;
+		state = State.LOADING;
 
 		using (StringReader reader = new StringReader(ta.text)) {
 			levelName = reader.ReadLine();
@@ -203,27 +206,50 @@ public class LevelManager : MonoBehaviour {
 			}
 
 			if (Input.GetKeyDown("space")) {
-				playerCharacters.ForEach(act => act.BeginPlan());
+				actors.ForEach(actor => actor.BeginPlan());
 				state = State.RUNNING;
+				StartCoroutine(StepLoop());
 			}
 		} else if (state == State.RUNNING) {
-			if (Input.GetKey("space")) {
-				// check if every actor can perform the next move
-				if (playerCharacters.All(act => act.ready)) {
-					playerCharacters.ForEach(act => act.NextAction());
-				}
-			}
 			if (Input.GetKeyDown("r")) {
-				if (playerCharacters.All(act => act.ready)) {
-					ResetRoom();
-				}
+				// TODO clear plan for player characters only
+				// if (actors.All(act => act.ready)) {
+					// ResetRoom();
+				// }
 			}
+		}
+	}
+
+	IEnumerator StepLoop() {
+		// TODO this is definitely not a while true
+		while (true) {
+			if (actors.All(actor => actor.ready)) {
+				// actors who have more stuff to do
+				List<Actor> notDone = actors.Where(
+					actor => actor.NextAction())
+					.ToList<Actor>();
+				List<Actor> needUpdate;
+				List<Actor> neededUpdateLastIter = notDone;
+				bool done;
+				// iterate through all actors until those who could eventually
+				// perform their actions are able to do so
+				do {
+					// filter out those who managed to perform their action
+					needUpdate = neededUpdateLastIter
+						.Where(actor => !actor.PerformAction())
+						.ToList<Actor>();
+					// check if anything changed this iteration
+					done = needUpdate.Count == neededUpdateLastIter.Count;
+					neededUpdateLastIter = needUpdate;
+				} while (!done);
+			}
+			yield return new WaitForSeconds(stepLoopDelay);
 		}
 	}
 
 	void ResetRoom() {
 		board.ClearActors();
-		playerCharacters.ForEach(
+		actors.ForEach(
 			act => {
 				act.Restart();
 				act.ClearActions();

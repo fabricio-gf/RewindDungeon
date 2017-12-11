@@ -5,6 +5,6 @@ using UnityEngine;
 public class LLTest : MonoBehaviour {
 	void Start() {
 		LevelManager lm = GameObject.FindObjectOfType<LevelManager>();
-		lm.Load("0");
+		lm.Load("T0");
 	}
 }

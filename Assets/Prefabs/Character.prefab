@@ -209,11 +209,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e288d34f95bc674ca053e05bca61b75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementTime: 0.5
   initR: 0
   initC: 0
   r: 0
   c: 0
   ready: 0
+  plan: 
 --- !u!136 &136407417190866218
 CapsuleCollider:
   m_ObjectHideFlags: 1
