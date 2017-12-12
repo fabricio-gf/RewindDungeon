@@ -197,6 +197,7 @@ public class LevelManager : MonoBehaviour {
 	}
 
 	public void StartLoop() {
+		selectedActor = null;
 		actors.ForEach(actor => actor.BeginPlan());
 		state = State.RUNNING;
 		StartCoroutine(StepLoop());
@@ -239,7 +240,7 @@ public class LevelManager : MonoBehaviour {
 			act => {
 				act.Restart();
 				act.ClearActions();
-				// TODO rotate actors
+				// TODO rotate actors back to original orientation
 			});
 		state = State.PLANNING;
 	}
