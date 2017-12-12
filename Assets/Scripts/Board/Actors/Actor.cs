@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Actor : MonoBehaviour {
-	public virtual void Test() {}
 
 	public enum Action {
 		MOVE_U,
@@ -14,6 +13,7 @@ public class Actor : MonoBehaviour {
 	}
 
 	public float movementTime = 0.5f;
+	public float rotationTime = 0.2f;
 
 
 	public int initR;
@@ -23,6 +23,7 @@ public class Actor : MonoBehaviour {
 	public int c;
 
 	public bool ready;
+	public bool done;
 
 	public List<Action> plan;
 
@@ -44,8 +45,15 @@ public class Actor : MonoBehaviour {
 	}
 
 	public void BeginPlan() {
-		actions = plan.GetEnumerator();
-		ready = true;
+		if (plan.Count > 0) {
+			actions = plan.GetEnumerator();
+			ready = true;
+			done = false;
+		} else {
+			actions = null;
+			ready = false;
+			done = true;
+		}
 	}
 
 	public void Restart() {
@@ -57,6 +65,7 @@ public class Actor : MonoBehaviour {
 	}
 
 	public void AddAction(Action a) {
+		actions = null;
 		plan.Add(a);
 	}
 
@@ -68,44 +77,70 @@ public class Actor : MonoBehaviour {
 		if (!ready) {
 			return false;
 		}
-		return actions.MoveNext();
+		done = !actions.MoveNext();
+		return !done;
 	}
 
 	public bool PerformAction() {
+		int nr, nc;
 		switch (actions.Current) {
 			case Action.MOVE_U:
-				if (board.Move(r, c, r-1, c)) {
-					r--;
-					this.AnimateMovement();
-					return true;
-				}
-				break;
 			case Action.MOVE_D:
-				if (board.Move(r, c, r+1, c)) {
-					r++;
-					this.AnimateMovement();
-					return true;
-				}
-				break;
 			case Action.MOVE_L:
-				if (board.Move(r, c, r, c-1)) {
-					c--;
-					this.AnimateMovement();
-					return true;
-				}
-				break;
 			case Action.MOVE_R:
-				if (board.Move(r, c, r, c+1)) {
-					c++;
-					this.AnimateMovement();
-					return true;
-				}
+				NextPos(out nr, out nc);
+				return TryMoveTo(nr, nc);
 				break;
 			case Action.ATTACK:
 				// TODO attack
 				break;
 		}
 		return false;
+	}
+
+	private bool TryMoveTo(int nr, int nc) {
+		if (board.Move(r, c, nr, nc)) {
+			r = nr;
+			c = nc;
+			AnimateMovement();
+			return true;
+		}
+		return false;
+	}
+
+	private bool NextPos(out int nr, out int nc) {
+		nr = r;
+		nc = c;
+		switch (actions.Current) {
+			case Action.MOVE_U:
+				nr = r-1;
+				return true;
+			case Action.MOVE_D:
+				nr = r+1;
+				return true;
+			case Action.MOVE_L:
+				nc = nc-1;
+				return true;
+			case Action.MOVE_R:
+				nc = nc+1;
+				return true;
+		}
+		return false;
+	}
+
+	public void LookAtTargetPos() {
+		int nr, nc;
+		if (NextPos(out nr, out nc)) {
+			Vector3 pos = board.GetCoordinates(nr, nc);
+			iTween.LookTo(
+				gameObject,
+				iTween.Hash(
+					"looktarget", pos,
+					"axis", "y",
+					"delay", 0,
+					"time", rotationTime,
+					"oncomplete", "SetReady"));
+		}
 	}
 
 	private void AnimateMovement() {

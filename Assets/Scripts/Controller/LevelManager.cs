@@ -227,11 +227,13 @@ public class LevelManager : MonoBehaviour {
 
 	IEnumerator StepLoop() {
 		// TODO this is definitely not a while true
-		while (true) {
-			if (actors.All(actor => actor.ready)) {
+		while (actors.Any(actor => !actor.done)) {
+			if (actors.All(actor => actor.ready || actor.done)) {
 				// actors who have more stuff to do
-				List<Actor> notDone = actors.Where(
-					actor => actor.NextAction())
+				actors
+					.ForEach(actor => actor.NextAction());
+				List<Actor> notDone = actors
+					.Where(actor => actor.ready && !actor.done)
 					.ToList<Actor>();
 				List<Actor> needUpdate;
 				List<Actor> neededUpdateLastIter = notDone;
@@ -247,6 +249,10 @@ public class LevelManager : MonoBehaviour {
 					done = needUpdate.Count == neededUpdateLastIter.Count;
 					neededUpdateLastIter = needUpdate;
 				} while (!done);
+				print(needUpdate.Count);
+				needUpdate
+					.ForEach(actor => actor.LookAtTargetPos());
+				// TODO make character turn 
 			}
 			yield return new WaitForSeconds(stepLoopDelay);
 		}
