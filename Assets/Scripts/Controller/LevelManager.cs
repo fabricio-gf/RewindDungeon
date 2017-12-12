@@ -196,29 +196,6 @@ public class LevelManager : MonoBehaviour {
 		}
 	}
 
-	void Update() {
-		if (state == State.PLANNING) {
-			// TODO
-			// if (Input.GetKeyDown("left")) {
-			// 	selectedActor.AddAction(Actor.Action.MOVE_L);
-			// } else if (Input.GetKeyDown("right")) {
-			// 	selectedActor.AddAction(Actor.Action.MOVE_R);
-			// } else if (Input.GetKeyDown("up")) {
-			// 	selectedActor.AddAction(Actor.Action.MOVE_U);
-			// } else if (Input.GetKeyDown("down")) {
-			// 	selectedActor.AddAction(Actor.Action.MOVE_D);
-			// }
-
-		} else if (state == State.RUNNING) {
-			if (Input.GetKeyDown("r")) {
-				// TODO clear plan for player characters only
-				// if (actors.All(act => act.ready)) {
-					// ResetRoom();
-				// }
-			}
-		}
-	}
-
 	public void StartLoop() {
 		actors.ForEach(actor => actor.BeginPlan());
 		state = State.RUNNING;
@@ -251,18 +228,18 @@ public class LevelManager : MonoBehaviour {
 				} while (!done);
 				needUpdate
 					.ForEach(actor => actor.LookAtTargetPos());
-				// TODO make character turn 
 			}
 			yield return new WaitForSeconds(stepLoopDelay);
 		}
 	}
 
-	void ResetRoom() {
+	public void ResetRoom() {
 		board.ClearActors();
 		actors.ForEach(
 			act => {
 				act.Restart();
 				act.ClearActions();
+				// TODO rotate actors
 			});
 		state = State.PLANNING;
 	}
