@@ -96,7 +96,6 @@ public class LevelManager : MonoBehaviour {
 
 	public void Init() {
 		state = State.PLANNING;
-		board.Init();
 		actors = new List<Actor>();
 	}
 
@@ -134,6 +133,7 @@ public class LevelManager : MonoBehaviour {
 				Vector3 wallPos = board.GetCoordinates(r, c);
 				GameObject wall = Instantiate(
 					prefabWall, wallPos, Quaternion.identity);
+				board.Set(r, c, wall);
 			}
 
 			// available player classes

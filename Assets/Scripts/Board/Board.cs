@@ -10,7 +10,7 @@ public class Board : MonoBehaviour {
 
 	private GameObject[,] cells;
 
-	public void Init() {
+	public void Awake() {
 		cells = new GameObject[GRID_ROWS, GRID_COLS];
 	}
 
