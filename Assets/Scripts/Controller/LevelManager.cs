@@ -249,7 +249,6 @@ public class LevelManager : MonoBehaviour {
 					done = needUpdate.Count == neededUpdateLastIter.Count;
 					neededUpdateLastIter = needUpdate;
 				} while (!done);
-				print(needUpdate.Count);
 				needUpdate
 					.ForEach(actor => actor.LookAtTargetPos());
 				// TODO make character turn 
