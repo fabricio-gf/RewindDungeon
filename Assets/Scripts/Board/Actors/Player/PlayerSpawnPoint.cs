@@ -13,14 +13,14 @@ public class PlayerSpawnPoint : RaycastTarget {
 		print("(" + r + ", " + c + ")");
 	}
 
-	public GameObject Spawn(LevelManager lm, GameObject characterPrefab) {
+	public GameObject Spawn(GameObject characterPrefab) {
 		GameObject obj = Instantiate(
 			characterPrefab,
-			lm.board.GetCoordinates(r, c),
+			GameManager.LM.board.GetCoordinates(r, c),
 			characterPrefab.transform.rotation);
 		Actor actor = obj.GetComponent<Actor>();
-		actor.Spawn(lm.board, r, c);
-		lm.actors.Add(actor);
+		actor.Spawn(GameManager.LM.board, r, c);
+		GameManager.LM.actors.Add(actor);
 		gameObject.SetActive(false);
 		return obj;
 	}

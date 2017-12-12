@@ -20,8 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4075079525692526}
   - component: {fileID: 114523825391394530}
+  - component: {fileID: 114231776024096686}
+  - component: {fileID: 136548557733933110}
   m_Layer: 0
-  m_Name: Character
+  m_Name: PlayerCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -194,10 +196,21 @@ BoxCollider:
   m_GameObject: {fileID: 1598690397328024}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114231776024096686
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1050901805352978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38f7b86ee1d65f84e963fcb39b5a9ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114523825391394530
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -224,8 +237,21 @@ CapsuleCollider:
   m_GameObject: {fileID: 1464609375104284}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &136548557733933110
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1050901805352978}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}

@@ -4,14 +4,20 @@ using UnityEngine;
 
 [RequireComponent(typeof(LevelManager))]
 public class GameManager : MonoBehaviour {
-	LevelManager levelManager;
+	public static GameManager GM {
+		get; private set;
+	}
+	public static LevelManager LM {
+		get; private set;
+	}
 
 	void Awake() {
 		if (GameObject.FindGameObjectsWithTag("GM").Length > 1) {
 			Destroy(gameObject);
 		} else {
 			DontDestroyOnLoad(gameObject);
-			levelManager = GetComponent<LevelManager>();
+			GM = GetComponent<GameManager>();
+			LM = GetComponent<LevelManager>();
 		}
 	}
 

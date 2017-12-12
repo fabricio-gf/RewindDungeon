@@ -26,7 +26,7 @@ public class Actor : MonoBehaviour {
 
 	public List<Action> plan;
 
-	private IEnumerator<Action> actions;
+	public IEnumerator<Action> actions;
 
 	private Board board;
 

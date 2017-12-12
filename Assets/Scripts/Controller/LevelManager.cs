@@ -60,6 +60,10 @@ public class LevelManager : MonoBehaviour {
 		PLANNING,
 		RUNNING
 	}
+
+	public static LevelManager LM {
+		get; private set;
+	}
 	
 	public float stepLoopDelay = 0.1f;
 
@@ -81,7 +85,7 @@ public class LevelManager : MonoBehaviour {
 	public Board board;
 	public State state;
 
-	Actor selectedActor;
+	public Actor selectedActor;
 
 	void Awake() {
 		DontDestroyOnLoad(gameObject);
@@ -195,21 +199,16 @@ public class LevelManager : MonoBehaviour {
 	void Update() {
 		if (state == State.PLANNING) {
 			// TODO
-			if (Input.GetKeyDown("left")) {
-				selectedActor.AddAction(Actor.Action.MOVE_L);
-			} else if (Input.GetKeyDown("right")) {
-				selectedActor.AddAction(Actor.Action.MOVE_R);
-			} else if (Input.GetKeyDown("up")) {
-				selectedActor.AddAction(Actor.Action.MOVE_U);
-			} else if (Input.GetKeyDown("down")) {
-				selectedActor.AddAction(Actor.Action.MOVE_D);
-			}
+			// if (Input.GetKeyDown("left")) {
+			// 	selectedActor.AddAction(Actor.Action.MOVE_L);
+			// } else if (Input.GetKeyDown("right")) {
+			// 	selectedActor.AddAction(Actor.Action.MOVE_R);
+			// } else if (Input.GetKeyDown("up")) {
+			// 	selectedActor.AddAction(Actor.Action.MOVE_U);
+			// } else if (Input.GetKeyDown("down")) {
+			// 	selectedActor.AddAction(Actor.Action.MOVE_D);
+			// }
 
-			if (Input.GetKeyDown("space")) {
-				actors.ForEach(actor => actor.BeginPlan());
-				state = State.RUNNING;
-				StartCoroutine(StepLoop());
-			}
 		} else if (state == State.RUNNING) {
 			if (Input.GetKeyDown("r")) {
 				// TODO clear plan for player characters only
@@ -218,6 +217,12 @@ public class LevelManager : MonoBehaviour {
 				// }
 			}
 		}
+	}
+
+	public void StartLoop() {
+		actors.ForEach(actor => actor.BeginPlan());
+		state = State.RUNNING;
+		StartCoroutine(StepLoop());
 	}
 
 	IEnumerator StepLoop() {
