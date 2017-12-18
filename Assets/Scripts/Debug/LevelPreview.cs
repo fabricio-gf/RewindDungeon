@@ -5,7 +5,7 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class LevelPreview : MonoBehaviour {
 
-	public GameObject debugObject;
+	public GameObject previewObject;
 
 	[Space(10)]
 	public string levelName;
@@ -22,18 +22,24 @@ public class LevelPreview : MonoBehaviour {
 	}
 
 	public void Load() {
-		TextAsset ta = Resources.Load("Levels/" + levelName) as TextAsset;
-		if (ta != null) {
-			// TODO load level
-			print(ta.ToString());
+		Level level = Resources.Load("Levels/" + levelName) as Level;
+		if (level != null) {
+			foreach (Position wallPos in level.walls) {
+				AddLevelObject<WallPreview>(wallPos.row, wallPos.col);
+			}
+			foreach (Position spawnPos in level.spawnPoints) {
+				AddLevelObject<SpawnPointPreview>(spawnPos.row, spawnPos.col);
+			}
+			// TODO enemies
 		} else {
 			Debug.LogError("No such level: " + levelName);
 		}
-		GameObject testObj = Instantiate(
-			debugObject,
-			CenterPoint(3, 2),
-			Quaternion.identity);
-		testObj.AddComponent<EnemyPreview>();
+	}
+
+	T AddLevelObject<T>(int r, int c) where T : Component {
+		GameObject obj = Instantiate(previewObject);
+		obj.transform.position = CenterPoint(r, c);
+		return obj.AddComponent<T>();
 	}
 
 	void OnDrawGizmos() {

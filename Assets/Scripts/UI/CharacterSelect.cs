@@ -9,8 +9,7 @@ public class CharacterSelect : MonoBehaviour {
 
     public GameObject ButtonPrefab;
 
-	// Use this for initialization
-	void Start () {
+	void Start() {
         AvailableCharacters = GameManager.GM.playerAvailableCharactersPrefabs;
         GameObject obj;
 
