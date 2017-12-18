@@ -77,6 +77,7 @@ public class Actor : MonoBehaviour {
 
 	public bool NextAction() {
 		if (!ready) {
+			print("NOT READY");
 			return false;
 		}
 		done = !actions.MoveNext();
@@ -132,6 +133,7 @@ public class Actor : MonoBehaviour {
 	public void LookAtTargetPos() {
 		int nr, nc;
 		if (NextPos(out nr, out nc)) {
+			ready = false;
 			Vector3 pos = board.GetCoordinates(nr, nc);
 			iTween.LookTo(
 				gameObject,
@@ -146,12 +148,24 @@ public class Actor : MonoBehaviour {
 
 	private void AnimateMovement() {
 		ready = false;
-		Vector3 realPos = board.GetCoordinates(r, c);
+		Vector3 pos = board.GetCoordinates(r, c);
+		iTween.LookTo(
+			gameObject,
+			iTween.Hash(
+				"looktarget", pos,
+				"axis", "y",
+				"delay", 0,
+				"time", rotationTime,
+				"oncomplete", "EndTurning"));
+	}
+
+	void EndTurning() {
+		Vector3 pos = board.GetCoordinates(r, c);
 		iTween.MoveTo(
 			gameObject,
 			iTween.Hash(
-				"x", realPos.x,
-				"z", realPos.z,
+				"x", pos.x,
+				"z", pos.z,
 				"easetype", "easeOutQuad",
 				"orienttopath", true,
 				"delay", 0,

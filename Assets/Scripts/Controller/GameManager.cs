@@ -26,9 +26,11 @@ public class GameManager : MonoBehaviour {
 	public GameObject prefabWarrior;
     public GameObject prefabArcher;
 
+	public GameObject prefabSpawnPoint;
+	public GameObject prefabTestEnemy;
+
     public GameObject CharacterToSpawn;
 
-	public GameObject prefabSpawnPoint;
 
 	public List<Actor> actors;
 	public List<GameObject> playerAvailableCharactersPrefabs;
@@ -60,93 +62,12 @@ public class GameManager : MonoBehaviour {
 
 	public void Init() {
 		state = State.PLANNING;
-		actors = new List<Actor>();
 	}
 
 	public void ExitLevel() {
 		state = State.OUT_OF_LEVEL;
 		// TODO return to level select
 	}
-/*
-	void SceneLoaded(Scene scene, LoadSceneMode mode) {
-		SceneManager.sceneLoaded -= SceneLoaded;
-
-		board = GameObject.FindObjectOfType<Board>();
-		TextAsset ta = Resources.Load(
-			"Levels/" + levelToLoad,
-			typeof(TextAsset)) as TextAsset;
-		state = State.LOADING;
-
-		using (StringReader reader = new StringReader(ta.text)) {
-			levelName = reader.ReadLine();
-			timeLimit = Convert.ToInt32(reader.ReadLine());
-			playerSpawnPoints = new List<PlayerSpawnPoint>();
-			int numWalls = Convert.ToInt32(reader.ReadLine());
-			int numPlayerC = Convert.ToInt32(reader.ReadLine());
-			int numEnemy = Convert.ToInt32(reader.ReadLine());
-			int numHazard = Convert.ToInt32(reader.ReadLine());
-
-			// walls
-			for (int i = 0; i < numWalls; i++) {
-				string[] wallPosStr = reader.ReadLine().Split(
-						default(char[]),
-						StringSplitOptions.RemoveEmptyEntries);
-				int r = Convert.ToInt32(wallPosStr[0]);
-				int c = Convert.ToInt32(wallPosStr[1]);
-
-				Vector3 wallPos = board.GetCoordinates(r, c);
-				GameObject wall = Instantiate(
-					prefabWall, wallPos, Quaternion.identity);
-				board.Set(r, c, wall);
-			}
-
-			// available player classes
-			string[] playerAvailableCharacters = reader.ReadLine().Split(
-				default(char[]),
-				StringSplitOptions.RemoveEmptyEntries);
-			for (int i = 0; i < numPlayerC; i++) {
-				GameObject prefab = null;
-
-				switch (playerAvailableCharacters[i][0]) {
-					case 'A':
-                        prefab = prefabArcher;
-						break;
-					case 'T':
-						break;
-					case 'W':
-						prefab = prefabWarrior;
-						break;
-				}
-
-				playerAvailableCharactersPrefabs.Add(prefab);
-			}
-
-			// spawn points
-			for (int i = 0; i < numPlayerC; i++) {
-				string[] spawnCoords = reader.ReadLine().Split(
-					default(char[]),
-					StringSplitOptions.RemoveEmptyEntries);
-				int r = Convert.ToInt32(spawnCoords[0]);
-				int c = Convert.ToInt32(spawnCoords[1]);
-				Vector3 spawnPos = board.GetCoordinates(r, c);
-				spawnPos += 0.1f * Vector3.up;
-				GameObject objSP = Instantiate(
-					prefabSpawnPoint,
-					spawnPos,
-					prefabSpawnPoint.transform.rotation);
-				PlayerSpawnPoint spawn = objSP.GetComponent<PlayerSpawnPoint>();
-				spawn.r = r;
-				spawn.c = c;
-				playerSpawnPoints.Add(spawn);
-			}
-		}
-
-		// TODO parse enemies
-		// TODO parse hazards
-
-		levelToLoad = null;
-		Init();
-	}*/
 
 	public void SceneLoaded(Scene scene, LoadSceneMode mode) {
 		SceneManager.sceneLoaded -= SceneLoaded;
@@ -154,7 +75,10 @@ public class GameManager : MonoBehaviour {
 		Level level = Resources.Load("Levels/" + levelToLoad) as Level;
 		levelName = level.title;
 		timeLimit = level.timeLimit;
+
 		playerSpawnPoints = new List<PlayerSpawnPoint>();
+		actors = new List<Actor>();
+
 		foreach (Level.PlayerClass cls in level.classes) {
 			GameObject prefab = null;
 			switch (cls) {
@@ -187,6 +111,20 @@ public class GameManager : MonoBehaviour {
 			spawn.c = pos.col;
 			playerSpawnPoints.Add(spawn);
 		}
+		foreach (Level.EnemyInstance inst in level.enemies) {
+			GameObject prefab = null;
+			switch (inst.enemyType) {
+				case Level.EnemyType.TEST_ENEMY:
+					prefab = prefabTestEnemy;
+					break;
+			}
+			Actor actor = Instantiate(prefab).GetComponent<Actor>();
+			actor.Spawn(board, inst.position.row, inst.position.col);
+			actor.transform.Translate(new Vector3(0, 0.5f, 0));
+			inst.plan.ForEach(
+				action => actor.AddAction(action));
+			actors.Add(actor);
+		}
 		levelToLoad = null;
 		Init();
 	}
@@ -209,6 +147,39 @@ public class GameManager : MonoBehaviour {
 		actors.ForEach(actor => actor.BeginPlan());
 		state = State.RUNNING;
 		StartCoroutine(StepLoop());
+	}
+
+	void Update() {
+		if (Input.GetKeyDown("a")) {
+			actors.ForEach(actor => actor.BeginPlan());
+		}
+		if (Input.GetKeyDown("space")) {
+			// yes this is a copy paste, shut up
+			if (actors.All(actor => actor.ready || actor.done)) {
+				// actors who have more stuff to do
+				actors
+					.ForEach(actor => actor.NextAction());
+				List<Actor> notDone = actors
+					.Where(actor => actor.ready && !actor.done)
+					.ToList<Actor>();
+				List<Actor> needUpdate;
+				List<Actor> neededUpdateLastIter = notDone;
+				bool done;
+				// iterate through all actors until those who could eventually
+				// perform their actions are able to do so
+				do {
+					// filter out those who managed to perform their action
+					needUpdate = neededUpdateLastIter
+						.Where(actor => !actor.PerformAction())
+						.ToList<Actor>();
+					// check if anything changed this iteration
+					done = needUpdate.Count == neededUpdateLastIter.Count;
+					neededUpdateLastIter = needUpdate;
+				} while (!done);
+				needUpdate
+					.ForEach(actor => actor.LookAtTargetPos());
+			}
+		}
 	}
 
 	IEnumerator StepLoop() {
