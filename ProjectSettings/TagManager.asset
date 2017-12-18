@@ -7,6 +7,7 @@ TagManager:
   - GM
   - Light
   - CharacterPanel
+  - Debug
   layers:
   - Default
   - TransparentFX

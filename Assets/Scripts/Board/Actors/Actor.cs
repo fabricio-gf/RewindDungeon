@@ -92,7 +92,6 @@ public class Actor : MonoBehaviour {
 			case Action.MOVE_R:
 				NextPos(out nr, out nc);
 				return TryMoveTo(nr, nc);
-				break;
 			case Action.ATTACK:
 				// TODO attack
 				break;
