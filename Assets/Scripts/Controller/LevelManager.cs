@@ -69,6 +69,7 @@ public class LevelManager : MonoBehaviour {
 
 	public GameObject prefabWall;
 	public GameObject prefabWarrior;
+    public GameObject prefabArcher;
 
 	public GameObject prefabSpawnPoint;
 
@@ -145,6 +146,7 @@ public class LevelManager : MonoBehaviour {
 
 				switch (playerAvailableCharacters[i][0]) {
 					case 'A':
+                        prefab = prefabArcher;
 						break;
 					case 'T':
 						break;

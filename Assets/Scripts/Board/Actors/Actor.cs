@@ -31,6 +31,8 @@ public class Actor : MonoBehaviour {
 
 	private Board board;
 
+    public ActorInfo info;
+
 	public void Spawn(Board board, int initR, int initC) {
 		plan = new List<Action>();
 

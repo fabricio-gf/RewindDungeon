@@ -31,4 +31,9 @@ public class InputManager : MonoBehaviour {
 		}
 		return null;
 	}
+
+    public void OpenPanel(string panelName)
+    {
+        transform.parent.Find(panelName).gameObject.SetActive(true);
+    }
 }
