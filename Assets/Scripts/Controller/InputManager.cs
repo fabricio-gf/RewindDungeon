@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class InputManager : MonoBehaviour {
+	public GameObject panel;
+
 	GameObject startObj;
 
 	void Update() {
-		if (Input.touchCount > 0) {
+		if (!panel.activeInHierarchy && Input.touchCount > 0) {
 			Touch touch = Input.GetTouch(0);
 			if (touch.phase == TouchPhase.Began) {
 				startObj = Raycast(touch);

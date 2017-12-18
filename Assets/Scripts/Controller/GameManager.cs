@@ -8,51 +8,6 @@ using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(GameManager))]
 public class GameManager : MonoBehaviour {
-
-
-	/*  LEVEL FILE FORMAT:
-	 *  - All lower case identifiers indicate integers
-	 *  - Single upper case letter identifiers indicate enumerations
-	 *  	A \in {
-	 *  		'U', for MOVE_U
-	 *  		'D', for MOVE_D
-	 *  		'L', for MOVE_L
-	 *  		'R', for MOVE_R
-	 *  		'S', for STOP (TODO)
-	 *  		'A', for ATTACK
-	 *  	}
-	 *  	P \in {
-	 *  		'A', for archer
-	 *  		'T', for thief
-	 *  		'W', for warrior
-	 *   	}
-	 *   	E \in {
-	 *   		LIST OF ENEMY TYPES
-	 *   	}
-	 *   	H \in {
-	 *   		LIST OF HAZARD TYPES
-	 *   	}
-	 * 
-	 * LEVEL_NAME
-	 * t
-	 * num_w
-	 * num_p
-	 * num_e
-	 * num_h
-	 * w0r w0c
-	 * w1r w1c
-	 * ...
-	 * P P P ...
-	 * p0r p0c
-	 * p1r p1c
-	 * ...
-	 * E e0r e0c A A ...
-	 * E e1r e1c A A ...
-	 * ...
-	 * H h0r h0c
-	 * H h1r h1c
-	 * ...
-	 */
 	
 	public enum State {
 		OUT_OF_LEVEL,
@@ -112,7 +67,7 @@ public class GameManager : MonoBehaviour {
 		state = State.OUT_OF_LEVEL;
 		// TODO return to level select
 	}
-
+/*
 	void SceneLoaded(Scene scene, LoadSceneMode mode) {
 		SceneManager.sceneLoaded -= SceneLoaded;
 
@@ -189,6 +144,49 @@ public class GameManager : MonoBehaviour {
 		// TODO parse enemies
 		// TODO parse hazards
 
+		levelToLoad = null;
+		Init();
+	}*/
+
+	public void SceneLoaded(Scene scene, LoadSceneMode mode) {
+		SceneManager.sceneLoaded -= SceneLoaded;
+		board = GameObject.FindObjectOfType<Board>();
+		Level level = Resources.Load("Levels/" + levelToLoad) as Level;
+		levelName = level.title;
+		timeLimit = level.timeLimit;
+		playerSpawnPoints = new List<PlayerSpawnPoint>();
+		foreach (Level.PlayerClass cls in level.classes) {
+			GameObject prefab = null;
+			switch (cls) {
+				case Level.PlayerClass.ARCHER:
+					prefab = prefabArcher;
+					break;
+				case Level.PlayerClass.THIEF:
+					break;
+				case Level.PlayerClass.WARRIOR:
+					prefab = prefabWarrior;
+					break;
+			}
+			playerAvailableCharactersPrefabs.Add(prefab);
+		}
+		foreach (Position pos in level.walls) {
+			Vector3 wallPos = board.GetCoordinates(pos.row, pos.col);
+			GameObject wall = Instantiate(
+				prefabWall, wallPos, Quaternion.identity);
+			board.Set(pos.row, pos.col, wall);
+		}
+		foreach (Position pos in level.spawnPoints) {
+			Vector3 spawnPos = board.GetCoordinates(pos.row, pos.col);
+			spawnPos += 0.1f * Vector3.up;
+			GameObject objSP = Instantiate(
+				prefabSpawnPoint,
+				spawnPos,
+				prefabSpawnPoint.transform.rotation);
+			PlayerSpawnPoint spawn = objSP.GetComponent<PlayerSpawnPoint>();
+			spawn.r = pos.row;
+			spawn.c = pos.col;
+			playerSpawnPoints.Add(spawn);
+		}
 		levelToLoad = null;
 		Init();
 	}
