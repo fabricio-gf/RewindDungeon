@@ -9,7 +9,7 @@ public class CharacterButton : MonoBehaviour {
 
     public void SelectCharacter()
     {
-        print(index);
-        print(CharPrefabs[index]);
+        transform.parent.parent.GetComponent<PanelTransition>().ClosePanel();
+        GameManager.GM.CharacterToSpawn = CharPrefabs[index];
     }
 }

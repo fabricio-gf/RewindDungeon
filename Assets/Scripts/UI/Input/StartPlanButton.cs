@@ -5,8 +5,8 @@ using UnityEngine;
 public class StartPlanButton : MonoBehaviour {
 	
 	public void Click() {
-		if (GameManager.LM.state == LevelManager.State.PLANNING) {
-			GameManager.LM.StartLoop();
+		if (GameManager.GM.state == GameManager.State.PLANNING) {
+			GameManager.GM.StartLoop();
 		}
 	}
 }

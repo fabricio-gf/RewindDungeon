@@ -7,7 +7,7 @@ public class CommandButton : MonoBehaviour {
 	public Actor.Action action;
 
 	public void OnClick() {
-		GameManager.LM.Register(action);
+		GameManager.GM.Register(action);
 	}
 
 }

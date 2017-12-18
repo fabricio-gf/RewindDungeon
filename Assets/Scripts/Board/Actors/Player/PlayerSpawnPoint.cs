@@ -8,19 +8,25 @@ public class PlayerSpawnPoint : RaycastTarget {
 	public int c;
 
 	override public void Click() {
-		// TODO abrir menu de seleção de personagens
-
-		print("(" + r + ", " + c + ")");
+        if(GameManager.GM.CharacterToSpawn != null)
+        {
+            Spawn(GameManager.GM.CharacterToSpawn);
+        }
+        else
+        {
+            print("deu merda");
+            //print mensagem de erro
+        }
 	}
 
 	public GameObject Spawn(GameObject characterPrefab) {
 		GameObject obj = Instantiate(
 			characterPrefab,
-			GameManager.LM.board.GetCoordinates(r, c),
+			GameManager.GM.board.GetCoordinates(r, c),
 			characterPrefab.transform.rotation);
 		Actor actor = obj.GetComponent<Actor>();
-		actor.Spawn(GameManager.LM.board, r, c);
-		GameManager.LM.actors.Add(actor);
+		actor.Spawn(GameManager.GM.board, r, c);
+		GameManager.GM.actors.Add(actor);
 		gameObject.SetActive(false);
 		return obj;
 	}

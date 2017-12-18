@@ -5,7 +5,7 @@ using UnityEngine;
 public class ResetButton : MonoBehaviour {
 
 	public void Click() {
-		GameManager.LM.ResetRoom();
+		GameManager.GM.ResetRoom();
 	}
 
 }

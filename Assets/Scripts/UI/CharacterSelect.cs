@@ -11,7 +11,7 @@ public class CharacterSelect : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        AvailableCharacters = GameManager.LM.playerAvailableCharactersPrefabs;
+        AvailableCharacters = GameManager.GM.playerAvailableCharactersPrefabs;
         GameObject obj;
 
         for(int i = 0; i < AvailableCharacters.Count; i++)

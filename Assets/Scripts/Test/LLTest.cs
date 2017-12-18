@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class LLTest : MonoBehaviour {
 	void Start() {
-		GameManager.LM.Load("T0");
+		GameManager.GM.Load("T0");
 	}
 }

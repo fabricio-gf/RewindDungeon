@@ -14,8 +14,8 @@ public class PlayerCharacter : RaycastTarget {
 
 	public override void Click() {
 		// TODO add way to deselect actor
-		if (GameManager.LM.state == LevelManager.State.PLANNING) {
-			GameManager.LM.selectedActor = actor;
+		if (GameManager.GM.state == GameManager.State.PLANNING) {
+			GameManager.GM.selectedActor = actor;
 		}
 	}
 }
