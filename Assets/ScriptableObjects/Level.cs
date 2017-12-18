@@ -6,10 +6,21 @@ using UnityEditor;
 [CreateAssetMenu(fileName = "Level", menuName = "Level", order = 1)]
 public class Level : ScriptableObject {
 
+	[System.Serializable]
+	public class EnemyInstance {
+		public EnemyType enemyType;
+		public Position position;
+		public List<Actor.Action> plan;
+	}
+
 	public enum PlayerClass {
 		ARCHER,
 		THIEF,
 		WARRIOR
+	}
+
+	public enum EnemyType {
+		TEST_ENEMY
 	}
 
 	public string title;
@@ -17,5 +28,6 @@ public class Level : ScriptableObject {
 	public List<PlayerClass> classes;
 	public List<Position> walls;
 	public List<Position> spawnPoints;
+	public List<EnemyInstance> enemies;
 
 }

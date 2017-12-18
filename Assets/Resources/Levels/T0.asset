@@ -26,3 +26,9 @@ MonoBehaviour:
     col: 1
   - row: 4
     col: 2
+  enemies:
+  - enemyType: 0
+    position:
+      row: 3
+      col: 2
+    plan: 00000000000000000100000002000000
