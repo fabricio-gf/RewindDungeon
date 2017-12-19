@@ -71,7 +71,12 @@ public class GameManager : MonoBehaviour {
 
 	public void SceneLoaded(Scene scene, LoadSceneMode mode) {
 		SceneManager.sceneLoaded -= SceneLoaded;
-		board = GameObject.FindObjectOfType<Board>();
+		StartCoroutine(InitLevel());
+	}
+
+	IEnumerator InitLevel() {
+		yield return new WaitForEndOfFrame();
+		board = GameObject.FindWithTag("Board").GetComponent<Board>();
 		Level level = Resources.Load("Levels/" + levelToLoad) as Level;
 		levelName = level.title;
 		timeLimit = level.timeLimit;

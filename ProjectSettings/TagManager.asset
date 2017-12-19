@@ -8,6 +8,7 @@ TagManager:
   - Light
   - CharacterPanel
   - Debug
+  - Board
   layers:
   - Default
   - TransparentFX

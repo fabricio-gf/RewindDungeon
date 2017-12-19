@@ -8,6 +8,7 @@ public class LevelPreview : MonoBehaviour {
 	public GameObject previewObject;
 
 	[Space(10)]
+	public bool skipPlayerInput = true;
 	public string levelName;
 
 	void OnEnable() {
