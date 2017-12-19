@@ -10,14 +10,12 @@ public class LevelPreviewLoader : MonoBehaviour {
 	LevelPreview preview;
 
 	void Awake() {
-		GameManager gm = Instantiate(prefabGM).GetComponent<GameManager>();
+		Instantiate(prefabGM);
 		preview = GetComponent<LevelPreview>();
-		preview.Reset();
-		
 		DontDestroyOnLoad(gameObject);
 
 		SceneManager.sceneLoaded += SceneLoaded;
-		gm.Load(preview.levelName);
+		GameManager.GM.Load(preview.levelName);
 	}
 
 	void SceneLoaded(Scene scene, LoadSceneMode mode) {
