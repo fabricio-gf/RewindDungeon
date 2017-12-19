@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: T1
   m_EditorClassIdentifier: 
   title: Test Sync Actors (1)
+  spritePath: sprite2
   timeLimit: 10
   classes: 0000000002000000
   walls:
@@ -28,3 +29,4 @@ MonoBehaviour:
     col: 3
   - row: 4
     col: 4
+  enemies: []

@@ -24,6 +24,7 @@ public class Level : ScriptableObject {
 	}
 
 	public string title;
+    public string spritePath;
 	public int timeLimit;
 	public List<PlayerClass> classes;
 	public List<Position> walls;
