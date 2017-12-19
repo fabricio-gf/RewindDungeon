@@ -17,7 +17,7 @@ public class LevelPreview : MonoBehaviour {
 	}
 
 	public void Reset() {
-		foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Debug")) {
+		foreach (var obj in GameObject.FindGameObjectsWithTag("Debug")) {
 			DestroyImmediate(obj);
 		}
 	}
@@ -25,16 +25,25 @@ public class LevelPreview : MonoBehaviour {
 	public void Load() {
 		Level level = Resources.Load("Levels/" + levelName) as Level;
 		if (level != null) {
+			for (int i = 0; i < level.classes.Count; i++) {
+				PlayerClassMarker marker =
+					AddLevelObject<PlayerClassMarker>(-1, i);
+				marker.Init(level.classes[i]);
+			}
 			foreach (Position wallPos in level.walls) {
-				AddLevelObject<WallPreview>(wallPos.row, wallPos.col);
+				WallPreview wall = AddLevelObject<WallPreview>(
+					wallPos.row, wallPos.col);
+				wall.Init(wallPos.row, wallPos.col);
 			}
 			foreach (Position spawnPos in level.spawnPoints) {
-				AddLevelObject<SpawnPointPreview>(spawnPos.row, spawnPos.col);
+				SpawnPointPreview sp = AddLevelObject<SpawnPointPreview>(
+					spawnPos.row, spawnPos.col);
+				sp.Init(spawnPos.row, spawnPos.col);
 			}
 			foreach (Level.EnemyInstance inst in level.enemies) {
 				EnemyPreview enemy = AddLevelObject<EnemyPreview>(
 					inst.position.row, inst.position.col);
-				enemy.StartPath(inst.position);
+				enemy.Init(inst.enemyType, inst.position);
 				inst.plan.ForEach(
 					action => enemy.AddAction(action));
 			}
