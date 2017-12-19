@@ -7,8 +7,9 @@ public class EnemyPreview : MonoBehaviour {
 
 	public List<Position> path;
 
-	public void StartPath(Position start) {
+	public void Init(Level.EnemyType type, Position start) {
 		path.Add(start);
+		name = "Enemy instance: " + type + " @ " + start.row + " " + start.col;
 	}
 
 	public void AddAction(Actor.Action action) {

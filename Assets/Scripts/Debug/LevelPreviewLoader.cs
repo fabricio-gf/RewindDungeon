@@ -13,7 +13,6 @@ public class LevelPreviewLoader : MonoBehaviour {
 		Instantiate(prefabGM);
 		preview = GetComponent<LevelPreview>();
 		DontDestroyOnLoad(gameObject);
-
 		SceneManager.sceneLoaded += SceneLoaded;
 		GameManager.GM.Load(preview.levelName);
 	}
