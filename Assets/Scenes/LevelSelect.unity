@@ -1425,7 +1425,7 @@ GameObject:
   - component: {fileID: 379869137}
   - component: {fileID: 379869136}
   m_Layer: 5
-  m_Name: Button
+  m_Name: PlayButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2793,13 +2793,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PreviewPanel: {fileID: 983573563}
+  LevelText: {fileID: 907674076}
+  LevelImage: {fileID: 1386927729}
+  IconsLocation: {fileID: 523926348}
   IconPrefab: {fileID: 1892845816265882, guid: 830e2671ea982f94e9a8c4f726f8482f, type: 2}
   WarriorIcon: {fileID: 21300000, guid: 28b41fef228d6814f90e541deaf9f262, type: 3}
   ArcherIcon: {fileID: 21300002, guid: 28b41fef228d6814f90e541deaf9f262, type: 3}
   ThiefIcon: {fileID: 21300004, guid: 28b41fef228d6814f90e541deaf9f262, type: 3}
-  LevelText: {fileID: 907674076}
-  LevelImage: {fileID: 1386927729}
-  IconsLocation: {fileID: 523926348}
 --- !u!1 &735270142
 GameObject:
   m_ObjectHideFlags: 0
@@ -3388,7 +3388,7 @@ GameObject:
   - component: {fileID: 834782331}
   - component: {fileID: 834782330}
   m_Layer: 5
-  m_Name: PreviewPanel
+  m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4331,7 +4331,7 @@ GameObject:
   m_Component:
   - component: {fileID: 983573564}
   m_Layer: 5
-  m_Name: Preview
+  m_Name: PreviewPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

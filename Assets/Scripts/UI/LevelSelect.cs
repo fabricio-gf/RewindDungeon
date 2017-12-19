@@ -6,24 +6,43 @@ using UnityEngine.SceneManagement;
 
 public class LevelSelect : MonoBehaviour {
 
+    [Header ("OBJECT REFERENCES")]
+    [Tooltip ("Game object in the scene called PreviewPanel, which contains the information to be previewed")]
     public GameObject PreviewPanel;
+    [Tooltip ("Name of the currently selected object")]
+    public Text LevelText;
+    [Tooltip("Image preview of the currently selected object")]
+    public Image LevelImage;
+    [Tooltip ("Object that parents the available classes icons")]
+    public GameObject IconsLocation;
 
+    [Space (20)]
+    [Header ("PREFABS AND FILES")]
+    [Tooltip ("Available class icon prefab")]
     public GameObject IconPrefab;
 
+    [Tooltip ("Warrior icon sprite")]
     public Sprite WarriorIcon;
+    [Tooltip ("Archer icon sprite")]
     public Sprite ArcherIcon;
+    [Tooltip ("Thief icon sprite")]
     public Sprite ThiefIcon;
 
+    //the player's currently selected level
     Level SelectedLevel = null;
-    public Text LevelText;
-    public Image LevelImage;
-    public GameObject IconsLocation;
+    //a auxiliary list of available classes to a level
     List <Level.PlayerClass> Classes;
 
+    /// <summary>
+    /// Loads informations on all the levels, like if it is locked, number of coins (score), thumbnail preview, etc
+    /// </summary>
     void LoadLevels(){
 		//loads levels and information like is it locked, number of coins, thumbnail(?)
 	}
 
+    /// <summary>
+    /// If the player has not selected a level to preview yet, opens the preview window
+    /// </summary>
     public void OpenPreview()
     {
         if (!PreviewPanel.activeSelf)
@@ -32,6 +51,10 @@ public class LevelSelect : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Loads information about the selected level into the preview window, like name, image and available classes
+    /// </summary>
+    /// <param name="levelName"></param>
     public void LoadPreviewInfo(string name)
     {
         if(SelectedLevel != null)
@@ -65,6 +88,10 @@ public class LevelSelect : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Loads another scene by name
+    /// </summary>
+    /// <param name="str"></param>
 	public void ChangeScene(string str){
 		SceneManager.LoadScene(str);
 	}

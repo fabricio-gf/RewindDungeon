@@ -4,17 +4,23 @@ using UnityEngine;
 
 public class PanelTransition : MonoBehaviour {
 
+    [Header ("TRANSITION VARIABLES")]
 	public Vector3 InitialPos;
 	public Vector3 FinalPos;
 	public float EntryTime;
 	public float ExitTime;
 
+    /// <summary>
+    /// Converts initial and final positions to global space from local space
+    /// </summary>
 	void Awake() {
 		InitialPos = transform.TransformPoint(InitialPos);
         FinalPos = transform.TransformPoint(FinalPos);
 	}
 	
-	// Use this for initialization
+    /// <summary>
+    /// When the object is set to active, moves from initial position to final position, easing at the start and end with iTween
+    /// </summary>
 	void OnEnable(){
 		transform.position = InitialPos;
 
@@ -27,6 +33,9 @@ public class PanelTransition : MonoBehaviour {
                 "time", EntryTime));		
 	}
 	
+    /// <summary>
+    /// Moves out of screen back to initial position and calls Closed method
+    /// </summary>
 	public void ClosePanel(){
 		transform.position = FinalPos;
 		iTween.MoveTo(
@@ -39,6 +48,9 @@ public class PanelTransition : MonoBehaviour {
 				"oncomplete", "Closed"));
 	}
 	
+    /// <summary>
+    /// Deactivates the panel
+    /// </summary>
 	void Closed(){
 		transform.position = InitialPos;
 		transform.parent.gameObject.SetActive(false);
