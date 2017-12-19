@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 
+    public MusicManager MM;
+    public SoundManager SM;
+
     public void ChangeScene(string str)
     {
 		SceneManager.LoadScene(str);
@@ -20,8 +23,48 @@ public class MainMenu : MonoBehaviour {
 		obj.transform.GetChild(1).GetComponent<PanelTransition>().ClosePanel();
     }
 
-    public void Teste()
+    public void SetMusicVolume(float volume)
     {
-        print("teste");
+        MuteMusic(false);
+        MM.GetComponent<AudioSource>().volume = volume;
+    }
+
+    public void SetSoundVolume(float volume)
+    {
+        MuteSound(false);
+        SM.GetComponent<AudioSource>().volume = volume;
+    }
+
+    public void MuteMusic(bool toggle)
+    {
+        MM.GetComponent<AudioSource>().mute = toggle;
+        
+    }
+
+    public void MuteSound(bool toggle)
+    {
+        SM.GetComponent<AudioSource>().mute = toggle;
+    }
+
+    public void ChangeLanguage(string language)
+    {
+        if(language == "EN")
+        {
+            print("english");
+        }
+        else if(language == "PT")
+        {
+            print("portugues");
+        }
+        else
+        {
+            print("language not supported");
+        }
+    }
+
+    public enum Language
+    {
+        PT,
+        EN
     }
 }
