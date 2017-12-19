@@ -2,7 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class EnemyPreview : MonoBehaviour {
+
+	public List<Position> path;
+
+	public void StartPath(Position start) {
+		path.Add(start);
+	}
+
+	public void AddAction(Actor.Action action) {
+		Position next = path[path.Count-1].Move(action);
+		path.Add(next);
+	}
+
+	void OnEnable() {
+		path = new List<Position>();
+	}
 
 	void OnDrawGizmos() {
 		Gizmos.color = Color.red;
@@ -10,8 +26,13 @@ public class EnemyPreview : MonoBehaviour {
 	}
 
 	void OnDrawGizmosSelected() {
-		Gizmos.color = Color.white;
-		Gizmos.DrawWireSphere(transform.position, 1.125f);
+		Color c = Color.red;
+		Gizmos.color = c;
+		for (int i = 1; i < path.Count; i++) {
+			Gizmos.DrawLine(
+				LevelPreview.CenterPoint(path[i-1]),
+				LevelPreview.CenterPoint(path[i]));
+		}
 	}
 
 }

@@ -121,10 +121,10 @@ public class Actor : MonoBehaviour {
 				nr = r+1;
 				return true;
 			case Action.MOVE_L:
-				nc = nc-1;
+				nc = c-1;
 				return true;
 			case Action.MOVE_R:
-				nc = nc+1;
+				nc = c+1;
 				return true;
 		}
 		return false;

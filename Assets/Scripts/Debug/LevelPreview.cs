@@ -30,7 +30,13 @@ public class LevelPreview : MonoBehaviour {
 			foreach (Position spawnPos in level.spawnPoints) {
 				AddLevelObject<SpawnPointPreview>(spawnPos.row, spawnPos.col);
 			}
-			// TODO enemies
+			foreach (Level.EnemyInstance inst in level.enemies) {
+				EnemyPreview enemy = AddLevelObject<EnemyPreview>(
+					inst.position.row, inst.position.col);
+				enemy.StartPath(inst.position);
+				inst.plan.ForEach(
+					action => enemy.AddAction(action));
+			}
 		} else {
 			Debug.LogError("No such level: " + levelName);
 		}
@@ -56,11 +62,15 @@ public class LevelPreview : MonoBehaviour {
 		}
 	}
 
-	Vector2 CornerPoint(int r, int c) {
+	public static Vector2 CornerPoint(int r, int c) {
 		return new Vector2(c, -r);
 	}
 
-	Vector2 CenterPoint(int r, int c) {
+	public static Vector2 CenterPoint(Position pos) {
+		return CenterPoint(pos.row, pos.col);
+	}
+
+	public static Vector2 CenterPoint(int r, int c) {
 		return new Vector2(c + 0.5f, -(r + 0.5f));
 	}
 
