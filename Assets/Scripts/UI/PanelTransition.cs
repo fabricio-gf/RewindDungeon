@@ -13,7 +13,7 @@ public class PanelTransition : MonoBehaviour {
     /// <summary>
     /// Converts initial and final positions to global space from local space
     /// </summary>
-	void Awake() {
+    void Awake() {
 		InitialPos = transform.TransformPoint(InitialPos);
         FinalPos = transform.TransformPoint(FinalPos);
 	}
