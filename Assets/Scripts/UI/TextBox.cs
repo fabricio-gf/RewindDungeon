@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class TextBox : MonoBehaviour {
 
@@ -12,7 +11,7 @@ public class TextBox : MonoBehaviour {
     int count = 0;
 
     public Text Name;
-    public TextMeshProUGUI TextMesh;
+    public Text TextBody;
 
     bool IsTyping;
     bool CancelTyping;
@@ -23,6 +22,7 @@ public class TextBox : MonoBehaviour {
 	void Start () {
         linesInFile = Dialogue.text.Split('\n');
         line = linesInFile[count].Split(':');
+        Name.text = line[0];
         StartCoroutine(TextScroll(line[1]));
     }
 	
@@ -54,17 +54,17 @@ public class TextBox : MonoBehaviour {
     private IEnumerator TextScroll(string line)
     {
         int letter = 0;
-        TextMesh.text = "";
+        TextBody.text = "";
         IsTyping = true;
         CancelTyping = false;
         while (IsTyping && !CancelTyping && (letter < line.Length - 1))
         {
             //GetComponent<AudioSource>().Play();
-            TextMesh.text += line[letter];
+            TextBody.text += line[letter];
             letter += 1;
             yield return new WaitForSeconds(TypeSpeed);
         }
-        TextMesh.text = line;
+        TextBody.text = line;
         IsTyping = false;
         CancelTyping = false;
     }

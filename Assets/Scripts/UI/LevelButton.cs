@@ -27,6 +27,7 @@ public class LevelButton : MonoBehaviour {
 
     public void UpdateUI()
     {
+        print(LockedImage);
         LockedImage.SetActive(!IsUnlocked);
         if (IsUnlocked)
         {

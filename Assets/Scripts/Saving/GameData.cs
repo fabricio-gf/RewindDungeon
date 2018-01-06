@@ -31,13 +31,17 @@ public class GameData : MonoBehaviour {
         data = new Progress();
 
         LevelsButtons = new Transform[LevelsPanel.childCount];
-        for(int i = 0; i < LevelsPanel.childCount; i++)
+        for (int i = 0; i < LevelsPanel.childCount; i++)
         {
             LevelsButtons[i] = LevelsPanel.GetChild(i);
         }
+    }
 
+    private void Start()
+    {
         //loads the progress at the start of the scene
         LoadFromJSON();
+        print("loaded");
     }
 
     private void Update()
