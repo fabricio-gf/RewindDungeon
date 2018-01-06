@@ -22,11 +22,39 @@ public class GameData : MonoBehaviour {
     //stream writer for editing the text file
     private StreamWriter writer;
 
+    //object that has the levels buttons as children
+    public Transform LevelsPanel;
+    Transform[] LevelsButtons;
+
     private void Awake()
     {
         data = new Progress();
+
+        LevelsButtons = new Transform[LevelsPanel.childCount];
+        for(int i = 0; i < LevelsPanel.childCount; i++)
+        {
+            LevelsButtons[i] = LevelsPanel.GetChild(i);
+        }
+
         //loads the progress at the start of the scene
         LoadFromJSON();
+    }
+
+    private void Update()
+    {
+        //TESTING METHOD
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            print("saving");
+            SaveAsJSON();
+            print("saved");
+        }
+        else if (Input.GetKeyDown(KeyCode.Return))
+        {
+            print("loading");
+            LoadFromJSON();
+            print("loaded");
+        }
     }
 
     /// <summary>
@@ -59,7 +87,13 @@ public class GameData : MonoBehaviour {
         Array.Copy(data.LevelsUnlocked, this.LevelsUnlocked, LevelsUnlocked.Length);
         Array.Copy(data.LevelsScore, this.LevelsScore, LevelsScore.Length);
 
-        //loads info into the levels scene
+        for(int i = 0; i < LevelsUnlocked.Length; i++)
+        {
+            //this comparison exists because for serialization, LevelsUnlocked must be an array of int instead of bool
+            LevelsButtons[i].GetComponent<LevelButton>().IsUnlocked = LevelsUnlocked[i] == 1 ? true : false;
+            LevelsButtons[i].GetComponent<LevelButton>().Score = LevelsScore[i];
+            LevelsButtons[i].GetComponent<LevelButton>().UpdateUI();
+        }
     }
 
     /// <summary>
@@ -74,5 +108,25 @@ public class GameData : MonoBehaviour {
         }
         LevelsUnlocked[0] = 1;
         SaveAsJSON();
+    }
+
+    public void UnlockLevel(int index)
+    {
+        LevelsUnlocked[index] = 1;
+        SaveAsJSON();
+    }
+
+    public void SetScore(int index, int score)
+    {
+        if(score < 0 || score > 3)
+        {
+            Debug.Log("Invalid Score");
+            return;
+        }
+        if (score > LevelsScore[index])
+        {
+            LevelsScore[index] = score;
+            SaveAsJSON();
+        }
     }
 }

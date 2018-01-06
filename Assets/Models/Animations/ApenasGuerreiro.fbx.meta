@@ -1,0 +1,292 @@
+fileFormatVersion: 2
+guid: 2cbb79d76e870f74e808fed9b03d4204
+timeCreated: 1514640008
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: BezierCurve.001
+    100004: BezierCurve.002
+    100006: BezierCurve.003
+    100008: BezierCurve.004
+    100010: BezierCurve.005
+    100012: BezierCurve.006
+    100014: BezierCurve.007
+    100016: BezierCurve.008
+    100018: BezierCurve.009
+    100020: BezierCurve.010
+    100022: BezierCurve.011
+    100024: BezierCurve.012
+    100026: BezierCurve.013
+    100028: BezierCurve.014
+    100030: BezierCurve.015
+    100032: BezierCurve.016
+    100034: BezierCurve.020
+    100036: BezierCurve.026
+    100038: Bezr_Base1
+    100040: Bezr_Base2
+    100042: Bezr_Base3
+    100044: Bezr_C_Base1
+    100046: Bezr_C_Base2
+    100048: Bezr_C_Base3
+    100050: Cube.002
+    100052: Cube.004
+    100054: Cube.007
+    100056: Cube.011
+    100058: mixamorig:Head
+    100060: mixamorig:HeadTop_End
+    100062: mixamorig:Hips
+    100064: mixamorig:LeftArm
+    100066: mixamorig:LeftFoot
+    100068: mixamorig:LeftForeArm
+    100070: mixamorig:LeftHand
+    100072: mixamorig:LeftHandIndex1
+    100074: mixamorig:LeftHandIndex2
+    100076: mixamorig:LeftHandIndex3
+    100078: mixamorig:LeftHandIndex4
+    100080: mixamorig:LeftLeg
+    100082: mixamorig:LeftShoulder
+    100084: mixamorig:LeftToe_End
+    100086: mixamorig:LeftToeBase
+    100088: mixamorig:LeftUpLeg
+    100090: mixamorig:Neck
+    100092: mixamorig:RightArm
+    100094: mixamorig:RightFoot
+    100096: mixamorig:RightForeArm
+    100098: mixamorig:RightHand
+    100100: mixamorig:RightHandIndex1
+    100102: mixamorig:RightHandIndex2
+    100104: mixamorig:RightHandIndex3
+    100106: mixamorig:RightHandIndex4
+    100108: mixamorig:RightLeg
+    100110: mixamorig:RightShoulder
+    100112: mixamorig:RightToe_End
+    100114: mixamorig:RightToeBase
+    100116: mixamorig:RightUpLeg
+    100118: mixamorig:Spine
+    100120: mixamorig:Spine1
+    100122: mixamorig:Spine2
+    400000: //RootNode
+    400002: BezierCurve.001
+    400004: BezierCurve.002
+    400006: BezierCurve.003
+    400008: BezierCurve.004
+    400010: BezierCurve.005
+    400012: BezierCurve.006
+    400014: BezierCurve.007
+    400016: BezierCurve.008
+    400018: BezierCurve.009
+    400020: BezierCurve.010
+    400022: BezierCurve.011
+    400024: BezierCurve.012
+    400026: BezierCurve.013
+    400028: BezierCurve.014
+    400030: BezierCurve.015
+    400032: BezierCurve.016
+    400034: BezierCurve.020
+    400036: BezierCurve.026
+    400038: Bezr_Base1
+    400040: Bezr_Base2
+    400042: Bezr_Base3
+    400044: Bezr_C_Base1
+    400046: Bezr_C_Base2
+    400048: Bezr_C_Base3
+    400050: Cube.002
+    400052: Cube.004
+    400054: Cube.007
+    400056: Cube.011
+    400058: mixamorig:Head
+    400060: mixamorig:HeadTop_End
+    400062: mixamorig:Hips
+    400064: mixamorig:LeftArm
+    400066: mixamorig:LeftFoot
+    400068: mixamorig:LeftForeArm
+    400070: mixamorig:LeftHand
+    400072: mixamorig:LeftHandIndex1
+    400074: mixamorig:LeftHandIndex2
+    400076: mixamorig:LeftHandIndex3
+    400078: mixamorig:LeftHandIndex4
+    400080: mixamorig:LeftLeg
+    400082: mixamorig:LeftShoulder
+    400084: mixamorig:LeftToe_End
+    400086: mixamorig:LeftToeBase
+    400088: mixamorig:LeftUpLeg
+    400090: mixamorig:Neck
+    400092: mixamorig:RightArm
+    400094: mixamorig:RightFoot
+    400096: mixamorig:RightForeArm
+    400098: mixamorig:RightHand
+    400100: mixamorig:RightHandIndex1
+    400102: mixamorig:RightHandIndex2
+    400104: mixamorig:RightHandIndex3
+    400106: mixamorig:RightHandIndex4
+    400108: mixamorig:RightLeg
+    400110: mixamorig:RightShoulder
+    400112: mixamorig:RightToe_End
+    400114: mixamorig:RightToeBase
+    400116: mixamorig:RightUpLeg
+    400118: mixamorig:Spine
+    400120: mixamorig:Spine1
+    400122: mixamorig:Spine2
+    4300000: Bezr_Base1
+    4300002: Bezr_Base2
+    4300004: Bezr_Base3
+    4300006: Bezr_C_Base1
+    4300008: BezierCurve.001
+    4300010: BezierCurve.002
+    4300012: BezierCurve.003
+    4300014: BezierCurve.004
+    4300016: BezierCurve.005
+    4300018: BezierCurve.026
+    4300020: Bezr_C_Base2
+    4300022: BezierCurve.006
+    4300024: BezierCurve.007
+    4300026: BezierCurve.008
+    4300028: BezierCurve.009
+    4300030: BezierCurve.011
+    4300032: BezierCurve.012
+    4300034: BezierCurve.013
+    4300036: BezierCurve.014
+    4300038: BezierCurve.015
+    4300040: BezierCurve.016
+    4300042: Bezr_C_Base3
+    4300044: BezierCurve.010
+    4300046: BezierCurve.020
+    4300048: Cube.002
+    4300050: Cube.004
+    4300052: Cube.007
+    4300054: Cube.011
+    7400000: mixamo.com
+    9500000: //RootNode
+    13700000: BezierCurve.001
+    13700002: BezierCurve.002
+    13700004: BezierCurve.003
+    13700006: BezierCurve.004
+    13700008: BezierCurve.005
+    13700010: BezierCurve.006
+    13700012: BezierCurve.007
+    13700014: BezierCurve.008
+    13700016: BezierCurve.009
+    13700018: BezierCurve.010
+    13700020: BezierCurve.011
+    13700022: BezierCurve.012
+    13700024: BezierCurve.013
+    13700026: BezierCurve.014
+    13700028: BezierCurve.015
+    13700030: BezierCurve.016
+    13700032: BezierCurve.020
+    13700034: BezierCurve.026
+    13700036: Bezr_Base1
+    13700038: Bezr_Base2
+    13700040: Bezr_Base3
+    13700042: Bezr_C_Base1
+    13700044: Bezr_C_Base2
+    13700046: Bezr_C_Base3
+    13700048: Cube.002
+    13700050: Cube.004
+    13700052: Cube.007
+    13700054: Cube.011
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DifuseBracoInf
+    second: {fileID: 2100000, guid: fa0615345f331414e87fb62b4ab3047f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 8bbf04092e98bab48a8de2dc4651f02b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MaterialCabeca
+    second: {fileID: 2100000, guid: 7495ced1e28970d41a2d850917443d0c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MaterialMalhaAzulCorpo
+    second: {fileID: 2100000, guid: 6b30bc62d84289948ab0698259d73c7d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MaterialMao.001
+    second: {fileID: 2100000, guid: d75751c450fb3084786252040ec79ff6, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
