@@ -11,4 +11,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7c43cf1e091af74c9d59d67bf7fec30, type: 3}
   m_Name: Loader
   m_EditorClassIdentifier: 
-  SelectedLevel: {fileID: 0}
+  SelectedLevel: {fileID: 11400000, guid: bda8992bb8652064a94d77fb02e62343, type: 2}
