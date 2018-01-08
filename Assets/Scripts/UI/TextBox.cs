@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TextBox : MonoBehaviour {
 
@@ -36,6 +37,7 @@ public class TextBox : MonoBehaviour {
 	private void Update () {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+
             if (!IsTyping)
             {
                 count++;
@@ -47,7 +49,8 @@ public class TextBox : MonoBehaviour {
                 }
                 else
                 {
-                    //termina
+                    print("load scene");
+                    SceneManager.LoadScene("BaseLevel");
                 }
             }
             else if (IsTyping && !CancelTyping)
@@ -74,4 +77,5 @@ public class TextBox : MonoBehaviour {
         IsTyping = false;
         CancelTyping = false;
     }
+
 }
