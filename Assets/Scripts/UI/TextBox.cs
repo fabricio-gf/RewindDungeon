@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class TextBox : MonoBehaviour {
 
-    public TextAsset Dialogue;
+    public GameLoader Loader;
+
+    TextAsset Dialogue;
     string[] linesInFile;
     string[] line = new string[2];
     int count = 0;
@@ -17,9 +19,13 @@ public class TextBox : MonoBehaviour {
     bool CancelTyping;
     public float TypeSpeed;
 
+    private void Awake()
+    {
+        Dialogue = Loader.SelectedLevel.dialogue;
+    }
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    private void Start () {
         linesInFile = Dialogue.text.Split('\n');
         line = linesInFile[count].Split(':');
         Name.text = line[0];
@@ -27,7 +33,7 @@ public class TextBox : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	private void Update () {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (!IsTyping)

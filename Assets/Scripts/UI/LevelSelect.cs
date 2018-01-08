@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class LevelSelect : MonoBehaviour {
 
+    [Header ("GAME LOADER")]
+    [Tooltip ("Scriptable object that has references to the currently selected level")]
+    public GameLoader Loader;
+
     [Header ("OBJECT REFERENCES")]
     [Tooltip ("Game object in the scene called PreviewPanel, which contains the information to be previewed")]
     public GameObject PreviewPanel;
@@ -32,15 +36,6 @@ public class LevelSelect : MonoBehaviour {
     Level SelectedLevel = null;
     //a auxiliary list of available classes to a level
     List <Level.PlayerClass> Classes;
-
-    /// <summary>
-    /// Loads informations on all the levels, like if it is locked, number of coins (score), thumbnail preview, etc
-    /// </summary>
-    void LoadLevels(){
-		//loads levels and information like is it locked, number of coins, thumbnail(?)
-
-
-	}
 
     /// <summary>
     /// If the player has not selected a level to preview yet, opens the preview window
@@ -97,4 +92,10 @@ public class LevelSelect : MonoBehaviour {
 	public void ChangeScene(string str){
 		SceneManager.LoadScene(str);
 	}
+
+    public void SelectLevel()
+    {
+        Loader.SelectedLevel = SelectedLevel;
+        ChangeScene("Cutscene");
+    }
 }

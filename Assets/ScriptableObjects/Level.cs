@@ -30,5 +30,6 @@ public class Level : ScriptableObject {
 	public List<Position> walls;
 	public List<Position> spawnPoints;
 	public List<EnemyInstance> enemies;
+    public TextAsset dialogue;
 
 }

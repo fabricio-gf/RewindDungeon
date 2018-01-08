@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: T2
   m_EditorClassIdentifier: 
   title: Test Sync Actors (2)
+  spritePath: 
   timeLimit: 10
   classes: 0000000002000000
   walls:
@@ -28,3 +29,5 @@ MonoBehaviour:
     col: 3
   - row: 3
     col: 4
+  enemies: []
+  dialogue: {fileID: 4900000, guid: ebffaa16f9122ab488a3b3681ddc2009, type: 3}

@@ -33,3 +33,4 @@ MonoBehaviour:
       row: 3
       col: 2
     plan: 0200000003000000020000000300000002000000
+  dialogue: {fileID: 4900000, guid: c85704926ab22e441891623f8f67099f, type: 3}
