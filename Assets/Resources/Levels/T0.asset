@@ -14,23 +14,10 @@ MonoBehaviour:
   title: Test Level 0
   spritePath: sprite
   timeLimit: 10
-  classes: 0200000000000000
-  walls:
-  - row: 0
-    col: 0
-  - row: 0
-    col: 1
-  - row: 1
-    col: 2
+  classes: 01000000
+  walls: []
   spawnPoints:
-  - row: 1
+  - row: 2
     col: 1
-  - row: 4
-    col: 2
-  enemies:
-  - enemyType: 0
-    position:
-      row: 3
-      col: 2
-    plan: 0200000003000000020000000300000002000000
+  enemies: []
   dialogue: {fileID: 4900000, guid: c85704926ab22e441891623f8f67099f, type: 3}

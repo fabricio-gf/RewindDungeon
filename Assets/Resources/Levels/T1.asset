@@ -11,23 +11,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c5724d7fb51ed2408f9b77db29c5c0e, type: 3}
   m_Name: T1
   m_EditorClassIdentifier: 
-  title: Test Sync Actors (1)
+  title: Test Level 1
   spritePath: sprite2
   timeLimit: 10
-  classes: 0000000002000000
+  classes: 0100000002000000
   walls:
   - row: 0
-    col: 0
-  - row: 0
-    col: 1
-  - row: 1
-    col: 0
-  - row: 1
-    col: 1
-  spawnPoints:
-  - row: 3
     col: 3
-  - row: 4
+  - row: 0
     col: 4
+  - row: 1
+    col: 3
+  - row: 1
+    col: 4
+  - row: 2
+    col: 3
+  - row: 2
+    col: 4
+  spawnPoints:
+  - row: 0
+    col: 2
+  - row: 0
+    col: 5
   enemies: []
   dialogue: {fileID: 4900000, guid: 88f175629c7494944a3e869a9fdb4958, type: 3}
