@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour {
 
 	public GameObject prefabSpawnPoint;
 	public GameObject prefabTestEnemy;
+    public GameObject prefabCoin;
+    public GameObject prefabExit;
 
     public GameObject CharacterToSpawn;
 
@@ -44,6 +46,8 @@ public class GameManager : MonoBehaviour {
 	public State state;
 
 	public Actor selectedActor;
+
+    public bool hasReachedExit;
 
 	void Awake() {
         if (GameObject.FindGameObjectsWithTag("GM").Length > 1)
@@ -91,6 +95,7 @@ public class GameManager : MonoBehaviour {
 					prefab = prefabArcher;
 					break;
 				case Level.PlayerClass.THIEF:
+                    prefab = prefabArcher;
 					break;
 				case Level.PlayerClass.WARRIOR:
 					prefab = prefabWarrior;
@@ -116,7 +121,14 @@ public class GameManager : MonoBehaviour {
 			spawn.c = pos.col;
 			playerSpawnPoints.Add(spawn);
 		}
-		foreach (Level.EnemyInstance inst in level.enemies) {
+        foreach (Position pos in level.coins)
+        {
+            Vector3 coinPos = board.GetCoordinates(pos.row, pos.col);
+            GameObject coin = Instantiate(
+                prefabCoin, coinPos, Quaternion.identity);
+            //board.Set(pos.row, pos.col, coin);
+        }
+        foreach (Level.EnemyInstance inst in level.enemies) {
 			GameObject prefab = null;
 			switch (inst.enemyType) {
 				case Level.EnemyType.TEST_ENEMY:
@@ -130,7 +142,12 @@ public class GameManager : MonoBehaviour {
 				action => actor.AddAction(action));
 			actors.Add(actor);
 		}
-		levelToLoad = null;
+        Vector3 exitPos = board.GetCoordinates(level.exit.row, level.exit.col);
+        GameObject exit = Instantiate(
+            prefabExit, exitPos, Quaternion.identity);
+        //board.Set(level.exit.row, level.exit.col, exit);
+
+        levelToLoad = null;
 		Init();
 	}
 
@@ -216,6 +233,11 @@ public class GameManager : MonoBehaviour {
 			}
 			yield return new WaitForSeconds(stepLoopDelay);
 		}
+        if (hasReachedExit)
+        {
+            print("victory");
+            Victory();
+        }
 	}
 
 	public void ResetRoom() {
@@ -228,4 +250,10 @@ public class GameManager : MonoBehaviour {
 			});
 		state = State.PLANNING;
 	}
+
+    public void Victory()
+    {
+        //parar execução e não receber mais inputs
+        //mostrar ui de vitoria
+    }
 }

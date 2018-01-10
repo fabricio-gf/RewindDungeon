@@ -40,13 +40,23 @@ public class LevelPreview : MonoBehaviour {
 					spawnPos.row, spawnPos.col);
 				sp.Init(spawnPos.row, spawnPos.col);
 			}
-			foreach (Level.EnemyInstance inst in level.enemies) {
+            foreach (Position spawnPos in level.coins)
+            {
+                CoinPreview coin = AddLevelObject<CoinPreview>(
+                    spawnPos.row, spawnPos.col);
+                coin.Init(spawnPos.row, spawnPos.col);
+            }
+            foreach (Level.EnemyInstance inst in level.enemies) {
 				EnemyPreview enemy = AddLevelObject<EnemyPreview>(
 					inst.position.row, inst.position.col);
 				enemy.Init(inst.enemyType, inst.position);
 				inst.plan.ForEach(
 					action => enemy.AddAction(action));
 			}
+            ExitPreview exit = AddLevelObject<ExitPreview>(
+                level.exit.row, level.exit.col);
+            exit.Init(level.exit.row, level.exit.col);
+
 		} else {
 			Debug.LogError("No such level: " + levelName);
 		}

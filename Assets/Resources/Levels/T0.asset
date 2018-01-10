@@ -19,5 +19,13 @@ MonoBehaviour:
   spawnPoints:
   - row: 2
     col: 1
+  coins:
+  - row: 1
+    col: 3
+  - row: 3
+    col: 4
+  exit:
+    row: 2
+    col: 6
   enemies: []
   dialogue: {fileID: 4900000, guid: c85704926ab22e441891623f8f67099f, type: 3}

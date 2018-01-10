@@ -9,7 +9,7 @@ public class SpawnPointPreview : MonoBehaviour {
 	}
 
 	void OnDrawGizmos() {
-		Gizmos.color = Color.yellow;
+		Gizmos.color = Color.cyan;
 		Gizmos.DrawCube(transform.position, Vector2.one);
 	}
 

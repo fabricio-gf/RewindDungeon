@@ -33,5 +33,13 @@ MonoBehaviour:
     col: 2
   - row: 0
     col: 5
+  coins:
+  - row: 2
+    col: 0
+  - row: 2
+    col: 7
+  exit:
+    row: 3
+    col: 4
   enemies: []
   dialogue: {fileID: 4900000, guid: 88f175629c7494944a3e869a9fdb4958, type: 3}

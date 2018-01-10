@@ -28,6 +28,8 @@ public class Level : ScriptableObject {
 	public List<PlayerClass> classes;
 	public List<Position> walls;
 	public List<Position> spawnPoints;
+    public List<Position> coins;
+    public Position exit;
 	public List<EnemyInstance> enemies;
     public TextAsset dialogue;
 

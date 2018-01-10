@@ -61,6 +61,8 @@ MonoBehaviour:
     type: 2}
   prefabTestEnemy: {fileID: 1880498635322990, guid: 207a6b8fd6a22bc4f81d550a5da1a7be,
     type: 2}
+  prefabCoin: {fileID: 1372663255650734, guid: 5dcfd144d85685d4ea653d0d71484d24, type: 2}
+  prefabExit: {fileID: 1945566431898354, guid: 7a874266f1509024c92efe8650c39ea2, type: 2}
   CharacterToSpawn: {fileID: 0}
   actors: []
   playerAvailableCharactersPrefabs: []

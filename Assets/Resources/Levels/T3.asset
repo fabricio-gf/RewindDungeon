@@ -51,6 +51,14 @@ MonoBehaviour:
   spawnPoints:
   - row: 2
     col: 1
+  coins:
+  - row: 1
+    col: 4
+  - row: 3
+    col: 6
+  exit:
+    row: 2
+    col: 7
   enemies:
   - enemyType: 0
     position:
