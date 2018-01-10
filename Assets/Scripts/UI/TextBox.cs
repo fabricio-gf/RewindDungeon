@@ -35,7 +35,7 @@ public class TextBox : MonoBehaviour {
 	
 	// Update is called once per frame
 	private void Update () {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) || Input.GetKeyDown(KeyCode.Space))
         {
 
             if (!IsTyping)
