@@ -49,8 +49,7 @@ public class TextBox : MonoBehaviour {
                 }
                 else
                 {
-                    print("load scene");
-                    SceneManager.LoadScene("BaseLevel");
+                    GameManager.GM.Load(Loader.SelectedLevel.name);
                 }
             }
             else if (IsTyping && !CancelTyping)

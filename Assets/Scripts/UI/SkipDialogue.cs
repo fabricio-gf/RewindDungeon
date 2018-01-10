@@ -9,6 +9,6 @@ public class SkipDialogue : MonoBehaviour {
 
     public void Skip()
     {
-        SceneManager.LoadScene("BaseLevel");
+        GameManager.GM.Load(Loader.SelectedLevel.name);
     }
 }
