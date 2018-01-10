@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using UnityEditor;
 using UnityEngine;
 
 /// <summary>
@@ -10,8 +9,8 @@ using UnityEngine;
 /// </summary>
 public class GameData : MonoBehaviour {
 
-    //the player progress text file
-    public TextAsset file;
+    public string saveFileName;
+    private string saveFilePath;
 
     //data class to use in JSON methods
     Progress data;
@@ -35,6 +34,10 @@ public class GameData : MonoBehaviour {
         {
             LevelsButtons[i] = LevelsPanel.GetChild(i);
         }
+
+        saveFilePath =
+            Application.persistentDataPath
+            + "/" + saveFileName + ".json";
     }
 
     private void Start()
@@ -69,12 +72,13 @@ public class GameData : MonoBehaviour {
         data.LevelsUnlocked = this.LevelsUnlocked;
         data.LevelsScore = this.LevelsScore;
 
-        writer = File.CreateText(AssetDatabase.GetAssetPath(file));
+        // writer = File.CreateText(AssetDatabase.GetAssetPath(file));
+        writer = File.CreateText(saveFilePath);
         writer.WriteLine(JsonUtility.ToJson(data));
         writer.Flush();
         writer.Close();
 
-        AssetDatabase.ImportAsset(AssetDatabase.GetAssetPath(file));
+        // AssetDatabase.ImportAsset(AssetDatabase.GetAssetPath(file));
     }
 
     /// <summary>
@@ -82,8 +86,11 @@ public class GameData : MonoBehaviour {
     /// </summary>
     public void LoadFromJSON()
     {
-
-        data = JsonUtility.FromJson<Progress>(file.ToString());
+        if (!File.Exists(saveFilePath)) {
+            SaveAsJSON();
+        }
+        string fileText = System.IO.File.ReadAllText(saveFilePath);
+        data = JsonUtility.FromJson<Progress>(fileText);
 
         LevelsUnlocked = new int[data.LevelsUnlocked.Length];
         LevelsScore = new int[data.LevelsScore.Length];
