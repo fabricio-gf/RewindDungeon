@@ -91,7 +91,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0cbfda7fffb57f46ae66ee418cd6167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharPrefabs: []
+  CharPrefabs:
+  - {fileID: 1244365149758000, guid: 93ea8eb09f0841e4dafad841bd18c299, type: 2}
+  - {fileID: 1244365149758000, guid: 93ea8eb09f0841e4dafad841bd18c299, type: 2}
+  - {fileID: 1050901805352978, guid: a3af62dd77cdd484ea28ec996cfcf0a2, type: 2}
   index: 0
 --- !u!114 &114881369756573798
 MonoBehaviour:
