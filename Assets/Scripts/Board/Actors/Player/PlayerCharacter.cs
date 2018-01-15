@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerCharacter : RaycastTarget {
 
 	Actor actor;
+    public PlayerSpawnPoint SpawnPoint;
 
 	// Use this for initialization
 	void Awake() {
@@ -18,4 +19,12 @@ public class PlayerCharacter : RaycastTarget {
 			GameManager.GM.selectedActor = actor;
 		}
 	}
+
+    public void Remove()
+    {
+        SpawnPoint.gameObject.SetActive(true);
+        Destroy(gameObject);
+    }
+
+
 }

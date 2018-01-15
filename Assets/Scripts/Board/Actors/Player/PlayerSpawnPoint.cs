@@ -27,8 +27,13 @@ public class PlayerSpawnPoint : RaycastTarget {
 		Actor actor = obj.GetComponent<Actor>();
 		actor.Spawn(GameManager.GM.board, r, c);
 		GameManager.GM.actors.Add(actor);
+        obj.GetComponent<PlayerCharacter>().SpawnPoint = this;
 		gameObject.SetActive(false);
-		return obj;
+        GameManager.GM.selectedActor = actor;
+        GameManager.GM.selectedButton.Available = false;
+        GameManager.GM.selectedButton.UpdateUI();
+
+        return obj;
 	}
 
 }

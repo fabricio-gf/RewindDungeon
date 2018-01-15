@@ -33,7 +33,6 @@ public class GameManager : MonoBehaviour {
 
     public GameObject CharacterToSpawn;
 
-
 	public List<Actor> actors;
 	public List<GameObject> playerAvailableCharactersPrefabs;
 	public List<PlayerSpawnPoint> playerSpawnPoints;
@@ -46,6 +45,7 @@ public class GameManager : MonoBehaviour {
 	public State state;
 
 	public Actor selectedActor;
+    public CharacterButton selectedButton;
 
     public bool hasReachedExit;
 
@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour {
         }
 
 		state = State.OUT_OF_LEVEL;
-		selectedActor = null;
+        Deselect();
 	}
 
 	public void Init() {
@@ -88,7 +88,9 @@ public class GameManager : MonoBehaviour {
 		playerSpawnPoints = new List<PlayerSpawnPoint>();
 		actors = new List<Actor>();
 
-		foreach (Level.PlayerClass cls in level.classes) {
+        playerAvailableCharactersPrefabs = new List<GameObject>();
+
+        foreach (Level.PlayerClass cls in level.classes) {
 			GameObject prefab = null;
 			switch (cls) {
 				case Level.PlayerClass.ARCHER:
@@ -147,7 +149,7 @@ public class GameManager : MonoBehaviour {
             prefabExit, exitPos, Quaternion.identity);
         //board.Set(level.exit.row, level.exit.col, exit);
 
-        levelToLoad = null;
+        //levelToLoad = null;
 		Init();
 	}
 
@@ -165,7 +167,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void StartLoop() {
-		selectedActor = null;
+        Deselect();
 		actors.ForEach(actor => actor.BeginPlan());
 		state = State.RUNNING;
 		StartCoroutine(StepLoop());
@@ -240,15 +242,24 @@ public class GameManager : MonoBehaviour {
         }
 	}
 
+    public void Deselect()
+    {
+        selectedActor = null;
+        selectedButton = null;
+    }
+
 	public void ResetRoom() {
-		board.ClearActors();
+        /*board.ClearActors();
 		actors.ForEach(
 			act => {
 				act.Restart();
 				act.ClearActions();
 				// TODO rotate actors back to original orientation
 			});
-		state = State.PLANNING;
+		state = State.PLANNING;*/
+
+        Load(levelToLoad);
+        //StartCoroutine(InitLevel());
 	}
 
     public void Victory()
