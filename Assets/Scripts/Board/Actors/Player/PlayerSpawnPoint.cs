@@ -10,13 +10,10 @@ public class PlayerSpawnPoint : RaycastTarget {
 	override public void Click() {
         if(GameManager.GM.CharacterToSpawn != null)
         {
-            if (GameManager.GM.selectedActor != null)
-                GameManager.GM.selectedActor.transform.Find("Body").GetComponent<Renderer>().material.SetColor("_OutlineColor", Color.clear);
             Spawn(GameManager.GM.CharacterToSpawn);
         }
         else
         {
-            GameManager.GM.selectedActor.transform.Find("Body").GetComponent<Renderer>().material.SetColor("_OutlineColor", Color.clear);
             GameManager.GM.selectedActor = null;
         }
 	}

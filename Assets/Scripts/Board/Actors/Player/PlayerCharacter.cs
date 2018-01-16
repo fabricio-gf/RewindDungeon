@@ -19,14 +19,10 @@ public class PlayerCharacter : RaycastTarget {
         {
             if (GameManager.GM.selectedActor != actor)
             {
-                if(GameManager.GM.selectedActor != null)
-                    GameManager.GM.selectedActor.transform.Find("Body").GetComponent<Renderer>().material.SetColor("_OutlineColor", Color.clear);
                 GameManager.GM.selectedActor = actor;
-                GameManager.GM.selectedActor.transform.Find("Body").GetComponent<Renderer>().material.SetColor("_OutlineColor", Color.red);
             }
             else
             {
-                GameManager.GM.selectedActor.transform.Find("Body").GetComponent<Renderer>().material.SetColor("_OutlineColor", Color.clear);
                 GameManager.GM.selectedActor = null;
             }
         }

@@ -44,7 +44,26 @@ public class GameManager : MonoBehaviour {
 	public Board board;
 	public State state;
 
-	public Actor selectedActor;
+	[SerializeField]
+	private Actor _selectedActor;
+	public Actor selectedActor {
+		get {
+			return _selectedActor;
+		}
+		set {
+			if (_selectedActor != null) {
+				_selectedActor.transform.Find("Body")
+					.GetComponent<Renderer>().material
+					.SetColor("_OutlineColor", Color.clear);
+			}
+			_selectedActor = value;
+			if (_selectedActor != null) {
+				_selectedActor.transform.Find("Body")
+					.GetComponent<Renderer>().material
+					.SetColor("_OutlineColor", Color.red);
+			}
+		}
+	}
     public CharacterButton selectedButton;
 
     public bool hasReachedExit;
