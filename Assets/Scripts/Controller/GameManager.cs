@@ -44,6 +44,8 @@ public class GameManager : MonoBehaviour {
 	public Board board;
 	public State state;
 
+    public GameObject victoryPanel;
+
 	[SerializeField]
 	private Actor _selectedActor;
 	public Actor selectedActor {
@@ -104,7 +106,9 @@ public class GameManager : MonoBehaviour {
 		levelName = level.title;
 		timeLimit = level.timeLimit;
 
-		playerSpawnPoints = new List<PlayerSpawnPoint>();
+        victoryPanel = GameObject.FindGameObjectWithTag("VictoryPanel").transform.GetChild(0).gameObject;
+
+        playerSpawnPoints = new List<PlayerSpawnPoint>();
 		actors = new List<Actor>();
 
         playerAvailableCharactersPrefabs = new List<GameObject>();
@@ -284,6 +288,7 @@ public class GameManager : MonoBehaviour {
     public void Victory()
     {
         //parar execução e não receber mais inputs
-        //mostrar ui de vitoria
+        //desativar as outras UIs
+        victoryPanel.SetActive(true);
     }
 }

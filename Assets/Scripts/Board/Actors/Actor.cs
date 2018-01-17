@@ -15,7 +15,6 @@ public class Actor : MonoBehaviour {
 	public float movementTime = 0.5f;
 	public float rotationTime = 0.2f;
 
-
 	public int initR;
 	public int initC;
 
@@ -27,6 +26,7 @@ public class Actor : MonoBehaviour {
 
 	public List<Action> plan;
 
+    public int maxActions;
 	public IEnumerator<Action> actions;
 
 	private Board board;

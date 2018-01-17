@@ -16,7 +16,7 @@ public class LoadSceneButton : MonoBehaviour {
         if (Loader.SelectedLevel != null)
             StartCoroutine(WaitForLoad());
         //else
-        //end game
+        //last level
     }
 
     IEnumerator WaitForLoad()

@@ -135,7 +135,6 @@ public class GameData : MonoBehaviour {
 
     public void SetScore(int index, int score)
     {
-        print("entrou");
         if(score < 0 || score > 3)
         {
             Debug.Log("Invalid Score");

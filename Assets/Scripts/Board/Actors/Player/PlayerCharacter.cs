@@ -5,12 +5,28 @@ using UnityEngine;
 [RequireComponent(typeof(Actor))]
 public class PlayerCharacter : RaycastTarget {
 
+    public enum Class
+    {
+        ARCHER,
+        THIEF,
+        WARRIOR
+    }
+
+    public Class classType;
+
 	Actor actor;
     public PlayerSpawnPoint SpawnPoint;
 
 	// Use this for initialization
 	void Awake() {
 		actor = GetComponent<Actor>();
+        if(classType == Class.THIEF)
+        {
+            actor.maxActions = 10;
+        }
+        else{
+            actor.maxActions = 6;
+        }
 	}
 
 	public override void Click() {
