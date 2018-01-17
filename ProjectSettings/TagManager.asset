@@ -9,6 +9,7 @@ TagManager:
   - CharacterPanel
   - Debug
   - Board
+  - Coin
   layers:
   - Default
   - TransparentFX

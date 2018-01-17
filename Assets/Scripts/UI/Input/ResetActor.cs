@@ -2,15 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResetButton : MonoBehaviour {
+public class ResetActor : MonoBehaviour {
 
     public InputManager inputManager;
 
-	public void ResetAll() {
-		GameManager.GM.ResetRoom();
-	}
-
-    public void ResetActor()
+    public void Reset()
     {
         GameManager.GM.selectedActor.GetComponent<PlayerCharacter>().Remove();
         GameManager.GM.selectedButton.Available = true;
@@ -18,5 +14,4 @@ public class ResetButton : MonoBehaviour {
         GameManager.GM.Deselect();
         inputManager.OpenPanel("CharacterSelection");
     }
-
 }

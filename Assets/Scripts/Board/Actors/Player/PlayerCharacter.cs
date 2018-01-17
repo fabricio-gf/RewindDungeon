@@ -33,6 +33,4 @@ public class PlayerCharacter : RaycastTarget {
         SpawnPoint.gameObject.SetActive(true);
         Destroy(gameObject);
     }
-
-
 }

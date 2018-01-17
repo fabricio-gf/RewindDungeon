@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: T3
   m_EditorClassIdentifier: 
   title: Test Level 3
+  index: 3
   spritePath: sprite
   timeLimit: 10
   classes: 01000000

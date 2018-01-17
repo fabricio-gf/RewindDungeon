@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: T2
   m_EditorClassIdentifier: 
   title: Test Level 2
+  index: 2
   spritePath: sprite
   timeLimit: 10
   classes: 000000000200000001000000

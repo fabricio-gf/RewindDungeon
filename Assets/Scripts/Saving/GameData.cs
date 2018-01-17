@@ -29,10 +29,13 @@ public class GameData : MonoBehaviour {
     {
         data = new Progress();
 
-        LevelsButtons = new Transform[LevelsPanel.childCount];
-        for (int i = 0; i < LevelsPanel.childCount; i++)
+        if (LevelsPanel != null)
         {
-            LevelsButtons[i] = LevelsPanel.GetChild(i);
+            LevelsButtons = new Transform[LevelsPanel.childCount];
+            for (int i = 0; i < LevelsPanel.childCount; i++)
+            {
+                LevelsButtons[i] = LevelsPanel.GetChild(i);
+            }
         }
 
         saveFilePath =
@@ -98,12 +101,15 @@ public class GameData : MonoBehaviour {
         Array.Copy(data.LevelsUnlocked, this.LevelsUnlocked, LevelsUnlocked.Length);
         Array.Copy(data.LevelsScore, this.LevelsScore, LevelsScore.Length);
 
-        for(int i = 0; i < LevelsUnlocked.Length; i++)
+        if (LevelsPanel != null)
         {
-            //this comparison exists because for serialization, LevelsUnlocked must be an array of int instead of bool
-            LevelsButtons[i].GetComponent<LevelButton>().IsUnlocked = LevelsUnlocked[i] == 1 ? true : false;
-            LevelsButtons[i].GetComponent<LevelButton>().Score = LevelsScore[i];
-            LevelsButtons[i].GetComponent<LevelButton>().UpdateUI();
+            for (int i = 0; i < LevelsUnlocked.Length; i++)
+            {
+                //this comparison exists because for serialization, LevelsUnlocked must be an array of int instead of bool
+                LevelsButtons[i].GetComponent<LevelButton>().IsUnlocked = LevelsUnlocked[i] == 1 ? true : false;
+                LevelsButtons[i].GetComponent<LevelButton>().Score = LevelsScore[i];
+                LevelsButtons[i].GetComponent<LevelButton>().UpdateUI();
+            }
         }
     }
 
@@ -129,6 +135,7 @@ public class GameData : MonoBehaviour {
 
     public void SetScore(int index, int score)
     {
+        print("entrou");
         if(score < 0 || score > 3)
         {
             Debug.Log("Invalid Score");
@@ -138,6 +145,7 @@ public class GameData : MonoBehaviour {
         {
             LevelsScore[index] = score;
             SaveAsJSON();
+            print("new score" + LevelsScore[index]);
         }
     }
 }
