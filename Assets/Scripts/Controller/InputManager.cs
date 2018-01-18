@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class InputManager : MonoBehaviour {
 	public GameObject panel;
@@ -8,12 +9,12 @@ public class InputManager : MonoBehaviour {
 	GameObject startObj;
 
 	void Update() {
-		if (!panel.activeInHierarchy && Input.touchCount > 0) {
+		/*if (!panel.activeInHierarchy && Input.touchCount > 0) {
 			Touch touch = Input.GetTouch(0);
 			if (touch.phase == TouchPhase.Began) {
 				startObj = Raycast(touch);
 			}
-			if (touch.phase == TouchPhase.Ended) {
+			if (touch.phase == TouchPhase.Ended && EventSystem.current.IsPointerOverGameObject(touch.fingerId)) {
 				GameObject endObj = Raycast(touch);
 				if (endObj == startObj && endObj != null) {
 					RaycastTarget target = endObj.GetComponent<RaycastTarget>();
@@ -22,7 +23,7 @@ public class InputManager : MonoBehaviour {
 					}
 				}
 			}
-		}
+		}*/
 	}
 
 	GameObject Raycast(Touch touch) {

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerSpawnPoint : RaycastTarget {
 
@@ -8,6 +9,7 @@ public class PlayerSpawnPoint : RaycastTarget {
 	public int c;
 
 	override public void Click() {
+        print("click");
         if(GameManager.GM.CharacterToSpawn != null)
         {
             Spawn(GameManager.GM.CharacterToSpawn);

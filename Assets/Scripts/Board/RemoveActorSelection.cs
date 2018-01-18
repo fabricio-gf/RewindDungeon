@@ -1,15 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class RemoveActorSelection : RaycastTarget {
 
     public override void Click()
     {
-        // TODO add way to deselect actor
+        print("click");
         if (GameManager.GM.state == GameManager.State.PLANNING)
         {
             GameManager.GM.selectedActor = null;
         }
+        
     }
 }

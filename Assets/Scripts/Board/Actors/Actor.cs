@@ -67,8 +67,15 @@ public class Actor : MonoBehaviour {
 	}
 
 	public void AddAction(Action a) {
-		actions = null;
-		plan.Add(a);
+        if (plan.Count < maxActions)
+        {
+            actions = null;
+            plan.Add(a);
+        }
+        else
+        {
+            //cannot add any more actions
+        }
 	}
 
 	public void ClearActions() {
