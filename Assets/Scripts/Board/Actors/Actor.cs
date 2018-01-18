@@ -9,7 +9,8 @@ public class Actor : MonoBehaviour {
 		MOVE_D,
 		MOVE_L,
 		MOVE_R,
-		ATTACK
+		ATTACK,
+        SHOOT
 	}
 
 	public float movementTime = 0.5f;
@@ -23,6 +24,8 @@ public class Actor : MonoBehaviour {
 
 	public bool ready;
 	public bool done;
+
+    public bool isArcher = false;
 
 	public List<Action> plan;
 
@@ -47,7 +50,11 @@ public class Actor : MonoBehaviour {
 	}
 
 	public void BeginPlan() {
-		if (plan.Count > 0) {
+        if (isArcher)
+        {
+            AddAction(Action.SHOOT);
+        }
+        if (plan.Count > 0) {
 			actions = plan.GetEnumerator();
 			ready = true;
 			done = false;
@@ -56,6 +63,8 @@ public class Actor : MonoBehaviour {
 			ready = false;
 			done = true;
 		}
+
+
 	}
 
 	public void Restart() {
@@ -103,7 +112,10 @@ public class Actor : MonoBehaviour {
 			case Action.ATTACK:
 				// TODO attack
 				break;
-		}
+            case Action.SHOOT:
+                // TODO shoot
+                break;
+        }
 		return false;
 	}
 
@@ -114,7 +126,23 @@ public class Actor : MonoBehaviour {
 			AnimateMovement();
 			return true;
 		}
-		return false;
+        else
+        {
+            GameObject obj = GameManager.GM.board.Get(nr, nc);
+            if(this.CompareTag("Enemy") && obj.CompareTag("Player"))
+            {
+                print("ataca");
+                //ataca
+            }
+
+            if (this.CompareTag("Player") && obj.CompareTag("Enemy"))
+            {
+                print("morre");
+                //morre
+            }
+            return false;
+        }
+
 	}
 
 	private bool NextPos(out int nr, out int nc) {

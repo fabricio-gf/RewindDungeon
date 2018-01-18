@@ -27,6 +27,10 @@ public class PlayerCharacter : RaycastTarget {
         }
         else{
             actor.maxActions = 6;
+            if (classType == Class.ARCHER)
+            {
+                actor.isArcher = true;
+            }
         }
 	}
 
