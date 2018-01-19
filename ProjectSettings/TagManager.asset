@@ -12,6 +12,8 @@ TagManager:
   - Coin
   - VictoryPanel
   - Enemy
+  - InputManager
+  - CharacterSelect
   layers:
   - Default
   - TransparentFX

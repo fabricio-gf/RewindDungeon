@@ -11,6 +11,7 @@ public class RemoveActorSelection : RaycastTarget {
         if (GameManager.GM.state == GameManager.State.PLANNING)
         {
             GameManager.GM.selectedActor = null;
+            GameObject.FindGameObjectWithTag("InputManager").GetComponent<InputManager>().DeactivateButtons();
         }
         
     }

@@ -9,19 +9,17 @@ public class CharacterSelect : MonoBehaviour {
 
     public GameObject ButtonPrefab;
 
-	void Start() {
+	public void Init() {
         AvailableCharacters = GameManager.GM.playerAvailableCharactersPrefabs;
         GameObject obj;
 
-        for(int i = 0; i < AvailableCharacters.Count; i++)
+        for (int i = 0; i < AvailableCharacters.Count; i++)
         {
             obj = Instantiate(ButtonPrefab, transform);
-            print(obj.name);
-            
+
             obj.transform.Find("Text").GetComponent<Text>().text = AvailableCharacters[i].GetComponent<Actor>().info.Preview.ToString();
             obj.GetComponent<CharacterButton>().index = i;
             obj.GetComponent<CharacterButton>().CharPrefabs = AvailableCharacters;
         }
-	}
-
+    }
 }

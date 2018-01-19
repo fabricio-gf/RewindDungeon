@@ -13,10 +13,12 @@ public class PlayerSpawnPoint : RaycastTarget {
         if(GameManager.GM.CharacterToSpawn != null)
         {
             Spawn(GameManager.GM.CharacterToSpawn);
+            GameObject.FindGameObjectWithTag("InputManager").GetComponent<InputManager>().ActivateButtons();
         }
         else
         {
             GameManager.GM.selectedActor = null;
+            GameObject.FindGameObjectWithTag("InputManager").GetComponent<InputManager>().DeactivateButtons();
         }
 	}
 

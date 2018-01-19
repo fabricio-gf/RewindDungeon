@@ -42,10 +42,12 @@ public class PlayerCharacter : RaycastTarget {
             if (GameManager.GM.selectedActor != actor)
             {
                 GameManager.GM.selectedActor = actor;
+                GameObject.FindGameObjectWithTag("InputManager").GetComponent<InputManager>().ActivateButtons();
             }
             else
             {
                 GameManager.GM.selectedActor = null;
+                GameObject.FindGameObjectWithTag("InputManager").GetComponent<InputManager>().DeactivateButtons();
             }
         }
         

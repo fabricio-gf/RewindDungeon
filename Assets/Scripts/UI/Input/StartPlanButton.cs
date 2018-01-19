@@ -6,7 +6,8 @@ public class StartPlanButton : MonoBehaviour {
 	
 	public void Click() {
 		if (GameManager.GM.state == GameManager.State.PLANNING) {
-			GameManager.GM.StartLoop();
+            GameObject.FindGameObjectWithTag("InputManager").GetComponent<InputManager>().DeactivateButtons();
+            GameManager.GM.StartLoop();
 		}
 	}
 }

@@ -8,6 +8,8 @@ public class InputManager : MonoBehaviour {
 
 	GameObject startObj;
 
+    public GameObject[] Buttons;
+
 	void Update() {
 		/*if (!panel.activeInHierarchy && Input.touchCount > 0) {
 			Touch touch = Input.GetTouch(0);
@@ -38,5 +40,29 @@ public class InputManager : MonoBehaviour {
     public void OpenPanel(string panelName)
     {
         transform.parent.Find(panelName).gameObject.SetActive(true);
+    }
+
+    public void OpenCharacterSelection(string panelName)
+    {
+        transform.parent.Find(panelName).GetChild(1).GetComponent<PanelTransition>().Enable();
+        transform.parent.Find(panelName).GetChild(1).GetChild(0).gameObject.SetActive(true);
+        transform.parent.Find(panelName).GetChild(1).GetChild(1).gameObject.SetActive(false);
+
+    }
+
+    public void ActivateButtons()
+    {
+        for(int i = 0; i < Buttons.Length; i++)
+        {
+            Buttons[i].SetActive(true);
+        }
+    }
+
+    public void DeactivateButtons()
+    {
+        for (int i = 0; i < Buttons.Length; i++)
+        {
+            Buttons[i].SetActive(false);
+        }
     }
 }

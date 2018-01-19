@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour {
 
 	public List<Actor> actors;
 	public List<GameObject> playerAvailableCharactersPrefabs;
+    public CharacterSelect characterSelectPanel;
 	public List<PlayerSpawnPoint> playerSpawnPoints;
 
 	public string levelToLoad;
@@ -102,7 +103,8 @@ public class GameManager : MonoBehaviour {
 	IEnumerator InitLevel() {
 		yield return new WaitForEndOfFrame();
 		board = GameObject.FindWithTag("Board").GetComponent<Board>();
-		Level level = Resources.Load("Levels/" + levelToLoad) as Level;
+        characterSelectPanel = GameObject.FindWithTag("CharacterSelect").GetComponent<CharacterSelect>();
+        Level level = Resources.Load("Levels/" + levelToLoad) as Level;
 		levelName = level.title;
 		timeLimit = level.timeLimit;
 
@@ -127,7 +129,8 @@ public class GameManager : MonoBehaviour {
 					break;
 			}
 			playerAvailableCharactersPrefabs.Add(prefab);
-		}
+            characterSelectPanel.Init();
+        }
 		foreach (Position pos in level.walls) {
 			Vector3 wallPos = board.GetCoordinates(pos.row, pos.col);
 			GameObject wall = Instantiate(
