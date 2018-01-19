@@ -197,6 +197,10 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void Update() {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            victoryPanel.SetActive(!victoryPanel.activeSelf);
+        }
 		if (Input.GetKeyDown("a")) {
 			actors.ForEach(actor => actor.BeginPlan());
 		}

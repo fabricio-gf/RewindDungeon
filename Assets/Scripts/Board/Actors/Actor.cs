@@ -26,9 +26,12 @@ public class Actor : MonoBehaviour {
 	public bool done;
 
     public bool isArcher = false;
+    public GameObject arrow;
 
 	public List<Action> plan;
 
+    [Range(0,2)]
+    public int hp;
     public int maxActions;
 	public IEnumerator<Action> actions;
 
@@ -113,7 +116,7 @@ public class Actor : MonoBehaviour {
 				// TODO attack
 				break;
             case Action.SHOOT:
-                // TODO shoot
+                //Instantiate(arrow, quadrado na frente, Quaternion.identity);
                 break;
         }
 		return false;
@@ -212,4 +215,22 @@ public class Actor : MonoBehaviour {
 		ready = true;
 	}
 
+    public void TakeDamage()
+    {
+        hp--;
+        if (hp == 0)
+            Die();
+        else
+        {
+            //animação de tomar dano
+            //empurrado pra trás
+        }
+
+    }
+
+    private void Die()
+    {
+        //animação de morrer
+        //cancela todos outras ações
+    }
 }
