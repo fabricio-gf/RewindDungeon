@@ -9,7 +9,6 @@ public class PlayerSpawnPoint : RaycastTarget {
 	public int c;
 
 	override public void Click() {
-        print("click");
         if(GameManager.GM.CharacterToSpawn != null)
         {
             Spawn(GameManager.GM.CharacterToSpawn);

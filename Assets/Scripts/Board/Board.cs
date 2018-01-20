@@ -58,4 +58,9 @@ public class Board : MonoBehaviour {
 		return new Vector3(gx, 0.5f, gz);
 	}
 
+    public bool WithinBounds(int r, int c)
+    {
+        return r >= 0 && r < GRID_ROWS && c >= 0 && c < GRID_COLS;
+    }
+
 }

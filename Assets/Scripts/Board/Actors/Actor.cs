@@ -34,6 +34,7 @@ public class Actor : MonoBehaviour {
     public int hp;
     public int maxActions;
 	public IEnumerator<Action> actions;
+    Action lastAction;
 
 	private Board board;
 
@@ -55,6 +56,7 @@ public class Actor : MonoBehaviour {
 	public void BeginPlan() {
         if (isArcher)
         {
+            lastAction = Action.MOVE_U;
             AddAction(Action.SHOOT);
         }
         if (plan.Count > 0) {
@@ -99,6 +101,7 @@ public class Actor : MonoBehaviour {
 			print("NOT READY");
 			return false;
 		}
+        lastAction = actions.Current;
 		done = !actions.MoveNext();
 		return !done;
 	}
@@ -116,7 +119,21 @@ public class Actor : MonoBehaviour {
 				// TODO attack
 				break;
             case Action.SHOOT:
-                //Instantiate(arrow, quadrado na frente, Quaternion.identity);
+
+                NextPos(lastAction, out nr, out nc);
+                if (board.WithinBounds(nr, nc)) {
+                    GameObject obj = Instantiate(arrow, board.GetCoordinates(nr, nc), arrow.transform.rotation);
+                    obj.transform.eulerAngles = new Vector3(obj.transform.eulerAngles.x, transform.eulerAngles.y, obj.transform.eulerAngles.z);
+                    Actor actor = obj.GetComponent<Actor>();
+                    actor.Spawn(GameManager.GM.board, nr, nc);
+                    GameManager.GM.actors.Add(actor);
+                    for (int i = 0; i < 8; i++)
+                    {
+                        print("last action " + lastAction);
+                        actor.AddAction(lastAction);
+                    }
+                    actor.BeginPlan();
+                }
                 break;
         }
 		return false;
@@ -129,7 +146,7 @@ public class Actor : MonoBehaviour {
 			AnimateMovement();
 			return true;
 		}
-        else
+        else if (board.WithinBounds(nr, nc))
         {
             GameObject obj = GameManager.GM.board.Get(nr, nc);
             if(this.CompareTag("Enemy") && obj.CompareTag("Player"))
@@ -142,33 +159,38 @@ public class Actor : MonoBehaviour {
             {
                 print("morre");
                 //morre
-            }
-            return false;
+            } 
         }
-
-	}
+        return false;
+    }
 
 	private bool NextPos(out int nr, out int nc) {
-		nr = r;
-		nc = c;
-		switch (actions.Current) {
-			case Action.MOVE_U:
-				nr = r-1;
-				return true;
-			case Action.MOVE_D:
-				nr = r+1;
-				return true;
-			case Action.MOVE_L:
-				nc = c-1;
-				return true;
-			case Action.MOVE_R:
-				nc = c+1;
-				return true;
-		}
-		return false;
+        return NextPos(actions.Current, out nr, out nc);
 	}
 
-	public void LookAtTargetPos() {
+    private bool NextPos(Action action, out int nr, out int nc)
+    {
+        nr = r;
+        nc = c;
+        switch (action)
+        {
+            case Action.MOVE_U:
+                nr = r - 1;
+                return true;
+            case Action.MOVE_D:
+                nr = r + 1;
+                return true;
+            case Action.MOVE_L:
+                nc = c - 1;
+                return true;
+            case Action.MOVE_R:
+                nc = c + 1;
+                return true;
+        }
+        return false;
+    }
+
+    public void LookAtTargetPos() {
 		int nr, nc;
 		if (NextPos(out nr, out nc)) {
 			ready = false;
