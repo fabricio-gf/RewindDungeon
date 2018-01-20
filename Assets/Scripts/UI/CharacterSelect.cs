@@ -12,7 +12,6 @@ public class CharacterSelect : MonoBehaviour {
 	public void Init() {
         AvailableCharacters = GameManager.GM.playerAvailableCharactersPrefabs;
         GameObject obj;
-
         for (int i = 0; i < AvailableCharacters.Count; i++)
         {
             obj = Instantiate(ButtonPrefab, transform);

@@ -128,10 +128,10 @@ public class GameManager : MonoBehaviour {
 					prefab = prefabWarrior;
 					break;
 			}
-			playerAvailableCharactersPrefabs.Add(prefab);
-            characterSelectPanel.Init();
+			playerAvailableCharactersPrefabs.Add(prefab); 
         }
-		foreach (Position pos in level.walls) {
+        characterSelectPanel.Init();
+        foreach (Position pos in level.walls) {
 			Vector3 wallPos = board.GetCoordinates(pos.row, pos.col);
 			GameObject wall = Instantiate(
 				prefabWall, wallPos, Quaternion.identity);
