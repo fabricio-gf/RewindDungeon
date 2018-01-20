@@ -28,7 +28,8 @@ public class PlayerSpawnPoint : RaycastTarget {
 			characterPrefab.transform.rotation);
 		Actor actor = obj.GetComponent<Actor>();
 		actor.Spawn(GameManager.GM.board, r, c);
-		GameManager.GM.actors.Add(actor);
+        //GameManager.GM.actors.Add(actor);
+        GameManager.GM.actors.Insert(0,actor);
         obj.GetComponent<PlayerCharacter>().SpawnPoint = this;
 		gameObject.SetActive(false);
         GameManager.GM.selectedActor = actor;
