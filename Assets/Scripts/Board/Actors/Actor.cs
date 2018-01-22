@@ -14,6 +14,7 @@ public class Actor : MonoBehaviour {
 	}
 
 	public float movementTime = 0.5f;
+    public float knockBackTime = 0.3f;
 	public float rotationTime = 0.2f;
 
 	public int initR;
@@ -24,6 +25,7 @@ public class Actor : MonoBehaviour {
 
 	public bool ready;
 	public bool done;
+    public bool hasTakenDamage;
 
     public bool isArcher;
     public GameObject arrow;
@@ -129,7 +131,6 @@ public class Actor : MonoBehaviour {
                     GameManager.GM.actors.Add(actor);
                     for (int i = 0; i < 8; i++)
                     {
-                        print("last action " + lastAction);
                         actor.AddAction(lastAction);
                     }
                     actor.BeginPlan();
@@ -149,16 +150,24 @@ public class Actor : MonoBehaviour {
         else if (board.WithinBounds(nr, nc))
         {
             GameObject obj = GameManager.GM.board.Get(nr, nc);
-            if(this.CompareTag("Enemy") && obj.CompareTag("Player"))
+            if(this.CompareTag("Enemy") && obj.CompareTag("Player") && !obj.GetComponent<Actor>().hasTakenDamage)
             {
-                print("ataca");
-                //ataca
+                print("entrou");
+                //animação de ataque
+                obj.GetComponent<Actor>().TakeDamage();
+                if (board.Move(r, c, nr, nc))
+                {
+                    r = nr;
+                    c = nc;
+                    AnimateMovement();
+                    return true;
+                }
             }
 
-            if (this.CompareTag("Player") && obj.CompareTag("Enemy"))
+            if (this.CompareTag("Player") && obj.CompareTag("Enemy") && !this.GetComponent<Actor>().hasTakenDamage)
             {
-                print("morre");
-                //morre
+                print("entrou aqui tmb");
+                //TakeDamage();
             } 
         }
         return false;
@@ -219,6 +228,23 @@ public class Actor : MonoBehaviour {
 				"oncomplete", "EndTurning"));
 	}
 
+    private void KnockBackMovement(int nr, int nc)
+    {
+        Vector3 pos = board.GetCoordinates(nr, nc);
+        r = nr;
+        c = nc;
+        print(pos);
+        iTween.MoveTo(
+            gameObject,
+            iTween.Hash(
+                "x", pos.x,
+                "z", pos.z,
+                "easetype", "easeOutCubic",
+                "delay", 0,
+                "time", knockBackTime,
+                "oncomplete", "SetReady"));
+    }
+
 	void EndTurning() {
 		Vector3 pos = board.GetCoordinates(r, c);
 		iTween.MoveTo(
@@ -230,29 +256,57 @@ public class Actor : MonoBehaviour {
 				"orienttopath", true,
 				"delay", 0,
 				"time", movementTime,
+                "name", "movement",
 				"oncomplete", "SetReady"));
 	}
 
 	private void SetReady() {
+        hasTakenDamage = false;
 		ready = true;
 	}
 
     public void TakeDamage()
     {
+        hasTakenDamage = true;
         hp--;
         if (hp == 0)
+        {
             Die();
+        }
         else
         {
             //animação de tomar dano
-            //empurrado pra trás
+            ready = false;
+            //iTween.Stop(gameObject, "movement");
+            int nr, nc;
+            Action reverse;
+            switch (lastAction)
+            {
+                case Action.MOVE_U:
+                    reverse = Action.MOVE_D;
+                    break;
+                case Action.MOVE_D:
+                    reverse = Action.MOVE_U;
+                    break;
+                case Action.MOVE_L:
+                    reverse = Action.MOVE_R;
+                    break;
+                case Action.MOVE_R:
+                    reverse = Action.MOVE_L;
+                    break;
+                default:
+                    reverse = Action.MOVE_U;
+                    break;
+            }
+            NextPos(reverse, out nr, out nc);
+            KnockBackMovement(nr, nc);
         }
-
     }
 
     private void Die()
     {
-        //animação de morrer
-        //cancela todos outras ações
+        //ativar animação de morte
+        done = true;
+        board.Set(r, c, null);
     }
 }

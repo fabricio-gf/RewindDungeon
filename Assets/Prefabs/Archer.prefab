@@ -213,6 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementTime: 0.5
+  knockBackTime: 0.3
   rotationTime: 0.2
   initR: 0
   initC: 0
@@ -220,10 +221,11 @@ MonoBehaviour:
   c: 0
   ready: 0
   done: 0
+  hasTakenDamage: 0
   isArcher: 1
   arrow: {fileID: 1724244658216148, guid: 32d89d81499c5984faef3684b9fed846, type: 2}
   plan: 
-  hp: 0
+  hp: 2
   maxActions: 6
   info: {fileID: 11400000, guid: 74cc1f28004b1ee4eabb6fa54dddeb00, type: 2}
 --- !u!114 &114719482608037802

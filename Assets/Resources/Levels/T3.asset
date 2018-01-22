@@ -51,7 +51,7 @@ MonoBehaviour:
     col: 7
   spawnPoints:
   - row: 2
-    col: 1
+    col: 2
   coins:
   - row: 1
     col: 4
