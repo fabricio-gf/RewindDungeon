@@ -220,7 +220,7 @@ MonoBehaviour:
   c: 0
   ready: 0
   done: 0
-  isArcher: 0
+  isArcher: 1
   arrow: {fileID: 1724244658216148, guid: 32d89d81499c5984faef3684b9fed846, type: 2}
   plan: 
   hp: 0

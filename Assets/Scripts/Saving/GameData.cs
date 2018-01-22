@@ -37,7 +37,7 @@ public class GameData : MonoBehaviour {
                 LevelsButtons[i] = LevelsPanel.GetChild(i);
             }
         }
-
+        print(Application.persistentDataPath + "/" + saveFileName + ".json");
         saveFilePath =
             Application.persistentDataPath
             + "/" + saveFileName + ".json";
@@ -129,8 +129,11 @@ public class GameData : MonoBehaviour {
 
     public void UnlockLevel(int index)
     {
-        LevelsUnlocked[index] = 1;
-        SaveAsJSON();
+        if (index < LevelsUnlocked.Length)
+        {
+            LevelsUnlocked[index] = 1;
+            SaveAsJSON();
+        }
     }
 
     public void SetScore(int index, int score)

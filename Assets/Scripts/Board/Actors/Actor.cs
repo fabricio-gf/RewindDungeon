@@ -25,7 +25,7 @@ public class Actor : MonoBehaviour {
 	public bool ready;
 	public bool done;
 
-    public bool isArcher = false;
+    public bool isArcher;
     public GameObject arrow;
 
 	public List<Action> plan;

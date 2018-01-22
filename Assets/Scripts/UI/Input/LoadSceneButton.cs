@@ -13,6 +13,7 @@ public class LoadSceneButton : MonoBehaviour {
     {
         DataManager.SetScore(Loader.SelectedLevel.index, Score.CurrentScore);
         Loader.SelectedLevel = FindNextLevel(Loader.SelectedLevel);
+        DataManager.UnlockLevel(Loader.SelectedLevel.index);
         if (Loader.SelectedLevel != null)
             StartCoroutine(WaitForLoad());
         //else
@@ -38,6 +39,8 @@ public class LoadSceneButton : MonoBehaviour {
     public void RestartLevel()
     {
         DataManager.SetScore(Loader.SelectedLevel.index, Score.CurrentScore);
+        Level aux = FindNextLevel(Loader.SelectedLevel);
+        DataManager.UnlockLevel(aux.index);
         ResetRoom();
     }
 

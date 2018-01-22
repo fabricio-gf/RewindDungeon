@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38f7b86ee1d65f84e963fcb39b5a9ed5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  classType: 0
+  classType: 2
   SpawnPoint: {fileID: 0}
 --- !u!114 &114425941617194618
 MonoBehaviour:
@@ -263,7 +263,10 @@ MonoBehaviour:
   c: 0
   ready: 0
   done: 0
+  isArcher: 0
+  arrow: {fileID: 0}
   plan: 
+  hp: 0
   maxActions: 6
   info: {fileID: 11400000, guid: 2b4eeefd8772eaf4a957a132bb455763, type: 2}
 --- !u!136 &136407417190866218
