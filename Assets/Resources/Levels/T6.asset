@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c5724d7fb51ed2408f9b77db29c5c0e, type: 3}
+  m_Name: T6
+  m_EditorClassIdentifier: 
+  title: Test Level 6
+  index: 6
+  spritePath: sprite
+  timeLimit: 10
+  classes: 0100000002000000
+  walls:
+  - row: 1
+    col: 2
+  - row: 2
+    col: 2
+  - row: 3
+    col: 2
+  - row: 4
+    col: 2
+  spawnPoints:
+  - row: 0
+    col: 2
+  - row: 2
+    col: 3
+  coins:
+  - row: 2
+    col: 0
+  - row: 1
+    col: 6
+  exit:
+    row: 4
+    col: 1
+  enemies: []
+  dialogue: {fileID: 4900000, guid: ebffaa16f9122ab488a3b3681ddc2009, type: 3}

@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c5724d7fb51ed2408f9b77db29c5c0e, type: 3}
+  m_Name: T16
+  m_EditorClassIdentifier: 
+  title: Test Level 16
+  index: 16
+  spritePath: sprite
+  timeLimit: 10
+  classes: 010000000100000001000000
+  walls:
+  - row: 1
+    col: 0
+  - row: 1
+    col: 1
+  - row: 1
+    col: 2
+  - row: 1
+    col: 3
+  - row: 1
+    col: 4
+  - row: 1
+    col: 5
+  - row: 1
+    col: 6
+  - row: 1
+    col: 7
+  - row: 3
+    col: 0
+  - row: 3
+    col: 1
+  - row: 3
+    col: 2
+  - row: 3
+    col: 3
+  - row: 3
+    col: 4
+  - row: 3
+    col: 5
+  - row: 3
+    col: 6
+  - row: 3
+    col: 7
+  spawnPoints:
+  - row: 0
+    col: 0
+  - row: 2
+    col: 0
+  - row: 4
+    col: 0
+  coins:
+  - row: 0
+    col: 7
+  - row: 4
+    col: 7
+  exit:
+    row: 2
+    col: 7
+  enemies: []
+  dialogue: {fileID: 4900000, guid: ebffaa16f9122ab488a3b3681ddc2009, type: 3}

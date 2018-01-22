@@ -9,6 +9,8 @@ public class Exit : MonoBehaviour {
         if(other.gameObject.CompareTag("Player"))
         {
             GameManager.GM.hasReachedExit = true;
+            print(other.GetComponent<PlayerCharacter>().classType);
+            other.GetComponent<Actor>().done = true;
         }
     }
 }

@@ -280,7 +280,7 @@ public class Actor : MonoBehaviour {
             //iTween.Stop(gameObject, "movement");
             int nr, nc;
             Action reverse;
-            switch (lastAction)
+            switch (actions.Current)
             {
                 case Action.MOVE_U:
                     reverse = Action.MOVE_D;
