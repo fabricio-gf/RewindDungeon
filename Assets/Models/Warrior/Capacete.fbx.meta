@@ -1,26 +1,22 @@
 fileFormatVersion: 2
-guid: 1060977620fccce4d9be34ba5cce073c
-timeCreated: 1514639424
+guid: 3d4b9f7164e433d45b5bef97f37e5db2
+timeCreated: 1516893108
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
+    2100000: MaterialCapacete
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Circle.002
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: MaterialEspada
-    second: {fileID: 2100000, guid: d010fea75c0562b419690b9aadba00f6, type: 2}
+    4300000: Circle
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -58,6 +54,8 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

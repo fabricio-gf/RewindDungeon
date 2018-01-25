@@ -14,6 +14,7 @@ TagManager:
   - Enemy
   - InputManager
   - CharacterSelect
+  - Button
   layers:
   - Default
   - TransparentFX

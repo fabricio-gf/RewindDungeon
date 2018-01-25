@@ -4,22 +4,20 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-        Actor thisActor = GetComponent<Actor>();
-		for(int i = 0; i < 8; i++)
-        {
-            //achar um jeito de mover sempre pra direção que o personagem estiver olhando
-            thisActor.AddAction(Actor.Action.MOVE_R);
-        }
-	}
+    public Actor archerParent;
+    public float speed;
 
     private void OnTriggerEnter(Collider other)
     {
-        //freeze position
-        if(other.tag == "Player" || other.tag == "Enemy")
+        if (other.CompareTag("Button"))
         {
-            other.GetComponent<Actor>().TakeDamage();
+            //faz alguma coisa
+            Destroy(gameObject);
         }
+    }
+
+    private void OnDestroy()
+    {
+        archerParent.SetReady();
     }
 }

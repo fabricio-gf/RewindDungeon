@@ -1,26 +1,22 @@
 fileFormatVersion: 2
-guid: b98fa52ad3d53ac4d905e9890e9cc88d
-timeCreated: 1514639424
+guid: 22c7d80d2c0e39a40b78a31cad2faa66
+timeCreated: 1516893106
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
+    2100000: MaterialEscudo
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Circle
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: MaterialCapacete
-    second: {fileID: 2100000, guid: a65214f2a44ed644a8c4525021e4bb28, type: 2}
+    4300000: Circle.007
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -58,6 +54,8 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

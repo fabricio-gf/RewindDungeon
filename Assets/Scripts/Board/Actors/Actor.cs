@@ -35,7 +35,8 @@ public class Actor : MonoBehaviour {
     [Range(0,2)]
     public int hp;
     public int maxActions;
-	public IEnumerator<Action> actions;
+    //public IEnumerator<Action> actions;
+    public int actionIndex;
     Action lastAction;
 
 	private Board board;
@@ -62,11 +63,13 @@ public class Actor : MonoBehaviour {
             AddAction(Action.SHOOT);
         }
         if (plan.Count > 0) {
-			actions = plan.GetEnumerator();
+            //actions = plan.GetEnumerator();
+            actionIndex = -1;
 			ready = true;
 			done = false;
 		} else {
-			actions = null;
+            //actions = null;
+            actionIndex = -1;
 			ready = false;
 			done = true;
 		}
@@ -85,7 +88,8 @@ public class Actor : MonoBehaviour {
 	public void AddAction(Action a) {
         if (plan.Count < maxActions)
         {
-            actions = null;
+            //actions = null;
+            actionIndex = -1;
             plan.Add(a);
         }
         else
@@ -98,19 +102,29 @@ public class Actor : MonoBehaviour {
 		plan.Clear();
 	}
 
-	public bool NextAction() {
-		if (!ready) {
+	public bool NextAction(bool force=false) {
+		if (done || !force && !ready) {
 			print("NOT READY");
 			return false;
 		}
-        lastAction = actions.Current;
-		done = !actions.MoveNext();
-		return !done;
+        //lastAction = actions.Current;
+        actionIndex++;
+        if (actionIndex >= plan.Count)
+        {
+            done = true;
+            return false;
+        }
+        if (actionIndex > 0)
+        {
+            lastAction = plan[actionIndex-1];
+        }
+		return true;
 	}
 
 	public bool PerformAction() {
 		int nr, nc;
-		switch (actions.Current) {
+		//switch (actions.Current) {
+        switch (plan[actionIndex]) {
 			case Action.MOVE_U:
 			case Action.MOVE_D:
 			case Action.MOVE_L:
@@ -121,19 +135,14 @@ public class Actor : MonoBehaviour {
 				// TODO attack
 				break;
             case Action.SHOOT:
-
+                ready = false;
                 NextPos(lastAction, out nr, out nc);
                 if (board.WithinBounds(nr, nc)) {
                     GameObject obj = Instantiate(arrow, board.GetCoordinates(nr, nc), arrow.transform.rotation);
                     obj.transform.eulerAngles = new Vector3(obj.transform.eulerAngles.x, transform.eulerAngles.y, obj.transform.eulerAngles.z);
-                    Actor actor = obj.GetComponent<Actor>();
-                    actor.Spawn(GameManager.GM.board, nr, nc);
-                    GameManager.GM.actors.Add(actor);
-                    for (int i = 0; i < 8; i++)
-                    {
-                        actor.AddAction(lastAction);
-                    }
-                    actor.BeginPlan();
+                    Arrow arrowScript = obj.GetComponent<Arrow>();
+                    arrowScript.archerParent = this;
+                    obj.GetComponent<Rigidbody>().velocity = obj.transform.forward * arrowScript.speed;
                 }
                 break;
         }
@@ -174,7 +183,7 @@ public class Actor : MonoBehaviour {
     }
 
 	private bool NextPos(out int nr, out int nc) {
-        return NextPos(actions.Current, out nr, out nc);
+        return NextPos(plan[actionIndex], out nr, out nc);
 	}
 
     private bool NextPos(Action action, out int nr, out int nc)
@@ -228,23 +237,6 @@ public class Actor : MonoBehaviour {
 				"oncomplete", "EndTurning"));
 	}
 
-    private void KnockBackMovement(int nr, int nc)
-    {
-        Vector3 pos = board.GetCoordinates(nr, nc);
-        r = nr;
-        c = nc;
-        print(pos);
-        iTween.MoveTo(
-            gameObject,
-            iTween.Hash(
-                "x", pos.x,
-                "z", pos.z,
-                "easetype", "easeOutCubic",
-                "delay", 0,
-                "time", knockBackTime,
-                "oncomplete", "SetReady"));
-    }
-
 	void EndTurning() {
 		Vector3 pos = board.GetCoordinates(r, c);
 		iTween.MoveTo(
@@ -257,10 +249,22 @@ public class Actor : MonoBehaviour {
 				"delay", 0,
 				"time", movementTime,
                 "name", "movement",
-				"oncomplete", "SetReady"));
+				"oncomplete", "EndMoving"));
 	}
 
-	private void SetReady() {
+    void EndMoving()
+    {
+        print("end");
+        if (isArcher && actionIndex < plan.Count-1 && plan[actionIndex+1] == Action.SHOOT)
+        {
+            NextAction(true);
+            PerformAction();
+        } else {
+            SetReady();
+        }
+    }
+
+	public void SetReady() {
         hasTakenDamage = false;
 		ready = true;
 	}
@@ -275,31 +279,6 @@ public class Actor : MonoBehaviour {
         }
         else
         {
-            //animação de tomar dano
-            ready = false;
-            //iTween.Stop(gameObject, "movement");
-            int nr, nc;
-            Action reverse;
-            switch (actions.Current)
-            {
-                case Action.MOVE_U:
-                    reverse = Action.MOVE_D;
-                    break;
-                case Action.MOVE_D:
-                    reverse = Action.MOVE_U;
-                    break;
-                case Action.MOVE_L:
-                    reverse = Action.MOVE_R;
-                    break;
-                case Action.MOVE_R:
-                    reverse = Action.MOVE_L;
-                    break;
-                default:
-                    reverse = Action.MOVE_U;
-                    break;
-            }
-            NextPos(reverse, out nr, out nc);
-            KnockBackMovement(nr, nc);
         }
     }
 

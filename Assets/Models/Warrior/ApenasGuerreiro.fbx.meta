@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 4b1cfdf5f0178cc45913109ec2f43766
-timeCreated: 1514639424
+guid: 5473791daabff6f49a2341bd3cbf14dc
+timeCreated: 1516893112
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -63,6 +63,11 @@ ModelImporter:
     400052: Cube.004
     400054: Cube.007
     400056: Cube.011
+    2100000: Material.001
+    2100002: MaterialCabeca
+    2100004: MaterialMao.001
+    2100006: DifuseBracoInf
+    2100008: MaterialMalhaAzulCorpo
     2300000: BezierCurve.001
     2300002: BezierCurve.002
     2300004: BezierCurve.003
@@ -147,37 +152,12 @@ ModelImporter:
     4300050: Cube.004
     4300052: Cube.007
     4300054: Cube.011
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: DifuseBracoInf
-    second: {fileID: 2100000, guid: fa0615345f331414e87fb62b4ab3047f, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.001
-    second: {fileID: 2100000, guid: 8bbf04092e98bab48a8de2dc4651f02b, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: MaterialCabeca
-    second: {fileID: 2100000, guid: 7495ced1e28970d41a2d850917443d0c, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: MaterialMalhaAzulCorpo
-    second: {fileID: 2100000, guid: 6b30bc62d84289948ab0698259d73c7d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: MaterialMao.001
-    second: {fileID: 2100000, guid: d75751c450fb3084786252040ec79ff6, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -215,6 +195,8 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

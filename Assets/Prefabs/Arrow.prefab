@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4871184548602194}
   - component: {fileID: 33893660584490494}
   - component: {fileID: 23484167835568934}
-  - component: {fileID: 114007323575691234}
   - component: {fileID: 114159048667096890}
   - component: {fileID: 135771323886405384}
+  - component: {fileID: 54070065116025662}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Untagged
@@ -85,31 +85,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1724244658216148}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114007323575691234
-MonoBehaviour:
+--- !u!54 &54070065116025662
+Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1724244658216148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e288d34f95bc674ca053e05bca61b75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementTime: 0.5
-  rotationTime: 0.2
-  initR: 0
-  initC: 0
-  r: 0
-  c: 0
-  ready: 0
-  done: 0
-  isArcher: 0
-  arrow: {fileID: 0}
-  plan: 
-  hp: 0
-  maxActions: 8
-  info: {fileID: 0}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &114159048667096890
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -121,6 +111,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ef1e0ad9e3c8dc4bab243e39bc3f41f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  archerParent: {fileID: 0}
+  speed: 5
 --- !u!135 &135771323886405384
 SphereCollider:
   m_ObjectHideFlags: 1
