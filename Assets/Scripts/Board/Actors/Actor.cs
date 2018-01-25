@@ -211,13 +211,11 @@ public class Actor : MonoBehaviour {
                     AnimateMovement();
                     return true;
                 }
-            }
-
-            if (this.CompareTag("Player") && obj.CompareTag("Enemy") && !this.GetComponent<Actor>().hasTakenDamage)
+            } else if (this.CompareTag("Player") && obj.CompareTag("Enemy") && !this.GetComponent<Actor>().hasTakenDamage)
             {
                 print("entrou aqui tmb");
                 //TakeDamage();
-            } 
+            }
         }
         return false;
     }
@@ -333,6 +331,12 @@ public class Actor : MonoBehaviour {
         board.Set(r, c, null);
     }
 
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.CompareTag("Button")) {
+            col.gameObject.GetComponent<ButtonBehaviour>().Trigger();
+        }
+    }
 
 
 }

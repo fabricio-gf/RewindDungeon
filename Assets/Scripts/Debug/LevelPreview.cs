@@ -53,6 +53,16 @@ public class LevelPreview : MonoBehaviour {
 				inst.plan.ForEach(
 					action => enemy.AddAction(action));
 			}
+            if(level.button.row != -1 && level.button.col != -1 && level.door.row != -1 && level.door.col != -1)
+            {
+                ButtonPreview button = AddLevelObject<ButtonPreview>(
+                level.button.row, level.button.col);
+                button.Init(level.button.row, level.button.col);
+
+                DoorPreview door = AddLevelObject<DoorPreview>(
+                level.door.row, level.door.col);
+                door.Init(level.door.row, level.door.col);
+            }
             ExitPreview exit = AddLevelObject<ExitPreview>(
                 level.exit.row, level.exit.col);
             exit.Init(level.exit.row, level.exit.col);

@@ -37,6 +37,8 @@ public class GameManager : MonoBehaviour {
 	public GameObject prefabTestEnemy;
     public GameObject prefabCoin;
     public GameObject prefabExit;
+    public GameObject prefabButton;
+    public GameObject prefabDoor;
 
     [Header("OTHER ATTRIBUTES")]
     public GameObject CharacterToSpawn;
@@ -181,6 +183,22 @@ public class GameManager : MonoBehaviour {
 				action => actor.AddAction(action));
 			actors.Add(actor);
 		}
+        if (level.button.row != -1 && level.button.col != -1 && level.door.row != -1 && level.door.col != -1)
+        {
+            Vector3 doorPos = board.GetCoordinates(level.door.row, level.door.col);
+            GameObject door = Instantiate(
+                prefabDoor, doorPos, Quaternion.identity);
+            board.Set(level.door.row, level.door.col, door);
+
+            Vector3 buttonPos = board.GetCoordinates(level.button.row, level.button.col);
+            GameObject button = Instantiate(
+                prefabButton, buttonPos, Quaternion.identity);
+            button.GetComponent<ButtonBehaviour>().door = door;
+            button.GetComponent<ButtonBehaviour>().targetCol = level.door.col;
+            button.GetComponent<ButtonBehaviour>().targetRow = level.door.row;
+
+        }
+
         Vector3 exitPos = board.GetCoordinates(level.exit.row, level.exit.col);
         GameObject exit = Instantiate(
             prefabExit, exitPos, Quaternion.identity);

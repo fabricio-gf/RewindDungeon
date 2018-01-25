@@ -15,6 +15,7 @@ TagManager:
   - InputManager
   - CharacterSelect
   - Button
+  - Wall
   layers:
   - Default
   - TransparentFX

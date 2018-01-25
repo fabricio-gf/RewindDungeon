@@ -11,51 +11,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c5724d7fb51ed2408f9b77db29c5c0e, type: 3}
   m_Name: T9
   m_EditorClassIdentifier: 
-  title: Test Level 9
+  title: Test Level 9 (button and door)
   index: 9
   spritePath: sprite
   timeLimit: 10
-  classes: 010000000100000001000000
-  walls:
-  - row: 1
-    col: 0
-  - row: 1
-    col: 1
-  - row: 1
+  classes: 0000000002000000
+  walls: []
+  button:
+    row: 2
     col: 2
-  - row: 1
-    col: 3
-  - row: 1
-    col: 4
-  - row: 1
+  door:
+    row: 2
     col: 5
-  - row: 1
-    col: 6
-  - row: 1
-    col: 7
-  - row: 3
-    col: 0
-  - row: 3
-    col: 1
-  - row: 3
-    col: 2
-  - row: 3
-    col: 3
-  - row: 3
-    col: 4
-  - row: 3
-    col: 5
-  - row: 3
-    col: 6
-  - row: 3
-    col: 7
   spawnPoints:
-  - row: 0
-    col: 0
-  - row: 2
-    col: 0
   - row: 4
-    col: 0
+    col: 2
+  - row: 1
+    col: 5
   coins:
   - row: 0
     col: 7

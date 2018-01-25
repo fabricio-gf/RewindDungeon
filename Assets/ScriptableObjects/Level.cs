@@ -28,6 +28,8 @@ public class Level : ScriptableObject {
 	public int timeLimit;
 	public List<PlayerClass> classes;
 	public List<Position> walls;
+    public Position button;
+    public Position door;
 	public List<Position> spawnPoints;
     public List<Position> coins;
     public Position exit;

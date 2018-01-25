@@ -11,7 +11,10 @@ public class Arrow : MonoBehaviour {
     {
         if (other.CompareTag("Button"))
         {
-            //faz alguma coisa
+            other.GetComponent<ButtonBehaviour>().Trigger();
+            Destroy(gameObject);
+        } else if (other.CompareTag("Wall"))
+        {
             Destroy(gameObject);
         }
     }
