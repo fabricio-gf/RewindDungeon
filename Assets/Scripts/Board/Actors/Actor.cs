@@ -14,7 +14,6 @@ public class Actor : MonoBehaviour {
 	}
 
 	public float movementTime = 0.5f;
-    public float knockBackTime = 0.3f;
 	public float rotationTime = 0.2f;
 
 	public int initR;
@@ -28,12 +27,11 @@ public class Actor : MonoBehaviour {
     public bool hasTakenDamage;
 
     public bool isArcher;
+    public bool isWarrior;
     public GameObject arrow;
 
 	public List<Action> plan;
 
-    [Range(0,2)]
-    public int hp;
     public int maxActions;
     //public IEnumerator<Action> actions;
     public int actionIndex;
@@ -42,6 +40,8 @@ public class Actor : MonoBehaviour {
 	private Board board;
 
     public ActorInfo info;
+
+    public GameObject preview;
 
 	public void Spawn(Board board, int initR, int initC) {
 		plan = new List<Action>();
@@ -54,6 +54,12 @@ public class Actor : MonoBehaviour {
 		board.Set(initR, initC, gameObject);
 
 		transform.position = board.GetCoordinates(initR, initC);
+
+        if(GetComponent<PlayerCharacter>() != null && preview == null)
+        {
+            preview = Instantiate(GameManager.GM.PreviewToSpawn, this.transform);
+            ShowPreview();
+        }
 	}
 
 	public void BeginPlan() {
@@ -91,6 +97,11 @@ public class Actor : MonoBehaviour {
             //actions = null;
             actionIndex = -1;
             plan.Add(a);
+
+            if(a != Action.SHOOT)
+            {
+                UpdatePreview();
+            }
         }
         else
         {
@@ -102,7 +113,36 @@ public class Actor : MonoBehaviour {
 		plan.Clear();
 	}
 
-	public bool NextAction(bool force=false) {
+    void UpdatePreview()
+    {
+        int nr, nc;
+        nr = r;
+        nc = c;
+        for(int i = 0; i < plan.Count; i++)
+        {
+            NextPos(nr, nc, plan[i], out nr, out nc);
+        }
+
+        preview.transform.position = board.GetCoordinates(nr, nc);
+    }
+
+    public void ShowPreview() {
+
+        if (preview != null)
+            preview.SetActive(true);
+        else
+            print("deu merda");
+    }
+
+    public void HidePreview()
+    {
+        if (preview != null)
+            preview.SetActive(false);
+        else
+            print("deu merda");
+    }
+
+    public bool NextAction(bool force=false) {
 		if (done || !force && !ready) {
 			print("NOT READY");
 			return false;
@@ -182,11 +222,7 @@ public class Actor : MonoBehaviour {
         return false;
     }
 
-	private bool NextPos(out int nr, out int nc) {
-        return NextPos(plan[actionIndex], out nr, out nc);
-	}
-
-    private bool NextPos(Action action, out int nr, out int nc)
+    private bool NextPos(int r, int c, Action action, out int nr, out int nc)
     {
         nr = r;
         nc = c;
@@ -206,6 +242,15 @@ public class Actor : MonoBehaviour {
                 return true;
         }
         return false;
+    }
+
+	private bool NextPos(out int nr, out int nc) {
+        return NextPos(plan[actionIndex], out nr, out nc);
+	}
+
+    private bool NextPos(Action action, out int nr, out int nc)
+    {
+        return NextPos(r, c, action, out nr, out nc);
     }
 
     public void LookAtTargetPos() {
@@ -271,14 +316,13 @@ public class Actor : MonoBehaviour {
 
     public void TakeDamage()
     {
-        hasTakenDamage = true;
-        hp--;
-        if (hp == 0)
+        if (isWarrior)
         {
-            Die();
+            
         }
         else
         {
+            Die();
         }
     }
 
@@ -288,4 +332,7 @@ public class Actor : MonoBehaviour {
         done = true;
         board.Set(r, c, null);
     }
+
+
+
 }

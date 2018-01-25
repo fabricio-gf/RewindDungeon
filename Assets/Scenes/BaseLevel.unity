@@ -7026,6 +7026,83 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1945899146}
+--- !u!1 &1946527735
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1630093007606470, guid: f6f87ca2dffe8254b946492e24c4b1f5,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1946527737}
+  - component: {fileID: 1946527736}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: GM
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1946527736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1946527735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b563737329ccdb04a9a8129ff5267c92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepLoopDelay: 0.1
+  prefabWall: {fileID: 1057894945300492, guid: 8ad0884c9900fdd4db249cef851d431c, type: 2}
+  prefabWarrior: {fileID: 1050901805352978, guid: a3af62dd77cdd484ea28ec996cfcf0a2,
+    type: 2}
+  prefabArcher: {fileID: 1244365149758000, guid: 93ea8eb09f0841e4dafad841bd18c299,
+    type: 2}
+  prefabThief: {fileID: 1050901805352978, guid: f16874d3c0ad2964f87a7f28ecf7ed4e,
+    type: 2}
+  previewWarrior: {fileID: 1434765198885036, guid: 1a3f85c48e4b56e4286be2846cc32cb0,
+    type: 2}
+  previewArcher: {fileID: 1566124098231024, guid: 16a48a78ec05d9c42a0168a6d35a172a,
+    type: 2}
+  previewThief: {fileID: 1334468893020792, guid: 345e9c8c014f0cf48888cd79c2c26ca8,
+    type: 2}
+  prefabSpawnPoint: {fileID: 1586033134474904, guid: 891b4c91cfe88ee45890c0cd3be02880,
+    type: 2}
+  prefabTestEnemy: {fileID: 1880498635322990, guid: 207a6b8fd6a22bc4f81d550a5da1a7be,
+    type: 2}
+  prefabCoin: {fileID: 1372663255650734, guid: 5dcfd144d85685d4ea653d0d71484d24, type: 2}
+  prefabExit: {fileID: 1945566431898354, guid: 7a874266f1509024c92efe8650c39ea2, type: 2}
+  CharacterToSpawn: {fileID: 0}
+  PreviewToSpawn: {fileID: 0}
+  actors: []
+  playerAvailableCharactersPrefabs: []
+  characterSelectPanel: {fileID: 0}
+  playerSpawnPoints: []
+  levelToLoad: 
+  levelName: 
+  timeLimit: 0
+  board: {fileID: 0}
+  state: 0
+  victoryPanel: {fileID: 0}
+  _selectedActor: {fileID: 0}
+  selectedButton: {fileID: 0}
+  hasReachedExit: 0
+--- !u!4 &1946527737
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4578493809734440, guid: f6f87ca2dffe8254b946492e24c4b1f5,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1946527735}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 628.83844, y: 396.22806, z: 4.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1984646529
 GameObject:
   m_ObjectHideFlags: 0

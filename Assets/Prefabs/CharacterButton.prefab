@@ -93,9 +93,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharPrefabs:
   - {fileID: 1244365149758000, guid: 93ea8eb09f0841e4dafad841bd18c299, type: 2}
-  - {fileID: 1244365149758000, guid: 93ea8eb09f0841e4dafad841bd18c299, type: 2}
+  - {fileID: 1050901805352978, guid: f16874d3c0ad2964f87a7f28ecf7ed4e, type: 2}
   - {fileID: 1050901805352978, guid: a3af62dd77cdd484ea28ec996cfcf0a2, type: 2}
+  CharPreviews:
+  - {fileID: 1566124098231024, guid: 16a48a78ec05d9c42a0168a6d35a172a, type: 2}
+  - {fileID: 1334468893020792, guid: 345e9c8c014f0cf48888cd79c2c26ca8, type: 2}
+  - {fileID: 1434765198885036, guid: 1a3f85c48e4b56e4286be2846cc32cb0, type: 2}
+  Available: 1
   index: 0
+  UnavailableImage: {fileID: 0}
 --- !u!114 &114881369756573798
 MonoBehaviour:
   m_ObjectHideFlags: 1

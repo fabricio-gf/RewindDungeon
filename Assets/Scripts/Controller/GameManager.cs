@@ -22,16 +22,25 @@ public class GameManager : MonoBehaviour {
 	
 	public float stepLoopDelay = 0.1f;
 
+    [Header("PREFABS")]
 	public GameObject prefabWall;
+    [Space(20)]
 	public GameObject prefabWarrior;
     public GameObject prefabArcher;
+    public GameObject prefabThief;
 
+    public GameObject previewWarrior;
+    public GameObject previewArcher;
+    public GameObject previewThief;
+    [Space(20)]
 	public GameObject prefabSpawnPoint;
 	public GameObject prefabTestEnemy;
     public GameObject prefabCoin;
     public GameObject prefabExit;
 
+    [Header("OTHER ATTRIBUTES")]
     public GameObject CharacterToSpawn;
+    public GameObject PreviewToSpawn;
 
 	public List<Actor> actors;
 	public List<GameObject> playerAvailableCharactersPrefabs;
@@ -58,13 +67,15 @@ public class GameManager : MonoBehaviour {
 				_selectedActor.transform.Find("Body")
 					.GetComponent<Renderer>().material
 					.SetColor("_OutlineColor", Color.clear);
+                _selectedActor.HidePreview();
 			}
 			_selectedActor = value;
 			if (_selectedActor != null) {
 				_selectedActor.transform.Find("Body")
 					.GetComponent<Renderer>().material
 					.SetColor("_OutlineColor", Color.red);
-			}
+                _selectedActor.ShowPreview();
+            }
 		}
 	}
     public CharacterButton selectedButton;
@@ -298,4 +309,5 @@ public class GameManager : MonoBehaviour {
         //desativar as outras UIs
         victoryPanel.SetActive(true);
     }
+
 }

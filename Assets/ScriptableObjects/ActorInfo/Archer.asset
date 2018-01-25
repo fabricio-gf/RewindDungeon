@@ -11,4 +11,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed3c4ad2667148c448310b5db2145135, type: 3}
   m_Name: Archer
   m_EditorClassIdentifier: 
-  Preview: 1
+  Preview: 0

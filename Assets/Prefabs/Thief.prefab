@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 136548557733933110}
   - component: {fileID: 114425941617194618}
   m_Layer: 0
-  m_Name: Warrior
+  m_Name: Thief
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,7 +121,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: df2df3c01f228b249b25949a90921893, type: 2}
+  - {fileID: 2100000, guid: 7e8e05206733a874492846f70533d1e2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -265,12 +265,12 @@ MonoBehaviour:
   done: 0
   hasTakenDamage: 0
   isArcher: 0
-  isWarrior: 1
+  isWarrior: 0
   arrow: {fileID: 0}
   plan: 
-  maxActions: 6
+  maxActions: 10
   actionIndex: 0
-  info: {fileID: 11400000, guid: 2b4eeefd8772eaf4a957a132bb455763, type: 2}
+  info: {fileID: 11400000, guid: 1cb654cb6a0952643b68e2c2c0685080, type: 2}
   preview: {fileID: 0}
 --- !u!136 &136407417190866218
 CapsuleCollider:
