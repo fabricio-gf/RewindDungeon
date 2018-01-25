@@ -125,6 +125,7 @@ public class GameData : MonoBehaviour {
         }
         LevelsUnlocked[0] = 1;
         SaveAsJSON();
+        print("saved");
     }
 
     public void UnlockLevel(int index)
