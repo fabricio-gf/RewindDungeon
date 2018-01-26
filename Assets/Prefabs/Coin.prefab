@@ -658,7 +658,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Score: {fileID: 0}
   flipTime: 1
-  spinTime: 4
+  spinTime: 3
   animDelay: 0.5
 --- !u!135 &135386930250602758
 SphereCollider:
