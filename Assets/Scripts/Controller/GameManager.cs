@@ -166,8 +166,9 @@ public class GameManager : MonoBehaviour {
         foreach (Position pos in level.coins)
         {
             Vector3 coinPos = board.GetCoordinates(pos.row, pos.col);
+            coinPos += 0.5f * Vector3.up;
             GameObject coin = Instantiate(
-                prefabCoin, coinPos, Quaternion.identity);
+                prefabCoin, coinPos, prefabCoin.transform.rotation);
             //board.Set(pos.row, pos.col, coin);
         }
         foreach (Level.EnemyInstance inst in level.enemies) {
