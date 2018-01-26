@@ -659,7 +659,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Score: {fileID: 0}
   flipTime: 1
-  spinTime: 4
+  spinTime: 3
   animDelay: 0.5
 --- !u!114 &114685491337789642
 MonoBehaviour:

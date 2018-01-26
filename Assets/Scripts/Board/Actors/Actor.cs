@@ -24,10 +24,12 @@ public class Actor : MonoBehaviour {
 
 	public bool ready;
 	public bool done;
-    public bool hasTakenDamage;
 
     public bool isArcher;
     public bool isWarrior;
+
+    public bool isAttacking;
+
     public GameObject arrow;
 
 	public List<Action> plan;
@@ -116,6 +118,10 @@ public class Actor : MonoBehaviour {
     void UpdatePreview()
     {
         int nr, nc;
+
+        if (preview == null) {
+        	return;
+        }
         nr = r;
         nc = c;
         for(int i = 0; i < plan.Count; i++)
@@ -143,8 +149,8 @@ public class Actor : MonoBehaviour {
     }
 
     public bool NextAction(bool force=false) {
-		if (done || !force && !ready) {
-			print("NOT READY");
+    	print("next");
+		if (done || !force && !ready && !isAttacking) {
 			return false;
 		}
         //lastAction = actions.Current;
@@ -189,6 +195,7 @@ public class Actor : MonoBehaviour {
 		return false;
 	}
 
+
 	private bool TryMoveTo(int nr, int nc) {
 		if (board.Move(r, c, nr, nc)) {
 			r = nr;
@@ -199,22 +206,15 @@ public class Actor : MonoBehaviour {
         else if (board.WithinBounds(nr, nc))
         {
             GameObject obj = GameManager.GM.board.Get(nr, nc);
-            if(this.CompareTag("Enemy") && obj.CompareTag("Player") && !obj.GetComponent<Actor>().hasTakenDamage)
+            if (this.CompareTag("Enemy") && obj.CompareTag("Player"))
             {
-                print("entrou");
-                //animação de ataque
-                obj.GetComponent<Actor>().TakeDamage();
-                if (board.Move(r, c, nr, nc))
-                {
-                    r = nr;
-                    c = nc;
-                    AnimateMovement();
-                    return true;
-                }
-            } else if (this.CompareTag("Player") && obj.CompareTag("Enemy") && !this.GetComponent<Actor>().hasTakenDamage)
-            {
-                print("entrou aqui tmb");
-                //TakeDamage();
+            	StartCoroutine(Attack(obj.GetComponent<Actor>()));
+            	return true;
+            } else if (this.CompareTag("Player")
+            		&& obj.CompareTag("Enemy")
+            		&& isWarrior) {
+            	StartCoroutine(Attack(obj.GetComponent<Actor>()));
+            	return true;
             }
         }
         return false;
@@ -297,7 +297,6 @@ public class Actor : MonoBehaviour {
 
     void EndMoving()
     {
-        print("end");
         if (isArcher && actionIndex < plan.Count-1 && plan[actionIndex+1] == Action.SHOOT)
         {
             NextAction(true);
@@ -308,25 +307,44 @@ public class Actor : MonoBehaviour {
     }
 
 	public void SetReady() {
-        hasTakenDamage = false;
 		ready = true;
 	}
 
-    public void TakeDamage()
-    {
-        if (isWarrior)
-        {
-            
+	private IEnumerator Attack(Actor target) {
+		// TODO animate attack
+		ready = false;
+		target.ready = false;
+		isAttacking = true;
+		print(name + " attacking");
+		yield return new WaitForSeconds(2.0f);
+		print(name + " done animating");
+		target.TakeDamage(this);
+	}
+
+	public void PostAttack(Actor target) {
+		int nr = target.r;
+		int nc = target.c;
+
+		isAttacking = false;
+		if (board.Move(r, c, nr, nc)) {
+            r = nr;
+            c = nc;
+            AnimateMovement();
         }
-        else
-        {
+	}
+
+    public void TakeDamage(Actor src) {
+        if (isWarrior){
+        	StartCoroutine(Attack(src));
+        } else {
             Die();
+            src.PostAttack(this);
         }
     }
 
     private void Die()
     {
-        //ativar animação de morte
+        // TODO ativar animação de morte
         done = true;
         board.Set(r, c, null);
     }
