@@ -180,7 +180,7 @@ MonoBehaviour:
     type: 2}
   prefabTestEnemy: {fileID: 1880498635322990, guid: 207a6b8fd6a22bc4f81d550a5da1a7be,
     type: 2}
-  prefabCoin: {fileID: 1372663255650734, guid: 5dcfd144d85685d4ea653d0d71484d24, type: 2}
+  prefabCoin: {fileID: 1310469091118994, guid: 9480adfcfad03ca4aa77230375565c46, type: 2}
   prefabExit: {fileID: 1945566431898354, guid: 7a874266f1509024c92efe8650c39ea2, type: 2}
   prefabButton: {fileID: 1887563771037114, guid: c1f9a26d669cee549a823c6c0897cfed,
     type: 2}
