@@ -115,6 +115,7 @@ public class GameManager : MonoBehaviour {
 
 	IEnumerator InitLevel() {
 		yield return new WaitForEndOfFrame();
+		hasReachedExit = false;
 		board = GameObject.FindWithTag("Board").GetComponent<Board>();
         characterSelectPanel = GameObject.FindWithTag("CharacterSelect").GetComponent<CharacterSelect>();
         Level level = Resources.Load("Levels/" + levelToLoad) as Level;

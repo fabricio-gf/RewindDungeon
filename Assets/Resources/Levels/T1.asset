@@ -29,6 +29,12 @@ MonoBehaviour:
     col: 3
   - row: 2
     col: 4
+  button:
+    row: -1
+    col: -1
+  door:
+    row: -1
+    col: -1
   spawnPoints:
   - row: 0
     col: 2
