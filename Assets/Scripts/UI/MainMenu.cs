@@ -46,6 +46,11 @@ public class MainMenu : MonoBehaviour {
         SM.GetComponent<AudioSource>().mute = toggle;
     }
 
+    public void ChangeSpriteState(GameObject sprite)
+    {
+        sprite.SetActive(!sprite.activeSelf);
+    }
+
     public void ChangeLanguage(string language)
     {
         if(language == "EN")
