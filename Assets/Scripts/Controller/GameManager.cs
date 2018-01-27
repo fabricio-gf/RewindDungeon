@@ -40,6 +40,9 @@ public class GameManager : MonoBehaviour {
     public GameObject prefabButton;
     public GameObject prefabDoor;
 
+    [Space(20)]
+    public GameObject[] prefabTile;
+
     [Header("OTHER ATTRIBUTES")]
     public GameObject CharacterToSpawn;
     public GameObject PreviewToSpawn;
@@ -201,6 +204,14 @@ public class GameManager : MonoBehaviour {
 
         }
 
+        System.Random rng = new System.Random();
+        for (int i = 0; i < Board.GRID_ROWS; i++) {
+        	for (int j = 0; j < Board.GRID_COLS; j++) {
+        		if (i != level.exit.row || j != level.exit.col) {
+        			CreateFloorTile(rng, i, j);
+        		}
+        	}
+        }
         Vector3 exitPos = board.GetCoordinates(level.exit.row, level.exit.col);
         GameObject exit = Instantiate(
             prefabExit, exitPos, Quaternion.identity);
@@ -208,6 +219,19 @@ public class GameManager : MonoBehaviour {
 
         //levelToLoad = null;
 		Init();
+	}
+
+	void CreateFloorTile(System.Random rng, int row, int col) {
+		int tileType = rng.Next(0, 4);
+		int tileRot = rng.Next(0, 4);
+
+		GameObject floorTile = Instantiate(
+			prefabTile[tileType],
+			board.GetCoordinates(row, col),
+			Quaternion.identity);
+		Vector3 newRotation = new Vector3();
+		floorTile.transform.eulerAngles =
+			new Vector3(90.0f, 0, tileRot * 90.0f);
 	}
 
 	public void Load(string levelName) {
