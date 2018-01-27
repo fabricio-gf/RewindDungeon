@@ -30,6 +30,8 @@ public class Actor : MonoBehaviour {
 
     public bool isAttacking;
 
+    public Animator animController;
+
     public GameObject arrow;
 
 	public List<Action> plan;
@@ -47,6 +49,8 @@ public class Actor : MonoBehaviour {
 
 	public void Spawn(Board board, int initR, int initC) {
 		plan = new List<Action>();
+
+        animController = GetComponent<Animator>();
 
 		this.board = board;
 		this.r = initR;
@@ -282,7 +286,7 @@ public class Actor : MonoBehaviour {
 
 	void EndTurning() {
 		Vector3 pos = board.GetCoordinates(r, c);
-		iTween.MoveTo(
+        iTween.MoveTo(
 			gameObject,
 			iTween.Hash(
 				"x", pos.x,
@@ -292,8 +296,14 @@ public class Actor : MonoBehaviour {
 				"delay", 0,
 				"time", movementTime,
                 "name", "movement",
+                "onstart", "TriggerRun",
 				"oncomplete", "EndMoving"));
 	}
+
+    void TriggerRun()
+    {
+        animController.SetTrigger("Run");
+    }
 
     void EndMoving()
     {

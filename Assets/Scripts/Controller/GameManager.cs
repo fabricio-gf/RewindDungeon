@@ -66,16 +66,16 @@ public class GameManager : MonoBehaviour {
 		}
 		set {
 			if (_selectedActor != null) {
-				_selectedActor.transform.Find("Body")
-					.GetComponent<Renderer>().material
-					.SetColor("_OutlineColor", Color.clear);
+				//_selectedActor.transform.Find("Body")
+				//	.GetComponent<Renderer>().material
+				//	.SetColor("_OutlineColor", Color.clear);
                 _selectedActor.HidePreview();
 			}
 			_selectedActor = value;
 			if (_selectedActor != null) {
-				_selectedActor.transform.Find("Body")
-					.GetComponent<Renderer>().material
-					.SetColor("_OutlineColor", Color.red);
+				//_selectedActor.transform.Find("Body")
+				//	.GetComponent<Renderer>().material
+				//	.SetColor("_OutlineColor", Color.red);
                 _selectedActor.ShowPreview();
             }
 		}
