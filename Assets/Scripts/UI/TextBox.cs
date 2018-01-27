@@ -40,6 +40,7 @@ public class TextBox : MonoBehaviour {
 
             if (!IsTyping)
             {
+                SoundManager.SM.ButtonSound();
                 count++;
                 if (count < linesInFile.Length)
                 {

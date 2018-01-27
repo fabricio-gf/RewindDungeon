@@ -44,6 +44,7 @@ public class LevelSelect : MonoBehaviour {
     {
         if (!PreviewPanel.activeSelf)
         {
+            SoundManager.SM.PanelSound();
             PreviewPanel.SetActive(true);
         }
     }
@@ -71,13 +72,13 @@ public class LevelSelect : MonoBehaviour {
             GameObject obj = Instantiate(IconPrefab, IconsLocation.transform);
             switch (Classes[i]) {
                 case Level.PlayerClass.ARCHER:
-                    obj.GetComponent<Image>().sprite = ArcherIcon;
+                    obj.transform.GetChild(0).GetComponent<Image>().sprite = ArcherIcon;
                     break;
                 case Level.PlayerClass.THIEF:
-                    obj.GetComponent<Image>().sprite = ThiefIcon;
+                    obj.transform.GetChild(0).GetComponent<Image>().sprite = ThiefIcon;
                     break;
                 case Level.PlayerClass.WARRIOR:
-                    obj.GetComponent<Image>().sprite = WarriorIcon;
+                    obj.transform.GetChild(0).GetComponent<Image>().sprite = WarriorIcon;
                     break;
                 default:
                     break;
@@ -97,5 +98,10 @@ public class LevelSelect : MonoBehaviour {
     {
         Loader.SelectedLevel = SelectedLevel;
         ChangeScene("Cutscene");
+    }
+
+    public void PlayButtonSound()
+    {
+        SoundManager.SM.ButtonSound();
     }
 }

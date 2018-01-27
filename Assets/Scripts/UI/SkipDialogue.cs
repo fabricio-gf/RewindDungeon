@@ -11,4 +11,9 @@ public class SkipDialogue : MonoBehaviour {
     {
         GameManager.GM.Load(Loader.SelectedLevel.name);
     }
+
+    public void PlayButtonSound()
+    {
+        SoundManager.SM.ButtonSound();
+    }
 }

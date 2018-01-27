@@ -16,6 +16,8 @@ TagManager:
   - CharacterSelect
   - Button
   - Wall
+  - MM
+  - SM
   layers:
   - Default
   - TransparentFX

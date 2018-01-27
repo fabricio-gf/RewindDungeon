@@ -65,4 +65,14 @@ public class InputManager : MonoBehaviour {
             Buttons[i].SetActive(false);
         }
     }
+
+    public void PlayButtonSound()
+    {
+        SoundManager.SM.ButtonSound();
+    }
+
+    public void PlayPanelSound()
+    {
+        SoundManager.SM.PanelSound();
+    }
 }

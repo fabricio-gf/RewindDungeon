@@ -5,9 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 
-    public MusicManager MM;
-    public SoundManager SM;
-
     public void ChangeScene(string str)
     {
 		SceneManager.LoadScene(str);
@@ -25,25 +22,24 @@ public class MainMenu : MonoBehaviour {
 
     public void SetMusicVolume(float volume)
     {
-        MuteMusic(false);
-        MM.GetComponent<AudioSource>().volume = volume;
+        //MuteMusic(false);
+        MusicManager.MM.SetMusicVolume(volume);
     }
 
     public void SetSoundVolume(float volume)
     {
-        MuteSound(false);
-        SM.GetComponent<AudioSource>().volume = volume;
+        //MuteSound(false);
+        SoundManager.SM.SetSoundVolume(volume);
     }
 
     public void MuteMusic(bool toggle)
     {
-        MM.GetComponent<AudioSource>().mute = toggle;
-        
+        MusicManager.MM.MuteMusic(toggle);        
     }
 
     public void MuteSound(bool toggle)
     {
-        SM.GetComponent<AudioSource>().mute = toggle;
+        SoundManager.SM.MuteSound(toggle);
     }
 
     public void ChangeSpriteState(GameObject sprite)
@@ -51,25 +47,14 @@ public class MainMenu : MonoBehaviour {
         sprite.SetActive(!sprite.activeSelf);
     }
 
-    public void ChangeLanguage(string language)
+    public void PlayButtonSound()
     {
-        if(language == "EN")
-        {
-            print("english");
-        }
-        else if(language == "PT")
-        {
-            print("portugues");
-        }
-        else
-        {
-            print("language not supported");
-        }
+        SoundManager.SM.ButtonSound();
     }
 
-    public enum Language
+    public void PlayPanelSound()
     {
-        PT,
-        EN
+        SoundManager.SM.PanelSound();
     }
+
 }

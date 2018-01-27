@@ -351,6 +351,8 @@ public class GameManager : MonoBehaviour {
     {
         //parar execução e não receber mais inputs
         //desativar as outras UIs
+        SoundManager.SM.FanfareSound();
+        SoundManager.SM.PanelSound();
         victoryPanel.SetActive(true);
     }
 
