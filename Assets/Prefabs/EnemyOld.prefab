@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114078178121653338}
   - component: {fileID: 114533840452076166}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: EnemyOld
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -116,9 +116,16 @@ MonoBehaviour:
   c: 0
   ready: 0
   done: 0
+  isArcher: 0
+  isWarrior: 0
+  isAttacking: 0
+  animController: {fileID: 0}
+  arrow: {fileID: 0}
   plan: 
   maxActions: 10
+  actionIndex: 0
   info: {fileID: 0}
+  preview: {fileID: 0}
 --- !u!114 &114533840452076166
 MonoBehaviour:
   m_ObjectHideFlags: 1

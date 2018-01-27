@@ -342,7 +342,7 @@ MonoBehaviour:
   isWarrior: 0
   isAttacking: 0
   animController: {fileID: 0}
-  arrow: {fileID: 1724244658216148, guid: 32d89d81499c5984faef3684b9fed846, type: 2}
+  arrow: {fileID: 1512820040711508, guid: 0df18b8606f576d4daa92fb2aaf9f4e3, type: 2}
   plan: 
   maxActions: 6
   actionIndex: 0
