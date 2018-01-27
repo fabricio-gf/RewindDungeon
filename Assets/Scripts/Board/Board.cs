@@ -55,7 +55,8 @@ public class Board : MonoBehaviour {
 		// global coordinates
 		float gx = rx - (GRID_COLS / 2f);
 		float gz = -rz + (GRID_ROWS / 2f);
-		return new Vector3(gx, 0.5f, gz);
+		// return new Vector3(gx, 0.5f, gz);
+		return new Vector3(gx, 0, gz);
 	}
 
     public bool WithinBounds(int r, int c)
