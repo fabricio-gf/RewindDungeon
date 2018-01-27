@@ -12,15 +12,19 @@ public class Coin : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
+        print("entrou aqui");
         if (other.gameObject.CompareTag("Player"))
         {
             Score.AddCoin();
             //toca som
+            print("coin");
             Destroy(gameObject);
         }
+
     }
 
     void Start() {
+        Score = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreManager>();
         StartSpin();
     }
 

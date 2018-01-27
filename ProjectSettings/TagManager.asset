@@ -18,6 +18,7 @@ TagManager:
   - Wall
   - MM
   - SM
+  - ScoreManager
   layers:
   - Default
   - TransparentFX

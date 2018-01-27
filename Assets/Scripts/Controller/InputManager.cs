@@ -7,6 +7,8 @@ public class InputManager : MonoBehaviour {
 
     public GameObject CharacterSelection;
 
+    public GameObject RestartButton;
+
 	GameObject startObj;
 
     public GameObject[] Buttons;

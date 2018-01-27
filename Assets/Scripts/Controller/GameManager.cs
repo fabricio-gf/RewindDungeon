@@ -326,6 +326,11 @@ public class GameManager : MonoBehaviour {
             print("victory");
             Victory();
         }
+        else
+        {
+            GameObject.FindGameObjectWithTag("InputManager").GetComponent<InputManager>().RestartButton.SetActive(true);
+        }
+
 	}
 
     public void Deselect()
