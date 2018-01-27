@@ -298,11 +298,11 @@ MonoBehaviour:
     type: 2}
   prefabThief: {fileID: 1050901805352978, guid: f16874d3c0ad2964f87a7f28ecf7ed4e,
     type: 2}
-  previewWarrior: {fileID: 1434765198885036, guid: 1a3f85c48e4b56e4286be2846cc32cb0,
+  previewWarrior: {fileID: 1366306624366986, guid: cab8f2f5e0e53344ba118bb8f74a3d45,
     type: 2}
-  previewArcher: {fileID: 1566124098231024, guid: 16a48a78ec05d9c42a0168a6d35a172a,
+  previewArcher: {fileID: 1756812259327154, guid: 2814dc357a5d8b944bc6bbae23a396f3,
     type: 2}
-  previewThief: {fileID: 1334468893020792, guid: 345e9c8c014f0cf48888cd79c2c26ca8,
+  previewThief: {fileID: 1858513316335244, guid: 0a8d093608565df4da59852f6b9a37df,
     type: 2}
   prefabSpawnPoint: {fileID: 1586033134474904, guid: 891b4c91cfe88ee45890c0cd3be02880,
     type: 2}

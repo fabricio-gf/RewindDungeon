@@ -37,7 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4519993020052590}
   m_Layer: 0
-  m_Name: Archer Preview
+  m_Name: Archer PreviewOld
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

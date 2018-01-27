@@ -65,7 +65,7 @@ public class Actor : MonoBehaviour {
 
         if(GetComponent<PlayerCharacter>() != null && preview == null)
         {
-            preview = Instantiate(GameManager.GM.PreviewToSpawn, this.transform);
+            preview = Instantiate(GameManager.GM.PreviewToSpawn, transform.position + new Vector3(0, 0.1f, 0), GameManager.GM.PreviewToSpawn.transform.rotation);
             ShowPreview();
         }
 	}
@@ -135,7 +135,7 @@ public class Actor : MonoBehaviour {
             NextPos(nr, nc, plan[i], out nr, out nc);
         }
 
-        preview.transform.position = board.GetCoordinates(nr, nc);
+        preview.transform.position = board.GetCoordinates(nr, nc) + new Vector3(0, 0.15f, 0);
     }
 
     public void ShowPreview() {
@@ -328,7 +328,7 @@ public class Actor : MonoBehaviour {
 		target.ready = false;
 		isAttacking = true;
 		print(name + " attacking");
-		yield return new WaitForSeconds(2.0f);
+		yield return new WaitForSeconds(2.3f);
 		print(name + " done animating");
 		target.TakeDamage(this);
 	}
@@ -347,6 +347,8 @@ public class Actor : MonoBehaviour {
 
     public void TakeDamage(Actor src) {
         if (isWarrior){
+            animController.SetTrigger("Block");
+            StartCoroutine(WaitBlock());
         	StartCoroutine(Attack(src));
         } else {
             Die();
@@ -354,9 +356,15 @@ public class Actor : MonoBehaviour {
         }
     }
 
+    IEnumerator WaitBlock()
+    {
+        yield return new WaitForSeconds(1f);
+        animController.SetTrigger("Attack");
+    }
+
     private void Die()
     {
-        // TODO ativar animação de morte
+        animController.SetTrigger("Die");
         done = true;
         board.Set(r, c, null);
     }

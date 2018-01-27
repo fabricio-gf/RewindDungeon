@@ -3635,7 +3635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e447d3cf8706f241a87e142325b4e05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 17662700}
+  CharacterSelection: {fileID: 1346866457}
   Buttons:
   - {fileID: 1691114872}
   - {fileID: 260410694}

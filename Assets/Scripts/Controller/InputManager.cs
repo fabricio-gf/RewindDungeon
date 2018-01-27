@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class InputManager : MonoBehaviour {
-	public GameObject panel;
+
+    public GameObject CharacterSelection;
 
 	GameObject startObj;
 
