@@ -181,10 +181,15 @@ MonoBehaviour:
   prefabTestEnemy: {fileID: 1880498635322990, guid: 207a6b8fd6a22bc4f81d550a5da1a7be,
     type: 2}
   prefabCoin: {fileID: 1310469091118994, guid: 9480adfcfad03ca4aa77230375565c46, type: 2}
-  prefabExit: {fileID: 1945566431898354, guid: 7a874266f1509024c92efe8650c39ea2, type: 2}
+  prefabExit: {fileID: 1347252177849442, guid: 7a874266f1509024c92efe8650c39ea2, type: 2}
   prefabButton: {fileID: 1887563771037114, guid: c1f9a26d669cee549a823c6c0897cfed,
     type: 2}
   prefabDoor: {fileID: 1053625559645004, guid: f37368e004ddec346b96e5a9b42b49e4, type: 2}
+  prefabTile:
+  - {fileID: 1712369865023104, guid: 30528e11bc4d93242a38524244ffbabe, type: 2}
+  - {fileID: 1488955086988884, guid: c4c93e5376ca0dc46bdf8ddf061e2419, type: 2}
+  - {fileID: 1069254959537950, guid: 0e3ddf4eb7a0a254fb04bd958ed8356e, type: 2}
+  - {fileID: 1042446078046434, guid: a6eb86634493fc84b85b22e4f4f44402, type: 2}
   CharacterToSpawn: {fileID: 0}
   PreviewToSpawn: {fileID: 0}
   actors: []

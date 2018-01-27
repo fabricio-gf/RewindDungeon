@@ -45,9 +45,10 @@ ENDCG
 		Pass {
 			Name "OUTLINE"
 			Tags { "LightMode" = "Always" }
-			Cull Off
-			ZWrite Off
-			ZTest Always
+			Cull Front
+			ZWrite On
+			//ZTest Always
+			ZTest Less
 			ColorMask RGB // alpha not used
  
 			// you can choose what kind of blending mode you want for the outline
@@ -99,8 +100,8 @@ ENDCG
 			ColorMask RGB
  
 			// you can choose what kind of blending mode you want for the outline
-			Blend SrcAlpha OneMinusSrcAlpha // Normal
-			//Blend One One // Additive
+			//Blend SrcAlpha OneMinusSrcAlpha // Normal
+			Blend One One // Additive
 			//Blend One OneMinusDstColor // Soft Additive
 			//Blend DstColor Zero // Multiplicative
 			//Blend DstColor SrcColor // 2x Multiplicative

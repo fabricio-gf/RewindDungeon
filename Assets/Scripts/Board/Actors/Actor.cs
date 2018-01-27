@@ -13,6 +13,8 @@ public class Actor : MonoBehaviour {
         SHOOT
 	}
 
+    public GameObject selectionArrow;
+
 	public float movementTime = 0.5f;
 	public float rotationTime = 0.2f;
 
