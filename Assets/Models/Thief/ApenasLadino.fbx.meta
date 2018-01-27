@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: f2278ea387a3a314f902c21fb71724e1
-timeCreated: 1516893170
+timeCreated: 1517067513
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -68,6 +68,7 @@ ModelImporter:
     4300016: Sphere
     4300018: Sphere.000
     4300020: Sphere.001
+    9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -80,14 +81,15 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
-    rigImportErrors: 
+    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
+      human bone 'Hips' not found\n"
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -123,12 +125,72 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
     human: []
-    skeleton: []
+    skeleton:
+    - name: ApenasLadino(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cube.001
+      parentName: ApenasLadino(Clone)
+      position: {x: -0.017951045, y: 2.2991767, z: -0.26534748}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 70.98213, y: 121.33406, z: 66.47247}
+    - name: Cube.002
+      parentName: ApenasLadino(Clone)
+      position: {x: -0.017611444, y: 0.16275692, z: -0.18998718}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 70.62923, y: 113.87645, z: 66.47247}
+    - name: Cube.004
+      parentName: ApenasLadino(Clone)
+      position: {x: -0.022278659, y: 5.5025396, z: 0.15886092}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 70.62923, y: 113.87645, z: 66.47247}
+    - name: Cube.006
+      parentName: ApenasLadino(Clone)
+      position: {x: -0.017950961, y: 0.45492002, z: -0.32979795}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 70.98213, y: 121.33406, z: 66.47247}
+    - name: Cube.007
+      parentName: ApenasLadino(Clone)
+      position: {x: -0.01761141, y: 0.21699953, z: 0.026427746}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 70.62923, y: 113.87645, z: 66.47247}
+    - name: Cube.013
+      parentName: ApenasLadino(Clone)
+      position: {x: -0.046585083, y: 6.596055, z: -0.11675978}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 70.62923, y: 113.87645, z: 66.47247}
+    - name: Cube.015
+      parentName: ApenasLadino(Clone)
+      position: {x: -0.024134725, y: 3.5387106, z: 0.10679102}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 70.62923, y: 113.87645, z: 66.47247}
+    - name: Cube.016
+      parentName: ApenasLadino(Clone)
+      position: {x: -0.40126055, y: 4.5090146, z: -0.008433819}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 82.958206, y: 133.75462, z: 66.47247}
+    - name: Sphere
+      parentName: ApenasLadino(Clone)
+      position: {x: -0.26176488, y: 6.514913, z: 0.3520925}
+      rotation: {x: 0.0000000020269013, y: 0.9956903, z: -0.000000021761505, w: 0.09274055}
+      scale: {x: 19.479967, y: 15.583973, z: 19.479967}
+    - name: Sphere.000
+      parentName: ApenasLadino(Clone)
+      position: {x: -0.053044185, y: 6.240592, z: -0.23786402}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 94.49701, y: 97.14967, z: 94.49701}
+    - name: Sphere.001
+      parentName: ApenasLadino(Clone)
+      position: {x: 0.17136747, y: 6.514913, z: 0.3520925}
+      rotation: {x: -0.0000000036744443, y: 0.98576605, z: -0.000000021544597, w: -0.16812287}
+      scale: {x: 19.479967, y: 15.583973, z: 19.479967}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -139,10 +201,10 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 3
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
