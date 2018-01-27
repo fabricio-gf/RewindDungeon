@@ -69,6 +69,7 @@ public class GameManager : MonoBehaviour {
 		}
 		set {
 			if (_selectedActor != null) {
+				_selectedActor.selectionArrow.SetActive(false);
 				//_selectedActor.transform.Find("Body")
 				//	.GetComponent<Renderer>().material
 				//	.SetColor("_OutlineColor", Color.clear);
@@ -76,6 +77,7 @@ public class GameManager : MonoBehaviour {
 			}
 			_selectedActor = value;
 			if (_selectedActor != null) {
+				_selectedActor.selectionArrow.SetActive(true);
 				//_selectedActor.transform.Find("Body")
 				//	.GetComponent<Renderer>().material
 				//	.SetColor("_OutlineColor", Color.red);
@@ -229,7 +231,6 @@ public class GameManager : MonoBehaviour {
 			prefabTile[tileType],
 			board.GetCoordinates(row, col),
 			Quaternion.identity);
-		Vector3 newRotation = new Vector3();
 		floorTile.transform.eulerAngles =
 			new Vector3(90.0f, 0, tileRot * 90.0f);
 	}
