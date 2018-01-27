@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.43667564, g: 0.48427147, b: 0.56452364, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -2546,7 +2546,7 @@ Prefab:
     - target: {fileID: 108199417498876356, guid: 05ce2eb9de3abd744bf260ee9990bb5d,
         type: 2}
       propertyPath: m_Type
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 108199417498876356, guid: 05ce2eb9de3abd744bf260ee9990bb5d,
         type: 2}
@@ -2556,7 +2556,12 @@ Prefab:
     - target: {fileID: 108199417498876356, guid: 05ce2eb9de3abd744bf260ee9990bb5d,
         type: 2}
       propertyPath: m_Intensity
-      value: 10
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 108199417498876356, guid: 05ce2eb9de3abd744bf260ee9990bb5d,
+        type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 05ce2eb9de3abd744bf260ee9990bb5d, type: 2}
@@ -6760,9 +6765,9 @@ Light:
   m_GameObject: {fileID: 1984646529}
   m_Enabled: 1
   serializedVersion: 8
-  m_Type: 0
+  m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 10
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 120
   m_CookieSize: 10
@@ -6781,7 +6786,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
