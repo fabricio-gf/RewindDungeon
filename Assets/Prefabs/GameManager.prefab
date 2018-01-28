@@ -291,7 +291,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepLoopDelay: 0.1
-  prefabWall: {fileID: 1057894945300492, guid: 8ad0884c9900fdd4db249cef851d431c, type: 2}
   prefabWarrior: {fileID: 1077164034265046, guid: 18eb1b5cb23c8fb499081c97e9f4853d,
     type: 2}
   prefabArcher: {fileID: 1244365149758000, guid: 93ea8eb09f0841e4dafad841bd18c299,
@@ -318,6 +317,12 @@ MonoBehaviour:
   - {fileID: 1488955086988884, guid: c4c93e5376ca0dc46bdf8ddf061e2419, type: 2}
   - {fileID: 1069254959537950, guid: 0e3ddf4eb7a0a254fb04bd958ed8356e, type: 2}
   - {fileID: 1042446078046434, guid: a6eb86634493fc84b85b22e4f4f44402, type: 2}
+  prefabWall:
+  - {fileID: 1976235596807406, guid: 6fc49ca7b1ba1a94097933d9d1631c5b, type: 2}
+  - {fileID: 1899665951047060, guid: fbb46d483b04bb14f94e924974950a40, type: 2}
+  wallMaxRotation: 45
+  wallHeightAdjustBase: -0.8
+  wallHeightAdjustWindow: 0.2
   CharacterToSpawn: {fileID: 0}
   PreviewToSpawn: {fileID: 0}
   actors: []
