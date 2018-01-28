@@ -56,6 +56,7 @@ public class PlayerCharacter : RaycastTarget {
     public void Remove()
     {
         SpawnPoint.gameObject.SetActive(true);
+        GameManager.GM.actors.Remove(actor);
         Destroy(gameObject);
     }
 }
