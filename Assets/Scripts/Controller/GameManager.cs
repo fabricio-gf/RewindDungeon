@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour {
 
 	public List<Actor> actors;
 	public List<GameObject> playerAvailableCharactersPrefabs;
+	public List<GameObject> playerPreviews;
     public CharacterSelect characterSelectPanel;
 	public List<PlayerSpawnPoint> playerSpawnPoints;
 
@@ -140,18 +141,23 @@ public class GameManager : MonoBehaviour {
 
         foreach (Level.PlayerClass cls in level.classes) {
 			GameObject prefab = null;
+			GameObject preview = null;
 			switch (cls) {
 				case Level.PlayerClass.ARCHER:
 					prefab = prefabArcher;
+					preview = previewArcher;
 					break;
 				case Level.PlayerClass.THIEF:
-                    prefab = prefabArcher;
+                    prefab = prefabThief;
+                    preview = previewThief;
 					break;
 				case Level.PlayerClass.WARRIOR:
 					prefab = prefabWarrior;
+					preview = previewWarrior;
 					break;
 			}
-			playerAvailableCharactersPrefabs.Add(prefab); 
+			playerAvailableCharactersPrefabs.Add(prefab);
+			playerPreviews.Add(preview);
         }
 
         System.Random rng = new System.Random();
