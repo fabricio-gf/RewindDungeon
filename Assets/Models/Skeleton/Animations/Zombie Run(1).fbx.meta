@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: b206b099e0ae95b4fa08703e54028951
-timeCreated: 1517069544
+guid: 290fc7f637d324f42893d4781f6aab32
+timeCreated: 1517267599
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
+    100000: Cylinder
     100002: mixamorig:Head
     100004: mixamorig:HeadTop_End
     100006: mixamorig:Hips
@@ -31,7 +31,8 @@ ModelImporter:
     100046: mixamorig:Spine
     100048: mixamorig:Spine1
     100050: mixamorig:Spine2
-    400000: //RootNode
+    100052: //RootNode
+    400000: Cylinder
     400002: mixamorig:Head
     400004: mixamorig:HeadTop_End
     400006: mixamorig:Hips
@@ -57,8 +58,12 @@ ModelImporter:
     400046: mixamorig:Spine
     400048: mixamorig:Spine1
     400050: mixamorig:Spine2
+    400052: //RootNode
+    2100000: Material
+    4300000: Cylinder
     7400000: mixamo.com
     9500000: //RootNode
+    13700000: Cylinder
   externalObjects: {}
   materials:
     importMaterials: 1

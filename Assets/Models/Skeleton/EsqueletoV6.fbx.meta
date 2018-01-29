@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 7a1edec0637daf447a14f97c2ef7c873
-timeCreated: 1517068071
+timeCreated: 1517267376
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -11,6 +11,7 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Cylinder
+    9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -23,14 +24,15 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
-    rigImportErrors: 
+    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
+      human bone 'Hips' not found\n"
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
