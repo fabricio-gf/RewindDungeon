@@ -1,80 +1,130 @@
 fileFormatVersion: 2
-guid: a7c5c2c6cae519c48a8626cd38b81ffa
-timeCreated: 1516893149
+guid: bb913d40e239c664e8de1f2faf2135b5
+timeCreated: 1517171148
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: mixamorig:Head
-    100002: mixamorig:HeadTop_End
-    100004: mixamorig:Hips
-    100006: mixamorig:LeftArm
-    100008: mixamorig:LeftFoot
-    100010: mixamorig:LeftForeArm
-    100012: mixamorig:LeftHand
-    100014: mixamorig:LeftHandIndex1
-    100016: mixamorig:LeftHandIndex2
-    100018: mixamorig:LeftHandIndex3
-    100020: mixamorig:LeftHandIndex4
-    100022: mixamorig:LeftLeg
-    100024: mixamorig:LeftShoulder
-    100026: mixamorig:LeftToe_End
-    100028: mixamorig:LeftToeBase
-    100030: mixamorig:LeftUpLeg
-    100032: mixamorig:Neck
-    100034: mixamorig:RightArm
-    100036: mixamorig:RightFoot
-    100038: mixamorig:RightForeArm
-    100040: mixamorig:RightHand
-    100042: mixamorig:RightHandIndex1
-    100044: mixamorig:RightHandIndex2
-    100046: mixamorig:RightHandIndex3
-    100048: mixamorig:RightHandIndex4
-    100050: mixamorig:RightLeg
-    100052: mixamorig:RightShoulder
-    100054: mixamorig:RightToe_End
-    100056: mixamorig:RightToeBase
-    100058: mixamorig:RightUpLeg
-    100060: mixamorig:Spine
-    100062: mixamorig:Spine1
-    100064: mixamorig:Spine2
-    100066: //RootNode
-    400000: mixamorig:Head
-    400002: mixamorig:HeadTop_End
-    400004: mixamorig:Hips
-    400006: mixamorig:LeftArm
-    400008: mixamorig:LeftFoot
-    400010: mixamorig:LeftForeArm
-    400012: mixamorig:LeftHand
-    400014: mixamorig:LeftHandIndex1
-    400016: mixamorig:LeftHandIndex2
-    400018: mixamorig:LeftHandIndex3
-    400020: mixamorig:LeftHandIndex4
-    400022: mixamorig:LeftLeg
-    400024: mixamorig:LeftShoulder
-    400026: mixamorig:LeftToe_End
-    400028: mixamorig:LeftToeBase
-    400030: mixamorig:LeftUpLeg
-    400032: mixamorig:Neck
-    400034: mixamorig:RightArm
-    400036: mixamorig:RightFoot
-    400038: mixamorig:RightForeArm
-    400040: mixamorig:RightHand
-    400042: mixamorig:RightHandIndex1
-    400044: mixamorig:RightHandIndex2
-    400046: mixamorig:RightHandIndex3
-    400048: mixamorig:RightHandIndex4
-    400050: mixamorig:RightLeg
-    400052: mixamorig:RightShoulder
-    400054: mixamorig:RightToe_End
-    400056: mixamorig:RightToeBase
-    400058: mixamorig:RightUpLeg
-    400060: mixamorig:Spine
-    400062: mixamorig:Spine1
-    400064: mixamorig:Spine2
-    400066: //RootNode
+    100000: Cube.001
+    100002: Cube.002
+    100004: Cube.004
+    100006: Cube.006
+    100008: Cube.007
+    100010: Cube.013
+    100012: Cube.015
+    100014: Cube.016
+    100016: mixamorig:Head
+    100018: mixamorig:HeadTop_End
+    100020: mixamorig:Hips
+    100022: mixamorig:LeftArm
+    100024: mixamorig:LeftFoot
+    100026: mixamorig:LeftForeArm
+    100028: mixamorig:LeftHand
+    100030: mixamorig:LeftHandIndex1
+    100032: mixamorig:LeftHandIndex2
+    100034: mixamorig:LeftHandIndex3
+    100036: mixamorig:LeftHandIndex4
+    100038: mixamorig:LeftLeg
+    100040: mixamorig:LeftShoulder
+    100042: mixamorig:LeftToe_End
+    100044: mixamorig:LeftToeBase
+    100046: mixamorig:LeftUpLeg
+    100048: mixamorig:Neck
+    100050: mixamorig:RightArm
+    100052: mixamorig:RightFoot
+    100054: mixamorig:RightForeArm
+    100056: mixamorig:RightHand
+    100058: mixamorig:RightHandIndex1
+    100060: mixamorig:RightHandIndex2
+    100062: mixamorig:RightHandIndex3
+    100064: mixamorig:RightHandIndex4
+    100066: mixamorig:RightLeg
+    100068: mixamorig:RightShoulder
+    100070: mixamorig:RightToe_End
+    100072: mixamorig:RightToeBase
+    100074: mixamorig:RightUpLeg
+    100076: mixamorig:Spine
+    100078: mixamorig:Spine1
+    100080: mixamorig:Spine2
+    100082: Sphere
+    100084: Sphere.000
+    100086: Sphere.001
+    100088: //RootNode
+    400000: Cube.001
+    400002: Cube.002
+    400004: Cube.004
+    400006: Cube.006
+    400008: Cube.007
+    400010: Cube.013
+    400012: Cube.015
+    400014: Cube.016
+    400016: mixamorig:Head
+    400018: mixamorig:HeadTop_End
+    400020: mixamorig:Hips
+    400022: mixamorig:LeftArm
+    400024: mixamorig:LeftFoot
+    400026: mixamorig:LeftForeArm
+    400028: mixamorig:LeftHand
+    400030: mixamorig:LeftHandIndex1
+    400032: mixamorig:LeftHandIndex2
+    400034: mixamorig:LeftHandIndex3
+    400036: mixamorig:LeftHandIndex4
+    400038: mixamorig:LeftLeg
+    400040: mixamorig:LeftShoulder
+    400042: mixamorig:LeftToe_End
+    400044: mixamorig:LeftToeBase
+    400046: mixamorig:LeftUpLeg
+    400048: mixamorig:Neck
+    400050: mixamorig:RightArm
+    400052: mixamorig:RightFoot
+    400054: mixamorig:RightForeArm
+    400056: mixamorig:RightHand
+    400058: mixamorig:RightHandIndex1
+    400060: mixamorig:RightHandIndex2
+    400062: mixamorig:RightHandIndex3
+    400064: mixamorig:RightHandIndex4
+    400066: mixamorig:RightLeg
+    400068: mixamorig:RightShoulder
+    400070: mixamorig:RightToe_End
+    400072: mixamorig:RightToeBase
+    400074: mixamorig:RightUpLeg
+    400076: mixamorig:Spine
+    400078: mixamorig:Spine1
+    400080: mixamorig:Spine2
+    400082: Sphere
+    400084: Sphere.000
+    400086: Sphere.001
+    400088: //RootNode
+    2100000: Material.003
+    2100002: Material.007
+    2100004: Material.004
+    2100006: Material.005
+    2100008: Material.002
+    2100010: Material.001
+    4300000: Cube.001
+    4300002: Cube.002
+    4300004: Cube.004
+    4300006: Cube.006
+    4300008: Cube.007
+    4300010: Cube.013
+    4300012: Cube.015
+    4300014: Cube.016
+    4300016: Sphere
+    4300018: Sphere.000
+    4300020: Sphere.001
     7400000: mixamo.com
     9500000: //RootNode
+    13700000: Cube.001
+    13700002: Cube.002
+    13700004: Cube.004
+    13700006: Cube.006
+    13700008: Cube.007
+    13700010: Cube.013
+    13700012: Cube.015
+    13700014: Cube.016
+    13700016: Sphere
+    13700018: Sphere.000
+    13700020: Sphere.001
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -101,7 +151,35 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: mixamo.com
+      takeName: mixamo.com
+      firstFrame: 0
+      lastFrame: 21
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
