@@ -12,7 +12,6 @@ public class Coin : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        print("entrou aqui");
         if (other.gameObject.CompareTag("Player"))
         {
             Score.AddCoin();

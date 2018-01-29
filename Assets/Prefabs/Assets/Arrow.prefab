@@ -70,6 +70,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4620266667177408}
+  - component: {fileID: 114179094345762052}
+  - component: {fileID: 54792392027349510}
+  - component: {fileID: 136762752627208212}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Untagged
@@ -471,3 +474,44 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1553069348311890}
   m_Mesh: {fileID: 4300010, guid: 3d4f4a3ead0113343a2b8df797a37f67, type: 3}
+--- !u!54 &54792392027349510
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1551940831580916}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &114179094345762052
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1551940831580916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef1e0ad9e3c8dc4bab243e39bc3f41f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  archerParent: {fileID: 0}
+  speed: 4
+--- !u!136 &136762752627208212
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1551940831580916}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.17, z: 0}

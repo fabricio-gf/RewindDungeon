@@ -86,8 +86,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharPrefabs:
-  - {fileID: 1244365149758000, guid: 93ea8eb09f0841e4dafad841bd18c299, type: 2}
-  - {fileID: 1050901805352978, guid: f16874d3c0ad2964f87a7f28ecf7ed4e, type: 2}
+  - {fileID: 1787597491220822, guid: 0f49095e01d724947bd884f0cc4f6a05, type: 2}
+  - {fileID: 1561479389433704, guid: 3dc055acb18aa8e469638c3e5f75201b, type: 2}
   - {fileID: 1077164034265046, guid: 18eb1b5cb23c8fb499081c97e9f4853d, type: 2}
   CharPreviews:
   - {fileID: 1756812259327154, guid: 2814dc357a5d8b944bc6bbae23a396f3, type: 2}

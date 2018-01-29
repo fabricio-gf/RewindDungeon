@@ -9,7 +9,6 @@ public class Actor : MonoBehaviour {
 		MOVE_D,
 		MOVE_L,
 		MOVE_R,
-		ATTACK,
         SHOOT
 	}
 
@@ -187,18 +186,16 @@ public class Actor : MonoBehaviour {
 			case Action.MOVE_R:
 				NextPos(out nr, out nc);
 				return TryMoveTo(nr, nc);
-			case Action.ATTACK:
-				// TODO attack
-				break;
             case Action.SHOOT:
                 ready = false;
+                animController.SetTrigger("Shoot");
                 NextPos(lastAction, out nr, out nc);
                 if (board.WithinBounds(nr, nc)) {
                     GameObject obj = Instantiate(arrow, board.GetCoordinates(nr, nc), arrow.transform.rotation);
-                    obj.transform.eulerAngles = new Vector3(obj.transform.eulerAngles.x, transform.eulerAngles.y, obj.transform.eulerAngles.z);
+                    obj.transform.eulerAngles = new Vector3(obj.transform.eulerAngles.x, transform.eulerAngles.y-180, obj.transform.eulerAngles.z);
                     Arrow arrowScript = obj.GetComponent<Arrow>();
                     arrowScript.archerParent = this;
-                    obj.GetComponent<Rigidbody>().velocity = obj.transform.forward * arrowScript.speed;
+                    obj.GetComponent<Rigidbody>().velocity = -obj.transform.up * arrowScript.speed;
                 }
                 break;
         }
