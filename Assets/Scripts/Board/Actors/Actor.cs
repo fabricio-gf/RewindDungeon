@@ -38,7 +38,6 @@ public class Actor : MonoBehaviour {
 	public List<Action> plan;
 
     public int maxActions;
-    //public IEnumerator<Action> actions;
     public int actionIndex;
     Action lastAction;
 
@@ -47,6 +46,8 @@ public class Actor : MonoBehaviour {
     public ActorInfo info;
 
     public GameObject preview;
+
+    ActorSfxManager sfxm;
 
 	public void Spawn(Board board, int initR, int initC) {
 		plan = new List<Action>();
@@ -67,6 +68,8 @@ public class Actor : MonoBehaviour {
             preview = Instantiate(GameManager.GM.PreviewToSpawn, transform.position + new Vector3(0, 0.1f, 0), GameManager.GM.PreviewToSpawn.transform.rotation);
             ShowPreview();
         }
+
+        sfxm = GetComponent<ActorSfxManager>();
 	}
 
 	void OnDestroy() {
@@ -80,12 +83,10 @@ public class Actor : MonoBehaviour {
             AddAction(Action.SHOOT);
         }
         if (plan.Count > 0) {
-            //actions = plan.GetEnumerator();
             actionIndex = -1;
 			ready = true;
 			done = false;
 		} else {
-            //actions = null;
             actionIndex = -1;
 			ready = false;
 			done = true;
@@ -105,7 +106,6 @@ public class Actor : MonoBehaviour {
 	public void AddAction(Action a) {
         if (plan.Count < maxActions)
         {
-            //actions = null;
             actionIndex = -1;
             plan.Add(a);
 
@@ -142,27 +142,22 @@ public class Actor : MonoBehaviour {
     }
 
     public void ShowPreview() {
-
-        if (preview != null)
+        if (preview != null) {
             preview.SetActive(true);
-        else
-            print("deu merda");
+        }
     }
 
     public void HidePreview()
     {
-        if (preview != null)
+        if (preview != null) {
             preview.SetActive(false);
-        else
-            print("deu merda");
+        }
     }
 
     public bool NextAction(bool force=false) {
-    	print("next");
 		if (done || !force && !ready && !isAttacking) {
 			return false;
 		}
-        //lastAction = actions.Current;
         actionIndex++;
         if (actionIndex >= plan.Count)
         {
@@ -178,7 +173,6 @@ public class Actor : MonoBehaviour {
 
 	public bool PerformAction() {
 		int nr, nc;
-		//switch (actions.Current) {
         switch (plan[actionIndex]) {
 			case Action.MOVE_U:
 			case Action.MOVE_D:
@@ -328,9 +322,8 @@ public class Actor : MonoBehaviour {
 		ready = false;
 		target.ready = false;
 		isAttacking = true;
-		print(name + " attacking");
+        sfxm.PlayAttackSound();
 		yield return new WaitForSeconds(2.3f);
-		print(name + " done animating");
 		target.TakeDamage(this);
 	}
 
@@ -365,6 +358,7 @@ public class Actor : MonoBehaviour {
 
     private void Die()
     {
+        sfxm.PlayDeathSound();
         animController.SetTrigger("Die");
         done = true;
         board.Set(r, c, null);

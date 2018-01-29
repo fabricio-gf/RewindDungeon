@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43667564, g: 0.48427147, b: 0.56452364, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -2614,7 +2614,7 @@ Prefab:
     - target: {fileID: 108199417498876356, guid: 05ce2eb9de3abd744bf260ee9990bb5d,
         type: 2}
       propertyPath: m_Type
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 108199417498876356, guid: 05ce2eb9de3abd744bf260ee9990bb5d,
         type: 2}
@@ -2624,12 +2624,27 @@ Prefab:
     - target: {fileID: 108199417498876356, guid: 05ce2eb9de3abd744bf260ee9990bb5d,
         type: 2}
       propertyPath: m_Intensity
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 108199417498876356, guid: 05ce2eb9de3abd744bf260ee9990bb5d,
         type: 2}
       propertyPath: m_Lightmapping
-      value: 2
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 108199417498876356, guid: 05ce2eb9de3abd744bf260ee9990bb5d,
+        type: 2}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 108199417498876356, guid: 05ce2eb9de3abd744bf260ee9990bb5d,
+        type: 2}
+      propertyPath: m_Range
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 108199417498876356, guid: 05ce2eb9de3abd744bf260ee9990bb5d,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.9369033
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 05ce2eb9de3abd744bf260ee9990bb5d, type: 2}
@@ -3451,6 +3466,7 @@ GameObject:
   - component: {fileID: 1210653584}
   - component: {fileID: 1210653588}
   - component: {fileID: 1210653589}
+  - component: {fileID: 1210653590}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3549,6 +3565,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_MaxRayIntersections: 0
+--- !u!114 &1210653590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1210653583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: e8dc7b752ea9e6e4080928bfbb2bb92d, type: 2}
 --- !u!1 &1227741619
 GameObject:
   m_ObjectHideFlags: 0
@@ -5375,6 +5403,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AvailableCharacters: []
+  CharacterPreviews: []
+  CharacterIcons: []
   ButtonPrefab: {fileID: 1961517804871070, guid: da85a2bae18734a40a884d6f1031c001,
     type: 2}
 --- !u!1 &1727839622
@@ -6690,7 +6720,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepLoopDelay: 0.1
-  prefabWall: {fileID: 1057894945300492, guid: 8ad0884c9900fdd4db249cef851d431c, type: 2}
   prefabWarrior: {fileID: 1050901805352978, guid: a3af62dd77cdd484ea28ec996cfcf0a2,
     type: 2}
   prefabArcher: {fileID: 1244365149758000, guid: 93ea8eb09f0841e4dafad841bd18c299,
@@ -6703,6 +6732,9 @@ MonoBehaviour:
     type: 2}
   previewThief: {fileID: 1334468893020792, guid: 345e9c8c014f0cf48888cd79c2c26ca8,
     type: 2}
+  iconArcher: {fileID: 0}
+  iconThief: {fileID: 0}
+  iconWarrior: {fileID: 0}
   prefabSpawnPoint: {fileID: 1586033134474904, guid: 891b4c91cfe88ee45890c0cd3be02880,
     type: 2}
   prefabTestEnemy: {fileID: 1880498635322990, guid: 207a6b8fd6a22bc4f81d550a5da1a7be,
@@ -6712,10 +6744,19 @@ MonoBehaviour:
   prefabButton: {fileID: 0}
   prefabDoor: {fileID: 0}
   prefabTile: []
+  prefabWall:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  wallMaxRotation: 45
+  wallHeightAdjustBase: 0
+  wallHeightAdjustWindow: 0
   CharacterToSpawn: {fileID: 0}
   PreviewToSpawn: {fileID: 0}
   actors: []
   playerAvailableCharactersPrefabs: []
+  playerPreviews: []
+  playerIcons: []
   characterSelectPanel: {fileID: 0}
   playerSpawnPoints: []
   levelToLoad: 
@@ -6835,10 +6876,10 @@ Light:
   m_GameObject: {fileID: 1984646529}
   m_Enabled: 1
   serializedVersion: 8
-  m_Type: 1
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
-  m_Range: 10
+  m_Type: 2
+  m_Color: {r: 1, g: 0.9369033, b: 0.8392157, a: 1}
+  m_Intensity: 1.5
+  m_Range: 70
   m_SpotAngle: 120
   m_CookieSize: 10
   m_Shadows:
@@ -6856,7 +6897,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 2
+  m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570

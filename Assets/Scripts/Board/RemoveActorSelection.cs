@@ -7,7 +7,7 @@ public class RemoveActorSelection : RaycastTarget {
 
     public override void Click()
     {
-        print("click");
+    	print("remove from " + name);
         if (GameManager.GM.state == GameManager.State.PLANNING)
         {
             GameManager.GM.selectedActor = null;

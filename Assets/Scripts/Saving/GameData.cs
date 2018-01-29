@@ -37,7 +37,6 @@ public class GameData : MonoBehaviour {
                 LevelsButtons[i] = LevelsPanel.GetChild(i);
             }
         }
-        print(Application.persistentDataPath + "/" + saveFileName + ".json");
         saveFilePath =
             Application.persistentDataPath
             + "/" + saveFileName + ".json";
@@ -47,7 +46,6 @@ public class GameData : MonoBehaviour {
     {
         //loads the progress at the start of the scene
         LoadFromJSON();
-        print("loaded");
     }
 
     private void Update()
@@ -55,15 +53,11 @@ public class GameData : MonoBehaviour {
         //TESTING METHOD
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            print("saving");
             SaveAsJSON();
-            print("saved");
         }
         else if (Input.GetKeyDown(KeyCode.Return))
         {
-            print("loading");
             LoadFromJSON();
-            print("loaded");
         }
     }
 
@@ -125,7 +119,6 @@ public class GameData : MonoBehaviour {
         }
         LevelsUnlocked[0] = 1;
         SaveAsJSON();
-        print("saved");
     }
 
     public void UnlockLevel(int index)
@@ -141,14 +134,12 @@ public class GameData : MonoBehaviour {
     {
         if(score < 0 || score > 3)
         {
-            Debug.Log("Invalid Score");
             return;
         }
         if (score > LevelsScore[index])
         {
             LevelsScore[index] = score;
             SaveAsJSON();
-            print("new score" + LevelsScore[index]);
         }
     }
 }

@@ -10,6 +10,7 @@ public class LevelPreview : MonoBehaviour {
 	[Space(10)]
 	public bool skipPlayerInput = true;
 	public string levelName;
+	public Level level;
 
 	void OnEnable() {
 		Reset();
@@ -23,7 +24,7 @@ public class LevelPreview : MonoBehaviour {
 	}
 
 	public void Load() {
-		Level level = Resources.Load("Levels/" + levelName) as Level;
+		level = Resources.Load("Levels/" + levelName) as Level;
 		if (level != null) {
 			for (int i = 0; i < level.classes.Count; i++) {
 				PlayerClassMarker marker =
