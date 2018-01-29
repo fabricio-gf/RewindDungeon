@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour {
 	public float stepLoopDelay = 0.1f;
 
     [Header("PREFABS")]
-	public GameObject prefabWall;
+	//public GameObject prefabWall;
     [Space(20)]
 	public GameObject prefabWarrior;
     public GameObject prefabArcher;
@@ -32,6 +32,10 @@ public class GameManager : MonoBehaviour {
     public GameObject previewWarrior;
     public GameObject previewArcher;
     public GameObject previewThief;
+
+    public Sprite iconArcher;
+    public Sprite iconThief;
+    public Sprite iconWarrior;
     [Space(20)]
 	public GameObject prefabSpawnPoint;
 	public GameObject prefabTestEnemy;
@@ -42,6 +46,10 @@ public class GameManager : MonoBehaviour {
 
     [Space(20)]
     public GameObject[] prefabTile;
+    public GameObject[] prefabWall;
+    public float wallMaxRotation = 45.0f;
+    public float wallHeightAdjustBase;
+    public float wallHeightAdjustWindow;
 
     [Header("OTHER ATTRIBUTES")]
     public GameObject CharacterToSpawn;
@@ -49,6 +57,8 @@ public class GameManager : MonoBehaviour {
 
 	public List<Actor> actors;
 	public List<GameObject> playerAvailableCharactersPrefabs;
+	public List<GameObject> playerPreviews;
+	public List<Sprite> playerIcons;
     public CharacterSelect characterSelectPanel;
 	public List<PlayerSpawnPoint> playerSpawnPoints;
 
@@ -136,25 +146,35 @@ public class GameManager : MonoBehaviour {
 
         foreach (Level.PlayerClass cls in level.classes) {
 			GameObject prefab = null;
+			GameObject preview = null;
+			Sprite icon = null;
 			switch (cls) {
 				case Level.PlayerClass.ARCHER:
 					prefab = prefabArcher;
+					preview = previewArcher;
+					icon = iconArcher;
 					break;
 				case Level.PlayerClass.THIEF:
-                    prefab = prefabArcher;
+                    prefab = prefabThief;
+                    preview = previewThief;
+                    icon = iconThief;
 					break;
 				case Level.PlayerClass.WARRIOR:
 					prefab = prefabWarrior;
+					preview = previewWarrior;
+					icon = iconWarrior;
 					break;
 			}
-			playerAvailableCharactersPrefabs.Add(prefab); 
+			playerAvailableCharactersPrefabs.Add(prefab);
+			playerPreviews.Add(preview);
+			playerIcons.Add(icon);
         }
+
+        System.Random rng = new System.Random();
         characterSelectPanel.Init();
         foreach (Position pos in level.walls) {
 			Vector3 wallPos = board.GetCoordinates(pos.row, pos.col);
-			GameObject wall = Instantiate(
-				prefabWall, wallPos, Quaternion.identity);
-			board.Set(pos.row, pos.col, wall);
+			CreateWall(rng, pos.row, pos.col);
 		}
 		foreach (Position pos in level.spawnPoints) {
 			Vector3 spawnPos = board.GetCoordinates(pos.row, pos.col);
@@ -206,7 +226,6 @@ public class GameManager : MonoBehaviour {
 
         }
 
-        System.Random rng = new System.Random();
         for (int i = 0; i < Board.GRID_ROWS; i++) {
         	for (int j = 0; j < Board.GRID_COLS; j++) {
         		if (i != level.exit.row || j != level.exit.col) {
@@ -224,7 +243,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void CreateFloorTile(System.Random rng, int row, int col) {
-		int tileType = rng.Next(0, 4);
+		int tileType = rng.Next(0, prefabTile.Length);
 		int tileRot = rng.Next(0, 4);
 
 		GameObject floorTile = Instantiate(
@@ -233,6 +252,23 @@ public class GameManager : MonoBehaviour {
 			Quaternion.identity);
 		floorTile.transform.eulerAngles =
 			new Vector3(90.0f, 0, tileRot * 90.0f);
+	}
+
+	void CreateWall(System.Random rng, int row, int col) {
+		int wallType = rng.Next(0, prefabWall.Length);
+		GameObject prefab = prefabWall[wallType];
+		GameObject wall = Instantiate(
+			prefab,
+			board.GetCoordinates(row, col),
+			prefab.transform.rotation);
+		board.Set(row, col, wall);
+		Vector3 newRotation = wall.transform.eulerAngles;
+		float rotationDelta = (float) (2*rng.NextDouble() - 1) * wallMaxRotation;
+		newRotation.y += rotationDelta;
+		float heightDelta = (float) (2*rng.NextDouble() - 1) * wallHeightAdjustWindow;
+		heightDelta += wallHeightAdjustBase;
+		wall.transform.Translate(0, 0, heightDelta);
+		wall.transform.eulerAngles = newRotation;
 	}
 
 	public void Load(string levelName) {

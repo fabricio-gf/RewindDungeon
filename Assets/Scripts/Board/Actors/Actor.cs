@@ -70,6 +70,10 @@ public class Actor : MonoBehaviour {
         }
 	}
 
+	void OnDestroy() {
+		Destroy(preview);
+	}
+
 	public void BeginPlan() {
         if (isArcher)
         {
