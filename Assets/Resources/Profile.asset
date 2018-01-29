@@ -134,9 +134,9 @@ MonoBehaviour:
       colorWheels:
         mode: 1
         log:
-          slope: {r: 0.86038625, g: 0.8305661, b: 1, a: 0}
-          power: {r: 1, g: 0.9487631, b: 0.8204421, a: 0}
-          offset: {r: 0.9541522, g: 1, b: 0.8358626, a: 0}
+          slope: {r: 1, g: 0.92892, b: 0.84357804, a: 0.082474224}
+          power: {r: 0.92454886, g: 0.9242269, b: 1, a: -0.082474224}
+          offset: {r: 1, g: 1, b: 1, a: 0}
         linear:
           lift: {r: 1, g: 1, b: 1, a: 0}
           gamma: {r: 1, g: 1, b: 1, a: 0}

@@ -1,6 +1,9 @@
 Button.ogg	- segment of work by FreqMan at https://freesound.org/s/31590/
 Slide.ogg	- segment of work by Mocosouscraft at https://freesound.org/s/370737/
-Death0.ogg	- Wilhelm scream
+DeathWilhelm.ogg- Wilhelm scream
 Stairs.ogg	- modified version of work by nekomimi07 at https://freesound.org/s/411019/
 Lever.ogg	- work by BMacZero at https://freesound.org/s/94127/
 Rattle*.ogg	- work by spookymodem at https://freesound.org/s/202102/
+DeathMale.ogg	- work by stuxer at https://freesound.org/s/401210/
+DeathFemale.ogg	- work by Coral_Island_Studios at https://freesound.org/s/277562/
+Sword.ogg	- work by lostchocolatelab https://freesound.org/s/1431/

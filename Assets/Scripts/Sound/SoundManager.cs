@@ -15,8 +15,16 @@ public class SoundManager : MonoBehaviour {
     public AudioClip button;
     public AudioClip panel;
     public AudioClip fanfare;
+    public AudioClip bow;
+    public AudioClip sword;
     public AudioClip lever;
     public AudioClip stairs;
+    public AudioClip deathMale;
+    public AudioClip deathFemale;
+    public AudioClip deathWilhelm;
+    public AudioClip[] bones = new AudioClip[3];
+
+    System.Random rng;
 
     void Awake()
     {
@@ -30,6 +38,7 @@ public class SoundManager : MonoBehaviour {
             SM = GetComponent<SoundManager>();
         }
 
+        rng = new System.Random();
         source = GetComponent<AudioSource>();
     }
 
@@ -71,12 +80,11 @@ public class SoundManager : MonoBehaviour {
     IEnumerator PlayDelayed(AudioClip clip, float delay) {
         yield return new WaitForSeconds(delay);
         source.PlayOneShot(clip);
-
     }
 
     IEnumerator WaitToRaiseVolume(float vol)
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4.5f);
         MusicManager.MM.source.volume = vol;
     }
 
@@ -88,5 +96,31 @@ public class SoundManager : MonoBehaviour {
     public void StairsSound()
     {
         source.PlayOneShot(stairs);
+    }
+
+    public void BoneSound()
+    {
+        AudioClip clip = bones[rng.Next(bones.Length)];
+        source.PlayOneShot(clip);
+    }
+
+    public void DeathMaleSound() {
+        if (rng.Next(1000) < 1) {
+            source.PlayOneShot(deathWilhelm);
+        } else {
+            source.PlayOneShot(deathMale);
+        }
+    }
+
+    public void DeathFemaleSound() {
+        source.PlayOneShot(deathFemale);
+    }
+
+    public void BowSound() {
+        source.PlayOneShot(bow);
+    }
+
+    public void SwordSound() {
+        source.PlayOneShot(sword);
     }
 }

@@ -249,7 +249,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -277,8 +277,17 @@ MonoBehaviour:
   button: {fileID: 8300000, guid: 3f576613732b1fb4f9468a77f4454a1a, type: 3}
   panel: {fileID: 8300000, guid: 0046739a7b117f349ae9013706e8f616, type: 3}
   fanfare: {fileID: 8300000, guid: 8f5e4f9c91c065c44962efde7f12bbef, type: 3}
+  bow: {fileID: 8300000, guid: 45b2e58d52710da43938276b85f25ac2, type: 3}
+  sword: {fileID: 8300000, guid: d5971cc74ff93b1468cf288b1f827e2a, type: 3}
   lever: {fileID: 8300000, guid: 855da81cace941940b25cb9c8fdef290, type: 3}
   stairs: {fileID: 8300000, guid: 43d7fe4459f14414390b4aa18988da4a, type: 3}
+  deathMale: {fileID: 8300000, guid: 651edad880e3f0745a18a396995486a9, type: 3}
+  deathFemale: {fileID: 8300000, guid: be8c7f0ba8f45664eb1fa6ef2bb1f87c, type: 3}
+  deathWilhelm: {fileID: 8300000, guid: dae4291cb63a23b4d8310a7c743e9aaf, type: 3}
+  bones:
+  - {fileID: 8300000, guid: e53da9289a60c8a41aed854eec1b41c7, type: 3}
+  - {fileID: 8300000, guid: 433d9ea84fe7ed84dbcbbca2fa44dde9, type: 3}
+  - {fileID: 8300000, guid: 97ad2d3c9a0699a4a802c1184bc965f6, type: 3}
 --- !u!114 &114675896808205184
 MonoBehaviour:
   m_ObjectHideFlags: 1

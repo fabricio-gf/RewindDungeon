@@ -173,7 +173,6 @@ public class GameManager : MonoBehaviour {
         System.Random rng = new System.Random();
         characterSelectPanel.Init();
         foreach (Position pos in level.walls) {
-			Vector3 wallPos = board.GetCoordinates(pos.row, pos.col);
 			CreateWall(rng, pos.row, pos.col);
 		}
 		foreach (Position pos in level.spawnPoints) {
@@ -192,9 +191,8 @@ public class GameManager : MonoBehaviour {
         {
             Vector3 coinPos = board.GetCoordinates(pos.row, pos.col);
             coinPos += 0.5f * Vector3.up;
-            GameObject coin = Instantiate(
+            Instantiate(
                 prefabCoin, coinPos, prefabCoin.transform.rotation);
-            //board.Set(pos.row, pos.col, coin);
         }
         foreach (Level.EnemyInstance inst in level.enemies) {
 			GameObject prefab = null;
@@ -234,11 +232,8 @@ public class GameManager : MonoBehaviour {
         	}
         }
         Vector3 exitPos = board.GetCoordinates(level.exit.row, level.exit.col);
-        GameObject exit = Instantiate(
-            prefabExit, exitPos, Quaternion.identity);
-        //board.Set(level.exit.row, level.exit.col, exit);
+        Instantiate( prefabExit, exitPos, Quaternion.identity);
 
-        //levelToLoad = null;
 		Init();
 	}
 

@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 23616994482828706}
   - component: {fileID: 114078178121653338}
   - component: {fileID: 114533840452076166}
+  - component: {fileID: 114615677583368232}
   m_Layer: 0
   m_Name: EnemyOld
   m_TagString: Enemy
@@ -108,6 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e288d34f95bc674ca053e05bca61b75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectionArrow: {fileID: 0}
   movementTime: 0.5
   rotationTime: 0.2
   initR: 0
@@ -135,5 +137,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cb8fb373b6502246980d3554c8e439c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114615677583368232
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1880498635322990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f48c3160a20c146a19baaacada8a8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

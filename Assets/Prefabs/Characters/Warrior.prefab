@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 114503643772965084}
   - component: {fileID: 136886343881154088}
   - component: {fileID: 114989378726783930}
+  - component: {fileID: 114762362288637624}
   m_Layer: 0
   m_Name: Warrior
   m_TagString: Player
@@ -2158,6 +2159,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   classType: 2
   SpawnPoint: {fileID: 0}
+--- !u!114 &114762362288637624
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1077164034265046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2328713d207a53b4cb81489b32b6ace2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114930480295493744
 MonoBehaviour:
   m_ObjectHideFlags: 1
