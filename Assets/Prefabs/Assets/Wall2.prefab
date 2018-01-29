@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4311001626954080}
   - component: {fileID: 33502773596589814}
   - component: {fileID: 23568271845181258}
-  - component: {fileID: 65991412860677096}
   - component: {fileID: 114265194154569062}
   - component: {fileID: 114749136304483320}
+  - component: {fileID: 136523720094974296}
   m_Layer: 0
   m_Name: Wall2
   m_TagString: Untagged
@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1899665951047060}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: -0.75, z: 0}
+  m_LocalPosition: {x: 1.7760878, y: 0.65135807, z: 0.501037}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
@@ -85,18 +85,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1899665951047060}
   m_Mesh: {fileID: 4300000, guid: be5733cc715914b47b861b448924744d, type: 3}
---- !u!65 &65991412860677096
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1899665951047060}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.017244406, y: 0.018231455, z: 0.06}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114265194154569062
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -138,3 +126,16 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!136 &136523720094974296
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1899665951047060}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.005
+  m_Height: 0.04
+  m_Direction: 2
+  m_Center: {x: 0.00029891697, y: 0.00013895369, z: 0.0044330256}
