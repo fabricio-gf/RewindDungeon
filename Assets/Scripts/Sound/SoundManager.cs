@@ -62,8 +62,16 @@ public class SoundManager : MonoBehaviour {
             float vol = mm.source.volume;
             mm.source.volume = 0.7f;
             StartCoroutine(WaitToRaiseVolume(vol));
+            StartCoroutine(PlayDelayed(fanfare, 0.5f));
+        } else {
+            source.PlayOneShot(fanfare);
         }
-        source.PlayOneShot(fanfare);
+    }
+
+    IEnumerator PlayDelayed(AudioClip clip, float delay) {
+        yield return new WaitForSeconds(delay);
+        source.PlayOneShot(clip);
+
     }
 
     IEnumerator WaitToRaiseVolume(float vol)
