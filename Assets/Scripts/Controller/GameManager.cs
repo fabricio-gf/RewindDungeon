@@ -32,6 +32,10 @@ public class GameManager : MonoBehaviour {
     public GameObject previewWarrior;
     public GameObject previewArcher;
     public GameObject previewThief;
+
+    public Sprite iconArcher;
+    public Sprite iconThief;
+    public Sprite iconWarrior;
     [Space(20)]
 	public GameObject prefabSpawnPoint;
 	public GameObject prefabTestEnemy;
@@ -54,6 +58,7 @@ public class GameManager : MonoBehaviour {
 	public List<Actor> actors;
 	public List<GameObject> playerAvailableCharactersPrefabs;
 	public List<GameObject> playerPreviews;
+	public List<Sprite> playerIcons;
     public CharacterSelect characterSelectPanel;
 	public List<PlayerSpawnPoint> playerSpawnPoints;
 
@@ -142,22 +147,27 @@ public class GameManager : MonoBehaviour {
         foreach (Level.PlayerClass cls in level.classes) {
 			GameObject prefab = null;
 			GameObject preview = null;
+			Sprite icon = null;
 			switch (cls) {
 				case Level.PlayerClass.ARCHER:
 					prefab = prefabArcher;
 					preview = previewArcher;
+					icon = iconArcher;
 					break;
 				case Level.PlayerClass.THIEF:
                     prefab = prefabThief;
                     preview = previewThief;
+                    icon = iconThief;
 					break;
 				case Level.PlayerClass.WARRIOR:
 					prefab = prefabWarrior;
 					preview = previewWarrior;
+					icon = iconWarrior;
 					break;
 			}
 			playerAvailableCharactersPrefabs.Add(prefab);
 			playerPreviews.Add(preview);
+			playerIcons.Add(icon);
         }
 
         System.Random rng = new System.Random();

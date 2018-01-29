@@ -7,9 +7,14 @@ public class CharacterButton : MonoBehaviour {
 
     public List<GameObject> CharPrefabs;
     public List<GameObject> CharPreviews;
+    public List<Sprite> CharIcons;
     public bool Available = true;
     public int index;
     public Image UnavailableImage;
+
+    public void Init() {
+        transform.GetChild(0).GetComponent<Image>().sprite = CharIcons[index];
+    }
 
     public void UpdateUI()
     {
