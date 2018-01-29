@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 93e2d5b08d9f36b4a9e1142d7d75b61a
-timeCreated: 1517171451
+timeCreated: 1517247796
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -196,6 +196,7 @@ ModelImporter:
     4300064: Cylinder.006
     4300066: Cylinder.008
     4300068: Cylinder.011
+    9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -215,7 +216,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -256,7 +257,187 @@ ModelImporter:
   humanDescription:
     serializedVersion: 2
     human: []
-    skeleton: []
+    skeleton:
+    - name: Arqueiro(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BezierCurve.000
+      parentName: Arqueiro(Clone)
+      position: {x: 0.3507484, y: 7.193813, z: 0.7022494}
+      rotation: {x: -0.19395643, y: 0.69785374, z: 0.46720213, w: 0.5070535}
+      scale: {x: 71.4184, y: 84.33642, z: 105.77534}
+    - name: BezierCurve.001
+      parentName: Arqueiro(Clone)
+      position: {x: 0.42154726, y: 7.170156, z: 0.7022494}
+      rotation: {x: -0.46720213, y: -0.5070535, z: -0.19395646, w: 0.69785374}
+      scale: {x: 71.41841, y: 84.33641, z: 105.77534}
+    - name: BezierCurve.002
+      parentName: Arqueiro(Clone)
+      position: {x: 0.44090685, y: 7.022945, z: 0.7219746}
+      rotation: {x: 0.30885175, y: -0.049256094, z: 0.23324114, w: 0.92075133}
+      scale: {x: 71.41841, y: 84.33641, z: 105.77533}
+    - name: BezierCurve.010
+      parentName: Arqueiro(Clone)
+      position: {x: 0.38844714, y: 7.3401694, z: 0.5113944}
+      rotation: {x: -0.25314483, y: 0.7486721, z: 0.38048354, w: 0.48024994}
+      scale: {x: 71.4184, y: 84.33641, z: 105.77533}
+    - name: BezierCurve.017
+      parentName: Arqueiro(Clone)
+      position: {x: 0.42402694, y: 7.3503184, z: 0.3787799}
+      rotation: {x: -0.4130982, y: 0.8363681, z: 0.07593562, w: 0.35223863}
+      scale: {x: 71.41841, y: 84.33641, z: 105.77534}
+    - name: BezierCurve.018
+      parentName: Arqueiro(Clone)
+      position: {x: 0.4813579, y: 7.2531652, z: 0.223301}
+      rotation: {x: -0.51613104, y: 0.8022346, z: -0.24838972, w: 0.16831814}
+      scale: {x: 71.41841, y: 84.33641, z: 105.77533}
+    - name: BezierCurve.019
+      parentName: Arqueiro(Clone)
+      position: {x: 0.36978564, y: 7.3293433, z: 0.07656036}
+      rotation: {x: 0.45677876, y: -0.34523538, z: 0.6594452, w: -0.4871321}
+      scale: {x: 71.41841, y: 84.33641, z: 105.77533}
+    - name: BezierCurve.020
+      parentName: Arqueiro(Clone)
+      position: {x: 0.48842463, y: 7.2793303, z: 0.19130482}
+      rotation: {x: 0.024863087, y: -0.012084581, z: -0.8018085, w: 0.59694135}
+      scale: {x: 71.41841, y: 84.33641, z: 105.77533}
+    - name: BezierCurve.021
+      parentName: Arqueiro(Clone)
+      position: {x: 0.57088125, y: 7.2168903, z: 0.31025547}
+      rotation: {x: 0.024863087, y: -0.012084581, z: -0.8018085, w: 0.59694135}
+      scale: {x: 71.41841, y: 84.33641, z: 105.77533}
+    - name: BezierCurve.022
+      parentName: Arqueiro(Clone)
+      position: {x: 0.45370802, y: 7.239361, z: 0.5282686}
+      rotation: {x: -0.46720213, y: -0.5070535, z: -0.19395646, w: 0.69785374}
+      scale: {x: 71.41841, y: 84.33641, z: 105.77534}
+    - name: BezierCurve.023
+      parentName: Arqueiro(Clone)
+      position: {x: 0.4056438, y: 7.295387, z: 0.27070087}
+      rotation: {x: 0.7797941, y: 0.4731218, z: 0.050462708, w: -0.40685448}
+      scale: {x: 71.41841, y: 84.33642, z: 105.77534}
+    - name: Cube
+      parentName: Arqueiro(Clone)
+      position: {x: 0.013851023, y: 3.678926, z: 0.8362134}
+      rotation: {x: -0.573957, y: 0, z: -0, w: 0.8188855}
+      scale: {x: 15.601102, y: 0.43024102, z: 10.999195}
+    - name: Cube.006
+      parentName: Arqueiro(Clone)
+      position: {x: -0.0000010952353, y: 3.6382108, z: 0.502917}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 70.62923, y: 113.87645, z: 66.47247}
+    - name: Cube.009
+      parentName: Arqueiro(Clone)
+      position: {x: -0.00009620303, y: 4.5509396, z: 0.2917037}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 70.62923, y: 113.87645, z: 66.47247}
+    - name: Cube.010
+      parentName: Arqueiro(Clone)
+      position: {x: -0.0000010952353, y: 3.6317306, z: 0.502917}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 70.62923, y: 113.87645, z: 66.47247}
+    - name: Cube.011
+      parentName: Arqueiro(Clone)
+      position: {x: -0.0000010952353, y: 3.6317306, z: 0.502917}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 70.62923, y: 113.87645, z: 66.47247}
+    - name: Cube.012
+      parentName: Arqueiro(Clone)
+      position: {x: -0.0000010952353, y: 3.6317306, z: 0.502917}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 70.62923, y: 113.87645, z: 66.47247}
+    - name: Cube.013
+      parentName: Arqueiro(Clone)
+      position: {x: -0.0000010952353, y: 3.6317306, z: 0.502917}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 70.62923, y: 113.87645, z: 66.47247}
+    - name: Cube.014
+      parentName: Arqueiro(Clone)
+      position: {x: -0.0000010952353, y: 3.6317306, z: -2.5471401}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 70.62923, y: 113.87645, z: 66.47247}
+    - name: Cylinder.000
+      parentName: Arqueiro(Clone)
+      position: {x: -0.29557514, y: 5.222231, z: -0.25639737}
+      rotation: {x: -0.32060522, y: -0.53471065, z: -0.46269274, w: 0.6302478}
+      scale: {x: 1.4956708, y: 1.4956708, z: 99.99999}
+    - name: Cylinder.001
+      parentName: Arqueiro(Clone)
+      position: {x: -0.13485159, y: 4.693727, z: -0.5013881}
+      rotation: {x: 0.10174916, y: 0.72360504, z: -0.65936756, w: -0.17685387}
+      scale: {x: 1.0986267, y: 1.0986266, z: 8.485526}
+    - name: Cylinder.002
+      parentName: Arqueiro(Clone)
+      position: {x: -0.16601767, y: 4.7923126, z: -0.26390138}
+      rotation: {x: -0.639247, y: -0.11161494, z: 0.1596737, w: 0.74391514}
+      scale: {x: 24.309221, y: 24.30922, z: 90.76592}
+    - name: Cylinder.003
+      parentName: Arqueiro(Clone)
+      position: {x: -0.16601767, y: 4.7923126, z: -0.26390138}
+      rotation: {x: -0.639247, y: -0.11161494, z: 0.1596737, w: 0.74391514}
+      scale: {x: 24.309221, y: 24.30922, z: 90.76592}
+    - name: Cylinder.004
+      parentName: Arqueiro(Clone)
+      position: {x: -0.16601767, y: 4.7923126, z: -0.26390138}
+      rotation: {x: -0.639247, y: -0.11161494, z: 0.1596737, w: 0.74391514}
+      scale: {x: 24.309221, y: 24.30922, z: 90.76592}
+    - name: Cylinder.005
+      parentName: Arqueiro(Clone)
+      position: {x: -0.16601767, y: 4.7923126, z: -0.26390138}
+      rotation: {x: -0.639247, y: -0.11161494, z: 0.1596737, w: 0.74391514}
+      scale: {x: 24.309221, y: 24.30922, z: 90.76592}
+    - name: Cylinder.006
+      parentName: Arqueiro(Clone)
+      position: {x: -0.38915634, y: 5.222231, z: -0.25639737}
+      rotation: {x: -0.32060522, y: -0.53471065, z: -0.46269274, w: 0.6302478}
+      scale: {x: 1.4956708, y: 1.4956708, z: 99.99999}
+    - name: Cylinder.008
+      parentName: Arqueiro(Clone)
+      position: {x: -0.38915634, y: 5.222231, z: -0.25639737}
+      rotation: {x: -0.32060522, y: -0.53471065, z: -0.46269274, w: 0.6302478}
+      scale: {x: 1.4956708, y: 1.4956708, z: 99.99999}
+    - name: Cylinder.011
+      parentName: Arqueiro(Clone)
+      position: {x: -0.38915634, y: 5.222231, z: -0.25639737}
+      rotation: {x: -0.32060522, y: -0.53471065, z: -0.46269274, w: 0.6302478}
+      scale: {x: 1.4956708, y: 1.4956708, z: 99.99999}
+    - name: Cylinder.016
+      parentName: Arqueiro(Clone)
+      position: {x: -0.29557514, y: 5.222231, z: -0.25639737}
+      rotation: {x: -0.32060522, y: -0.53471065, z: -0.46269274, w: 0.6302478}
+      scale: {x: 1.4956708, y: 1.4956708, z: 99.99999}
+    - name: Cylinder.018
+      parentName: Arqueiro(Clone)
+      position: {x: -0.29557514, y: 5.222231, z: -0.31345055}
+      rotation: {x: -0.35148668, y: -0.5570132, z: -0.43558735, w: 0.613561}
+      scale: {x: 1.4956708, y: 1.4956708, z: 99.99999}
+    - name: Cylinder.019
+      parentName: Arqueiro(Clone)
+      position: {x: -0.29557514, y: 5.222231, z: -0.31345055}
+      rotation: {x: -0.35148668, y: -0.5570132, z: -0.43558735, w: 0.613561}
+      scale: {x: 1.4956708, y: 1.4956708, z: 99.99999}
+    - name: Cylinder.023
+      parentName: Arqueiro(Clone)
+      position: {x: -0.42489767, y: 5.190049, z: -0.31345055}
+      rotation: {x: -0.35148668, y: -0.5570132, z: -0.43558735, w: 0.613561}
+      scale: {x: 1.4956708, y: 1.4956708, z: 99.99999}
+    - name: Cylinder.025
+      parentName: Arqueiro(Clone)
+      position: {x: -0.42489767, y: 5.190049, z: -0.31345055}
+      rotation: {x: -0.35148668, y: -0.5570132, z: -0.43558735, w: 0.613561}
+      scale: {x: 1.4956708, y: 1.4956708, z: 99.99999}
+    - name: Plane
+      parentName: Arqueiro(Clone)
+      position: {x: -0.70458853, y: 5.84243, z: 0.24877748}
+      rotation: {x: -0.7005929, y: -0.09575839, z: 0.09575836, w: 0.7005928}
+      scale: {x: 17.317617, y: 17.317617, z: 17.317617}
+    - name: Sphere
+      parentName: Arqueiro(Clone)
+      position: {x: -0.0000014032703, y: 6.589492, z: 0.8030895}
+      rotation: {x: -4.900262e-10, y: 0.99974865, z: -0.000000021850202, w: -0.022420272}
+      scale: {x: 19.479967, y: 15.583973, z: 19.479967}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -267,10 +448,10 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 3
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
