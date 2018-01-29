@@ -304,7 +304,7 @@ MonoBehaviour:
     type: 2}
   prefabArcher: {fileID: 1787597491220822, guid: 0f49095e01d724947bd884f0cc4f6a05,
     type: 2}
-  prefabThief: {fileID: 1561479389433704, guid: 3dc055acb18aa8e469638c3e5f75201b,
+  prefabThief: {fileID: 1787789847448926, guid: 3dc055acb18aa8e469638c3e5f75201b,
     type: 2}
   previewWarrior: {fileID: 1366306624366986, guid: cab8f2f5e0e53344ba118bb8f74a3d45,
     type: 2}
@@ -315,7 +315,7 @@ MonoBehaviour:
   iconArcher: {fileID: 21300000, guid: a45bb033858a8498c966ed62e0400cfb, type: 3}
   iconThief: {fileID: 21300000, guid: 278d18f832c934f9583b82edf8649a9e, type: 3}
   iconWarrior: {fileID: 21300000, guid: 40c8c3e0dc28b4b528376525f84fa1e5, type: 3}
-  prefabSpawnPoint: {fileID: 1586033134474904, guid: 891b4c91cfe88ee45890c0cd3be02880,
+  prefabSpawnPoint: {fileID: 1459617024705248, guid: 93cdb84512737594a9b79e2e696dbc32,
     type: 2}
   prefabTestEnemy: {fileID: 1880498635322990, guid: 207a6b8fd6a22bc4f81d550a5da1a7be,
     type: 2}
