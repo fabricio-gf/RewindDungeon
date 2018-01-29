@@ -137,7 +137,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 37057880}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d51c88070e7fef3418f290ad2452a43e, type: 3}
+  m_Script: {fileID: 11500000, guid: d8e181b513ac66848844a493581a1a15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &37057882
@@ -204,6 +204,12 @@ GameObject:
   - component: {fileID: 188736638}
   m_Layer: 0
   m_Name: Wall @ 1 3
+=======
+  - component: {fileID: 152684990}
+  - component: {fileID: 152684989}
+  m_Layer: 0
+  m_Name: Spawn point @ 0 2
+>>>>>>> b30c1c9d1f7a1936e6fc4efbd0559a61b0df92b4
   m_TagString: Debug
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -217,7 +223,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 188736637}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8e181b513ac66848844a493581a1a15, type: 3}
+  m_Script: {fileID: 11500000, guid: d51c88070e7fef3418f290ad2452a43e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &188736639
@@ -353,6 +359,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &359931643
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 359931645}
+  - component: {fileID: 359931644}
+  m_Layer: 0
+  m_Name: 'character: THIEF'
+  m_TagString: Debug
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &359931644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 359931643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe7d0d49d1b8c534bbf26f8858acaa91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerClass: 1
+  color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+--- !u!4 &359931645
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 359931643}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.5, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &441446073
 GameObject:
   m_ObjectHideFlags: 0
@@ -466,6 +514,12 @@ GameObject:
   - component: {fileID: 523844941}
   m_Layer: 0
   m_Name: Wall @ 3 7
+=======
+  - component: {fileID: 450867706}
+  - component: {fileID: 450867705}
+  m_Layer: 0
+  m_Name: 'character: ARCHER'
+>>>>>>> b30c1c9d1f7a1936e6fc4efbd0559a61b0df92b4
   m_TagString: Debug
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -531,7 +585,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 545543398}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0.5, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -548,6 +602,12 @@ GameObject:
   - component: {fileID: 573655221}
   m_Layer: 0
   m_Name: Exit @ 2 7
+=======
+  - component: {fileID: 610575199}
+  - component: {fileID: 610575198}
+  m_Layer: 0
+  m_Name: Wall @ 2 7
+>>>>>>> b30c1c9d1f7a1936e6fc4efbd0559a61b0df92b4
   m_TagString: Debug
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -588,6 +648,12 @@ GameObject:
   - component: {fileID: 613906194}
   m_Layer: 0
   m_Name: Wall @ 1 6
+=======
+  - component: {fileID: 865573658}
+  - component: {fileID: 865573657}
+  m_Layer: 0
+  m_Name: Wall @ 2 6
+>>>>>>> b30c1c9d1f7a1936e6fc4efbd0559a61b0df92b4
   m_TagString: Debug
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -615,7 +681,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &719977561
 GameObject:
@@ -628,6 +694,12 @@ GameObject:
   - component: {fileID: 719977562}
   m_Layer: 0
   m_Name: Coin @ 0 7
+=======
+  - component: {fileID: 884381443}
+  - component: {fileID: 884381442}
+  m_Layer: 0
+  m_Name: Coin @ 4 3
+>>>>>>> b30c1c9d1f7a1936e6fc4efbd0559a61b0df92b4
   m_TagString: Debug
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -668,6 +740,12 @@ GameObject:
   - component: {fileID: 906957895}
   m_Layer: 0
   m_Name: Wall @ 3 6
+=======
+  - component: {fileID: 895766547}
+  - component: {fileID: 895766546}
+  m_Layer: 0
+  m_Name: Spawn point @ 3 0
+>>>>>>> b30c1c9d1f7a1936e6fc4efbd0559a61b0df92b4
   m_TagString: Debug
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -681,7 +759,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 906957894}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8e181b513ac66848844a493581a1a15, type: 3}
+  m_Script: {fileID: 11500000, guid: d51c88070e7fef3418f290ad2452a43e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &906957896
@@ -781,7 +859,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1034222566
 MonoBehaviour:
@@ -796,6 +874,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabGM: {fileID: 1174484823689052, guid: f6f87ca2dffe8254b946492e24c4b1f5, type: 2}
 --- !u!1 &1137888557
+=======
+--- !u!1 &1184353090
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1184353092}
+  - component: {fileID: 1184353091}
+  m_Layer: 0
+  m_Name: Wall @ 2 3
+  m_TagString: Debug
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1184353091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1184353090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e181b513ac66848844a493581a1a15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1184353092
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1184353090}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.5, y: -2.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1206449833
+>>>>>>> b30c1c9d1f7a1936e6fc4efbd0559a61b0df92b4
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -805,7 +926,7 @@ GameObject:
   - component: {fileID: 1137888559}
   - component: {fileID: 1137888558}
   m_Layer: 0
-  m_Name: 'character: WARRIOR'
+  m_Name: Wall @ 1 5
   m_TagString: Debug
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -819,7 +940,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1137888557}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe7d0d49d1b8c534bbf26f8858acaa91, type: 3}
+  m_Script: {fileID: 11500000, guid: d8e181b513ac66848844a493581a1a15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerClass: 2
@@ -972,6 +1093,12 @@ GameObject:
   - component: {fileID: 1342597940}
   m_Layer: 0
   m_Name: 'Enemy instance: TEST_ENEMY @ 2 4'
+=======
+  - component: {fileID: 1230493653}
+  - component: {fileID: 1230493652}
+  m_Layer: 0
+  m_Name: Wall @ 1 3
+>>>>>>> b30c1c9d1f7a1936e6fc4efbd0559a61b0df92b4
   m_TagString: Debug
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1135,6 +1262,12 @@ GameObject:
   - component: {fileID: 1924276452}
   m_Layer: 0
   m_Name: Wall @ 1 1
+=======
+  - component: {fileID: 1494005871}
+  - component: {fileID: 1494005870}
+  m_Layer: 0
+  m_Name: Exit @ 3 6
+>>>>>>> b30c1c9d1f7a1936e6fc4efbd0559a61b0df92b4
   m_TagString: Debug
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1188,7 +1321,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1978520841}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dc3187f74e0fc64f9432981a4866f10, type: 3}
+  m_Script: {fileID: 11500000, guid: d63516be49e7d974ba068f671a3e9404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1978520843
@@ -1215,6 +1348,12 @@ GameObject:
   - component: {fileID: 1994444670}
   m_Layer: 0
   m_Name: Wall @ 3 0
+=======
+  - component: {fileID: 1832979150}
+  - component: {fileID: 1832979149}
+  m_Layer: 0
+  m_Name: 'character: WARRIOR'
+>>>>>>> b30c1c9d1f7a1936e6fc4efbd0559a61b0df92b4
   m_TagString: Debug
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1255,6 +1394,12 @@ GameObject:
   - component: {fileID: 2052465096}
   m_Layer: 0
   m_Name: Wall @ 1 4
+=======
+  - component: {fileID: 1925964651}
+  - component: {fileID: 1925964650}
+  m_Layer: 0
+  m_Name: Coin @ 1 7
+>>>>>>> b30c1c9d1f7a1936e6fc4efbd0559a61b0df92b4
   m_TagString: Debug
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1308,7 +1453,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2060918139}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d51c88070e7fef3418f290ad2452a43e, type: 3}
+  m_Script: {fileID: 11500000, guid: 1dc3187f74e0fc64f9432981a4866f10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &2060918141

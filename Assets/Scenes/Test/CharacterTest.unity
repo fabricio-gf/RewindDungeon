@@ -303,6 +303,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 95184271422377458, guid: a3e1a68d1cee30f4aa0041cbdeadbb18,
+        type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 9549da3ad90a8f348acb99ac54276383, type: 2}
+    - target: {fileID: 95184271422377458, guid: a3e1a68d1cee30f4aa0041cbdeadbb18,
+        type: 2}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: e2dcb9e705f0cbc41b418b6da7886d00, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3e1a68d1cee30f4aa0041cbdeadbb18, type: 2}
   m_IsPrefabParent: 0
@@ -484,8 +494,8 @@ Animator:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1993662184}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 2cbb79d76e870f74e808fed9b03d4204, type: 3}
-  m_Controller: {fileID: 9100000, guid: 14997ff2d893cb649b0ef5f108362a59, type: 2}
+  m_Avatar: {fileID: 9000000, guid: f2278ea387a3a314f902c21fb71724e1, type: 3}
+  m_Controller: {fileID: 9100000, guid: 01307e15cbdd70f459d0cb094b109ab6, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
