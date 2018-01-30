@@ -317,7 +317,7 @@ MonoBehaviour:
   iconWarrior: {fileID: 21300000, guid: 40c8c3e0dc28b4b528376525f84fa1e5, type: 3}
   prefabSpawnPoint: {fileID: 1459617024705248, guid: 93cdb84512737594a9b79e2e696dbc32,
     type: 2}
-  prefabTestEnemy: {fileID: 1880498635322990, guid: 207a6b8fd6a22bc4f81d550a5da1a7be,
+  prefabTestEnemy: {fileID: 1874829679112946, guid: d4957ce94ea0ba241a60392b95203f50,
     type: 2}
   prefabCoin: {fileID: 1310469091118994, guid: 9480adfcfad03ca4aa77230375565c46, type: 2}
   prefabExit: {fileID: 1347252177849442, guid: 7a874266f1509024c92efe8650c39ea2, type: 2}

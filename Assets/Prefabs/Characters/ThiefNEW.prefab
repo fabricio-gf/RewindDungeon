@@ -622,6 +622,7 @@ GameObject:
   - component: {fileID: 114012910860799206}
   - component: {fileID: 114136137730985890}
   - component: {fileID: 136622263505137130}
+  - component: {fileID: 114719028212239258}
   m_Layer: 0
   m_Name: ThiefNEW
   m_TagString: Player
@@ -1521,6 +1522,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
+--- !u!114 &114719028212239258
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1787789847448926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b207707a103397448b8d5c458f05d584, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114938477859180738
 MonoBehaviour:
   m_ObjectHideFlags: 1
