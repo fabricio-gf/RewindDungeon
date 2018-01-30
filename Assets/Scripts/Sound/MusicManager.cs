@@ -20,7 +20,6 @@ public class MusicManager : MonoBehaviour {
         }
         else
         {
-            DontDestroyOnLoad(gameObject);
             MM = GetComponent<MusicManager>();
         }
 

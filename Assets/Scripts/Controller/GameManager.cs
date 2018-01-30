@@ -357,7 +357,6 @@ public class GameManager : MonoBehaviour {
 		}
         if (hasReachedExit)
         {
-            print("victory");
             Victory();
         }
         else

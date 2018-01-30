@@ -15,8 +15,6 @@ public class Coin : MonoBehaviour {
         if (other.gameObject.CompareTag("Player"))
         {
             Score.AddCoin();
-            //toca som
-            print("coin");
             Destroy(gameObject);
         }
 

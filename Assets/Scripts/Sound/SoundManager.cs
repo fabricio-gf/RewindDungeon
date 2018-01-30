@@ -34,7 +34,6 @@ public class SoundManager : MonoBehaviour {
         }
         else
         {
-            DontDestroyOnLoad(gameObject);
             SM = GetComponent<SoundManager>();
         }
 
