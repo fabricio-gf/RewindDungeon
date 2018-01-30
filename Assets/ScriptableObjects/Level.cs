@@ -19,7 +19,8 @@ public class Level : ScriptableObject {
 	}
 
 	public enum EnemyType {
-		TEST_ENEMY
+		TEST_ENEMY,
+		SKELETON
 	}
 
 	public string title;

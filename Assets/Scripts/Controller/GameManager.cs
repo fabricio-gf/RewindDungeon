@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour {
     [Space(20)]
 	public GameObject prefabSpawnPoint;
 	public GameObject prefabTestEnemy;
+	public GameObject prefabSkeleton;
     public GameObject prefabCoin;
     public GameObject prefabExit;
     public GameObject prefabButton;
@@ -190,7 +191,7 @@ public class GameManager : MonoBehaviour {
         foreach (Position pos in level.coins)
         {
             Vector3 coinPos = board.GetCoordinates(pos.row, pos.col);
-            coinPos += 0.5f * Vector3.up;
+            coinPos += prefabCoin.transform.localScale.x * Vector3.up;
             Instantiate(
                 prefabCoin, coinPos, prefabCoin.transform.rotation);
         }
@@ -200,10 +201,12 @@ public class GameManager : MonoBehaviour {
 				case Level.EnemyType.TEST_ENEMY:
 					prefab = prefabTestEnemy;
 					break;
+				case Level.EnemyType.SKELETON:
+					prefab = prefabSkeleton;
+					break;
 			}
 			Actor actor = Instantiate(prefab).GetComponent<Actor>();
 			actor.Spawn(board, inst.position.row, inst.position.col);
-			actor.transform.Translate(new Vector3(0, 0.5f, 0));
 			inst.plan.ForEach(
 				action => actor.AddAction(action));
 			actors.Add(actor);
