@@ -144,6 +144,8 @@ public class GameManager : MonoBehaviour {
 		actors = new List<Actor>();
 
         playerAvailableCharactersPrefabs = new List<GameObject>();
+        playerPreviews = new List<GameObject>();
+        playerIcons = new List<Sprite>();
 
         foreach (Level.PlayerClass cls in level.classes) {
 			GameObject prefab = null;

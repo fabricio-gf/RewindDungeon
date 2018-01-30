@@ -12,12 +12,17 @@ public class LoadSceneButton : MonoBehaviour {
     public void NextLevel()
     {
         DataManager.SetScore(Loader.SelectedLevel.index, Score.CurrentScore);
-        Loader.SelectedLevel = FindNextLevel(Loader.SelectedLevel);
-        DataManager.UnlockLevel(Loader.SelectedLevel.index);
-        if (Loader.SelectedLevel != null)
+        Level aux = Loader.SelectedLevel;
+        Loader.SelectedLevel = null;
+        Loader.SelectedLevel = FindNextLevel(aux);
+        if (Loader.SelectedLevel == null)
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+        else {
+            DataManager.UnlockLevel(Loader.SelectedLevel.index);
             StartCoroutine(WaitForLoad());
-        //else
-        //last level
+        }
     }
 
     IEnumerator WaitForLoad()
@@ -30,7 +35,8 @@ public class LoadSceneButton : MonoBehaviour {
     {
         int index = level.index + 1;
         Level nextLevel = null;
-        if (index < 20)
+        print("index" + index);
+        if (index < 3)
             nextLevel = Resources.Load("Levels/T" + index) as Level;
 
         return nextLevel;
