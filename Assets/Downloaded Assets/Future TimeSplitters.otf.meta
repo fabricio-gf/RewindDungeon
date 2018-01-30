@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 4826ad1e08f369745b6d54d5ee93809c
+timeCreated: 1517324357
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Future TimeSplitters
+  fontNames:
+  - Future TimeSplitters
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
