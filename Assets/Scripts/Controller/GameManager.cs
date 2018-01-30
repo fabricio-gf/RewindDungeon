@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour {
     [Space(20)]
 	public GameObject prefabSpawnPoint;
 	public GameObject prefabTestEnemy;
+	public GameObject prefabSkeleton;
     public GameObject prefabCoin;
     public GameObject prefabExit;
     public GameObject prefabButton;
@@ -200,10 +201,12 @@ public class GameManager : MonoBehaviour {
 				case Level.EnemyType.TEST_ENEMY:
 					prefab = prefabTestEnemy;
 					break;
+				case Level.EnemyType.SKELETON:
+					prefab = prefabSkeleton;
+					break;
 			}
 			Actor actor = Instantiate(prefab).GetComponent<Actor>();
 			actor.Spawn(board, inst.position.row, inst.position.col);
-			actor.transform.Translate(new Vector3(0, 0.5f, 0));
 			inst.plan.ForEach(
 				action => actor.AddAction(action));
 			actors.Add(actor);

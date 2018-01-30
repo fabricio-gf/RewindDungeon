@@ -67,7 +67,7 @@ MonoBehaviour:
     row: 2
     col: 7
   enemies:
-  - enemyType: 0
+  - enemyType: 1
     position:
       row: 2
       col: 4
