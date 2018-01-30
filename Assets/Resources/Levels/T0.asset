@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Test Level 0
   index: 0
-  spritePath: sprite
+  spritePath: T0
   timeLimit: 10
   classes: 01000000
   walls: []

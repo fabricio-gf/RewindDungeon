@@ -191,7 +191,7 @@ public class GameManager : MonoBehaviour {
         foreach (Position pos in level.coins)
         {
             Vector3 coinPos = board.GetCoordinates(pos.row, pos.col);
-            coinPos += 0.5f * Vector3.up;
+            coinPos += prefabCoin.transform.localScale.x * Vector3.up;
             Instantiate(
                 prefabCoin, coinPos, prefabCoin.transform.rotation);
         }
