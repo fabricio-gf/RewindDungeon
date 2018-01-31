@@ -318,12 +318,18 @@ public class Actor : MonoBehaviour {
 	}
 
 	private IEnumerator Attack(Actor target) {
-		// TODO animate attack
+        animController.SetTrigger("Attack");
 		ready = false;
 		target.ready = false;
 		isAttacking = true;
+        if (isWarrior) {
+            yield return new WaitForSeconds(2.0f);
+        } else if (target.isWarrior) {
+            yield return new WaitForSeconds(0.5f);
+        } else {
+            yield return new WaitForSeconds(1.0f);
+        }
         sfxm.PlayAttackSound();
-		yield return new WaitForSeconds(2.3f);
 		target.TakeDamage(this);
 	}
 
@@ -341,19 +347,18 @@ public class Actor : MonoBehaviour {
 
     public void TakeDamage(Actor src) {
         if (isWarrior){
-            animController.SetTrigger("Block");
-            StartCoroutine(WaitBlock());
-        	StartCoroutine(Attack(src));
+            Block(src);
         } else {
             Die();
             src.PostAttack(this);
         }
     }
 
-    IEnumerator WaitBlock()
+    void Block(Actor dmgSrc)
     {
-        yield return new WaitForSeconds(1f);
-        animController.SetTrigger("Attack");
+        iTween.LookTo(gameObject, dmgSrc.transform.position, 0.1f);
+        animController.SetTrigger("Block");
+        StartCoroutine(Attack(dmgSrc));
     }
 
     private void Die()
