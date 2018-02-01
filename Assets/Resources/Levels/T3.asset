@@ -15,40 +15,16 @@ MonoBehaviour:
   index: 3
   spritePath: sprite
   timeLimit: 10
-  classes: 01000000
+  classes: 0100000002000000
   walls:
   - row: 0
-    col: 0
-  - row: 0
-    col: 1
-  - row: 0
-    col: 2
-  - row: 0
-    col: 3
-  - row: 0
     col: 4
-  - row: 0
-    col: 5
-  - row: 0
-    col: 6
-  - row: 0
-    col: 7
-  - row: 4
-    col: 0
-  - row: 4
-    col: 1
-  - row: 4
-    col: 2
-  - row: 4
-    col: 3
-  - row: 4
+  - row: 1
+    col: 4
+  - row: 3
     col: 4
   - row: 4
-    col: 5
-  - row: 4
-    col: 6
-  - row: 4
-    col: 7
+    col: 4
   button:
     row: -1
     col: -1
@@ -56,20 +32,22 @@ MonoBehaviour:
     row: -1
     col: -1
   spawnPoints:
-  - row: 2
-    col: 2
+  - row: 3
+    col: 1
+  - row: 0
+    col: 3
   coins:
   - row: 1
-    col: 4
-  - row: 3
-    col: 6
-  exit:
-    row: 2
     col: 7
+  - row: 2
+    col: 1
+  exit:
+    row: 3
+    col: 3
   enemies:
   - enemyType: 1
     position:
       row: 2
       col: 4
-    plan: 01000000000000000000000001000000010000000000000000000000010000000100000000000000
+    plan: 
   dialogue: {fileID: 4900000, guid: ebffaa16f9122ab488a3b3681ddc2009, type: 3}
