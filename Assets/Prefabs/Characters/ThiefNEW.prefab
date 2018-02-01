@@ -1559,7 +1559,7 @@ MonoBehaviour:
   animController: {fileID: 95603341583123218}
   arrow: {fileID: 0}
   plan: 
-  maxActions: 0
+  maxActions: 12
   actionIndex: 0
   info: {fileID: 11400000, guid: 1cb654cb6a0952643b68e2c2c0685080, type: 2}
   preview: {fileID: 0}
