@@ -36,7 +36,7 @@ public class LoadSceneButton : MonoBehaviour {
         int index = level.index + 1;
         Level nextLevel = null;
         print("index" + index);
-        if (index < 3)
+        if (index < 4)
             nextLevel = Resources.Load("Levels/T" + index) as Level;
 
         return nextLevel;

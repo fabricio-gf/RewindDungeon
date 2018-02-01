@@ -23,7 +23,7 @@ public class PlayerCharacter : RaycastTarget {
 		actor = GetComponent<Actor>();
         if(classType == Class.THIEF)
         {
-            actor.maxActions = 10;
+            actor.maxActions = 12;
         }
         else{
             actor.maxActions = 6;
